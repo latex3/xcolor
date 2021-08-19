@@ -1,0 +1,347 @@
+Package `xcolor' by Dr. Uwe Kern
+(xcolor at ukern dot de)
+
+History
+=======
+
+2016/05/11 v2.12
+* New features:
+    - \nopagecolor command as introduced in `color' v1.1a
+      (example added to xcolor3.tex);
+    - `luatex' driver option (code provided by DPC) to fix
+      incompatibilities due to changes in new LuaTeX version.
+* Bugfixes:
+    - possible name conflict by \XC@ifxcase call;
+    - incorrect internal \@hex@@Hex macro.
+
+2007/01/21 v2.11
+* New features:
+    - color names `lime' and `teal' added to the set of predefined
+      colors.
+* Bugfix:
+    - incorrect \XC@strip@comma call within `hyperref'-related options.
+
+2006/11/28 v2.10
+* New features:
+    - `fixinclude' option prevents dvips from explicitly resetting
+      current color to `black' before actually inserting an .eps file
+      via \color{red}\includegraphics{foo}.
+* Changes:
+    - \colorbox and \fcolorbox made robust;
+    - obsolete package option `pst' removed;
+    - several changes to internal macros.
+* Bugfixes:
+    - incorrect processing of cmyk-type current color `.'.
+
+2005/12/21 v2.09
+* New features:
+    - \definecolor and \color now accept space-separated color
+      specifications, e.g., \color[rgb]{1 .5 0};
+    - experimental `xcdraw' option extended to `pdftex' and `dvipdfm'
+      drivers.
+* Changes:
+    - test file xcolor2.tex made compatible with recent changes in
+      `pstricks';
+    - test file xcolor3.tex extended;
+    - driver test file xcolor4.tex extended to demonstrate the different
+      frame drawing approaches;
+    - more efficient implementation of driver-specific code.
+
+2005/11/25 v2.08
+* New features:
+    - more flexibility for \fcolorbox arguments, e.g.,
+      \fcolorbox[gray]{0.5}[wave]{580}{test};
+    - \boxframe returns a frame of given dimensions;
+    - new implementation of \f(rame)box and \fcolorbox as an extension
+      of bug report latex/3655 to reduce pixel positioning errors in
+      output devices;
+    - `kernelfbox' option for those who prefer the previous \f(rame)box
+      approach;
+    - experimental `xcdraw' option uses PostScript commands to draw
+      frames and color boxes in case of `dvips'.
+* Bugfixes:
+    - insufficient expression type detection within \colorlet;
+    - wrong calculation in the unit interval reduction for negative
+      integers (affecting color series and extended color expressions).
+
+2005/11/12 v2.07
+* New features:
+    - color model `Hsb' allows to specify hue in degrees;
+    - color model `tHsb' (`tuned Hsb') for user-defined hue
+      configuration on color wheels;
+    - easy generation of color harmonies derived from `Hsb' or `tHsb'
+      color wheels, e.g., \color{red>wheel,1,12} yields an `analogous'
+      color to `red' on a 12-spoke wheel;
+    - additional 317 predefined color names according to rgb.txt, which
+      is part of Unix/X11 distributions;
+    - `svgnames' option extended by 4 colors taken from rgb.txt;
+    - enhanced syntax for immediate conversion, e.g.,
+      \definecolor{foo}{rgb:gray}{0.3} or \color[rgb:wave]{478};
+    - \@ifundefinedcolor and \@ifundefinedmodel commands.
+* Changes:
+    - enhanced documentation;
+    - several changes to internal macros.
+* Bugfixes:
+    - wrong calculation of color series components in some cases of
+      negative step parameters.
+
+2005/10/15 v2.06
+* New features:
+    - color model `wave' for (approximate) visualisation of light
+      wavelengths, still somewhat experimental;
+    - pseudo-model `ps' for colors defined by literal PostScript code
+      in conjunction with `pstricks and `dvips'; an illustrative
+      example for a gamma-correction approach is given in xcolor2.tex;
+    - \substitutecolormodel command for replacement of missing or
+      faulty driver-specific color models;
+    - improved detection and handling of driver-specific color models;
+    - `dvipdfmx' and `xetex' options to support these drivers;
+    - generic driver test file xcolor4.tex.
+* Changes:
+    - \XC@strip@comma doesn't generate a trailing space anymore, which
+      improves also the output of the `testcolors' environment.
+
+2005/09/30 v2.05
+* New features:
+    - `testcolors' environment helps to test colors in different models,
+      showing both the visual result and the model-specific parameters;
+    - \extractcolorspecs puts model/color specification into two
+      separate commands, as opposed to \extractcolorspec;
+    - color names `pink' and `olive' added to the set of predefined
+      colors.
+* Bugfixes:
+    - \definecolor{foo}{named}{bar} did not work in v2.04.
+
+2005/09/23 v2.04
+* New features:
+    - preparation for usage of additional - driver-provided - color
+      models;
+    - `pstricks' users may now specify explicit color parameters within
+      \psset and related commands, e.g., \psset{linecolor=[rgb]{1,0,0}};
+      an illustrative example is given in xcolor2.tex.
+* Changes:
+    - color model names sanitized (i.e., turned to catcode 12)
+      throughout the package;
+    - \@namelet command deprecated because of name clash with
+      `memoir' - please use \XC@let@cc instead
+      (more \XC@let@.. commands are available as well);
+    - simplified color conversion code by using the new \XC@ifxcase
+      command;
+    - some minor changes to internal macros.
+
+2005/06/06 v2.03
+* New features:
+    - `fixpdftex' option loads `pdfcolmk' package in order to improve
+      pdfTeX's color behaviour during page breaks.
+* Changes:
+    - some minor changes to internal macros.
+* Bugfixes:
+    - due to an incorrect \if statement within \XC@info, \colorlet
+      caused trouble whenever its second argument started with two
+      identical letters, e.g., \colorlet{rab}{oof};
+    - argument processing of \XC@getcolor caused incompatibility with
+      `msc' package;
+    - `prologue' option caused incompatibility with `preview' package.
+
+2005/03/24 v2.02
+* New features:
+    - \aftergroupedef command to reproduce \aftergroupdef's behaviour
+      prior to v2.01;
+    - xcolor's homepage www.ukern.de/tex/xcolor.html now provides also
+      a ready-to-run TDS-compliant archive containing all required
+      files.
+* Changes:
+    - \rowcolors and friends are solely enabled by the `table' option;
+    - \@ifxempty changed back to more robust variant of v2.00.
+* Bugfixes:
+    - \psset{linecolor=\ifcase\foo red\or green\or blue\fi} did not work
+      with `pstricks' (error introduced in v2.01).
+
+2005/03/15 v2.01
+* New features:
+    - `prologue' option for comprehensive `named' color support in
+      conjunction with `dvips': on-the-fly generation of PostScript
+      prologue files with all color definitions, ready for dvips
+      inclusion and/or post-processing with device-specific parameters
+      (e.g., spot colors);
+    - dvips prologue file xcolor.pro to support additional `named'
+      colors;
+    - \colorlet may now also be used to create named colors from
+      arbitrary color expressions;
+    - enhanced color definition syntax to allow for target-model
+      specific color parameters, e.g.,
+      \definecolor{red}{rgb/cmyk}{1,0,0/0,1,1,0}, facilitating the
+      usage of tailor-made colors both for displays and printers;
+    - `deferred definition' of colors: \preparecolor and
+      \definecolors enable decoupling of color specification and control
+      sequence generation, especially useful (= memory saving) for large
+      lists of colors, of which only a few names are actually used;
+    - `dvipsnames*' and `svgnames*' options to support deferred
+      definition.
+* Changes:
+    - higher accuracy: most complement calculations are now exact for
+      all 5-digit decimals;
+    - \rangeRGB and similar variables may now be changed at any point
+      in a document;
+    - \aftergroupdef now performs only a first-level expansion of its
+      code argument;
+    - \XCfileversion and similar internal constants removed from .sty
+      and .def files;
+    - improved memory management (reduced generation of `multiletter
+      control sequences' by \@ifundefined tests);
+    - several internal macros improved and/or renamed.
+* Bugfixes:
+    - \XC@getcolor could cause unwanted spaces when \psset was used
+      inside |pspicture| environments (`pstricks');
+    - arithmetic overflow could happen when too many decimal digits
+      were used within color parameters, e.g., as a result of `fp'
+      calculations.
+
+2004/07/04 v2.00
+* New features:
+    - extended functionality for color expressions: mix colors like a
+      painter;
+    - support for color blending: specify color mix expressions that
+      are being blended with every displayed color;
+    - \xglobal command for selective control of globality for color
+      definitions, blends, and masks;
+    - multiple step operations (e.g., \color{foo!!+++}) and access to
+      individual members (e.g., \color{foo!![7]}) in color series;
+    - \providecolor command to define only non-existent colors;
+    - \definecolorset and \providecolorset commands to facilitate the
+      construction of color sets with common underlying color model;
+    - additional 147 predefined color names according to SVG 1.1
+      specification;
+    - `xpdfborder' key for setting the width of hyperlink borders in a
+      more driver-independent way if `dvips' is used.
+* Changes:
+    - `color' package now completely integrated within `xcolor';
+    - `override', `usenames', `nodvipsnames' options and \xdefinecolor
+      command no longer needed;
+    - `dvips' and `dvipsnames' options now independent of each other;
+    - \tracingcolors's behaviour changed to make it more versatile and
+      reduce log file size in standard cases;
+    - \rdivide's syntax made more flexible (divide by numbers and/or
+      dimensions);
+    - code restructured, some internal commands renamed;
+    - documentation rearranged and enhanced.
+* Bugfixes:
+    - \definecolor{foo}{named}{bar} did not work (error introduced in
+      v1.11);
+    - more robust behaviour of conditionals within `pstricks'
+      key-values.
+
+2004/05/09 v1.11
+* New features:
+    - switch \ifglobalcolors to control whether color definitions are
+      global or local;
+    - option `hyperref' provides color expression support for the
+      border colors of hyperlinks, e.g.,
+      \hypersetup{xurlbordercolor=red!50!yellow};
+    - internal hooks \XC@bcolor, \XC@mcolor, and \XC@ecolor for
+      additional code that has to be executed immediately before/after
+      the current color is being displayed.
+* Changes:
+    - \XC@logcolor renamed to \XC@display, which is now the core color
+      display command;
+    - improved interface to `pstricks'.
+
+2004/03/27 v1.10
+* New features:
+    - support for `named' model;
+    - support for `dvips' colors
+      (may now be used within color expressions);
+    - internal representation of `ordinary' and `named' colors merged
+      into unified data structure;
+    - allow multiple `-' signs at the beginning of color expressions.
+* Bugfixes:
+    - commands like \color[named]{foo} caused errors when color masking
+      or target model conversion were active;
+    - incompatibility with `soul' package: commands \hl, \ul, etc.
+      could yield unexpected results.
+* Documentation:
+    - added formula for general color expressions;
+    - enhanced text and index;
+    - removed dependence of index generation on local configuration
+      file.
+
+2004/02/16 v1.09
+* New features:
+    - color model `HTML', a 24-bit hexadecimal `RGB' variant;
+      allows to specify colors like \color[HTML]{AFFE90};
+    - color names `orange', `violet', `purple', and `brown' added to
+      the set of predefined colors.
+* New xcolor homepage: www.ukern.de/tex/xcolor.html
+* Bugfix: \xdefinecolor sometimes did not normalise its parameters.
+* Changes:
+    - slight improvements of the documentation;
+    - example file xcolor1.tex reorganised and abridged.
+
+2004/02/04 v1.08
+* New commands/features:
+    - \selectcolormodel to change the target model within a document;
+    - \adjustUCRBG to fine-tune undercolor-removal and
+      black-generation during conversion to `cmyk'.
+* Bugfix: color expressions did not work correctly in connection with
+  active `!' character, e.g., in case of \usepackage[frenchb]{babel}.
+* Code re-organisation:
+    - \XC@xdefinecolor merged into \xdefinecolor, making the first
+      command obsolete;
+    - several internal commands improved/streamlined.
+
+2004/01/20 v1.07
+* New feature: support for color masking and color separation.
+* New commands:
+    - \rmultiply to multiply a dimension register by a real number;
+    - \xcolorcmd to pass commands that are to be executed at the end
+      of the package.
+* Changes:
+    - more consistent color handling: extended colors now always take
+      precedence over standard colors;
+    - several commands improved by using code from the LaTeX kernel.
+* Documentation: some minor changes.
+* Example files: additional `pstricks' examples (file xcolor2.tex).
+
+2003/12/15 v1.06
+* New feature: extended color expressions, allowing for cascaded mix
+  operations, e.g., \color{red!30!green!40!blue}.
+* Documentation: new section on color expressions.
+* Bugfix: color series stepping did not work correctly within
+  non-displaying commands like \extractcolorspec{foo!!+}
+  (this bug was introduced in v1.05).
+* Renamed commands: \ukfileversion and similar internal constants
+  renamed to \XCfileversion etc.
+* Removed commands: \ifXCpst and \ifXCtable made obsolete by a simple
+  trick.
+
+2003/11/21 v1.05
+* Bugfixes:
+    - package option `hideerrors' should now work as expected;
+    - usage of `.' in the first color expression in a document caused
+      an error due to incorrect initialisation.
+* Code re-organisation: \extractcolorspec now uses \XC@splitcolor,
+  making \XC@extract obsolete.
+
+2003/11/09 v1.04
+* New feature: easy access to current color within color expressions.
+* New option: `override' to replace \definecolor by \xdefinecolor.
+* New command: \tracingcolors for logging color-specific information.
+
+2003/09/21 v1.03
+* Change: bypass strange behaviour of some drivers.
+* New feature: driver-sharing with `hyperref'.
+
+2003/09/19 v1.02
+* Change: \extractcolorspec and \colorlet now also accept color series
+  as arguments.
+
+2003/09/15 v1.01
+* New feature: \definecolorseries and friends.
+* Documentation: removed some `doc'-related side-effects.
+* Code re-organisation: all calculation-related tools put to one place.
+* Bugfixes:
+    - \@rdivide: added \relax to fix problem with negative numerators;
+    - \rowc@l@rs: replaced \@ifempty by \@ifxempty.
+
+2003/09/09 v1.00
+* First published release.
