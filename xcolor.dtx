@@ -1,12 +1,13 @@
 % \iffalse meta-comment
 %%
 %% ----------------------------------------------------------------
-%% Copyright (C) 2003-2016 by Dr. Uwe Kern <xcolor at ukern dot de>
+%% Copyright (C) 2003-2021 by Dr. Uwe Kern <xcolor at ukern dot de>
+%%               2021      LaTeX Project https://github.com/latex3/xcolor/issues
 %% ----------------------------------------------------------------
 %%
 %<*package>
 %% Please send error reports and suggestions for
-%% improvements to the above email address.
+%% improvements to https://github.com/latex3/xcolor/issues.
 %%
 %% This package contains code copied from
 %%
@@ -17,8 +18,8 @@
 %%
 %</package>
 %<*extract|driver|test1|test2|test3|test4>
-\def\XCfileversion{v2.12}%
-\def\XCfiledate{2016/05/11}%
+\def\XCfileversion{v2.13}%
+\def\XCfiledate{2021/12/21}%
 %</extract|driver|test1|test2|test3|test4>
 %
 % This file may be distributed and/or modified under the
@@ -3596,7 +3597,7 @@
 %  \begin{macro}{\XC@@}
 % Macro consisting of the macro |\\XC@@|, serves as a delimiter.
 %    \begin{macrocode}
-\edef\XC@@{\expandafter\noexpand\csname\string\XC@@\endcsname}
+\edef\XC@@{\expandafter\noexpand\csname\@backslashchar XC@@\endcsname}
 %    \end{macrocode}
 %  \end{macro}
 %
@@ -4890,7 +4891,7 @@
       \toks@\expandafter{\@@drv}%
       \edef\@@tmp
        {\ifglobalcolors\global\else\xglobal@\fi
-        \noexpand\@namedef{\string\color@\@@nam}%
+        \noexpand\@namedef{\@backslashchar color@\@@nam}%
          {\noexpand\xcolor@{\@@cls}{\the\toks@}{\@@mod}{\@@clr}}}%
     \fi}%
   \expandafter\endgroup\@@tmp\xglobal@stop}
@@ -5026,7 +5027,7 @@
     \else
       \edef\@@tmp
        {\expandafter\expandafter\expandafter\@secondoffive
-         \csname\string\color@\@@clr\endcsname}%
+         \csname\@backslashchar color@\@@clr\endcsname}%
       \ifx\@@cls\@@tmp\XC@@tsttrue\fi
     \fi
   \fi\fi
@@ -5048,7 +5049,7 @@
    {\c@lor@error{`#2'}\let\@@tmp\@empty}%
    {\edef\@@tmp
      {\ifglobalcolors\global\else\xglobal@\fi
-      \noexpand\XC@let@cc{\string\color@#1}{\string\color@#2}}}}
+      \noexpand\XC@let@cc{\@backslashchar color@#1}{\@backslashchar color@#2}}}}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -5194,7 +5195,7 @@
   \XC@sdef\@@mod{#2}%
   \@ifxempty{#4}{\extractcolorspec{#5}\@@clr}{\edef\@@clr{{#4}{#5}}}%
   \expandafter\convertcolorspec\@@clr\@@mod\@@clr
-  \@namexdef{\string\colorB@#1}{{\@@mod}{\@@clr}}%
+  \@namexdef{\@backslashchar colorB@#1}{{\@@mod}{\@@clr}}%
   \edef\@@met{#3}%
   \ifx\@@met\XC@met@last
     \@ifxempty{#6}{\extractcolorspec{#7}\@@tmp}{\edef\@@tmp{{#6}{#7}}}%
@@ -5204,7 +5205,7 @@
   \else
     \edef\@@tmp{#7}%
   \fi
-  \@namexdef{\string\colorD@#1}{{\@@met}{\@@tmp}}%
+  \@namexdef{\@backslashchar colorD@#1}{{\@@met}{\@@tmp}}%
   \endgroup}
 %    \end{macrocode}
 % \end{macro}
@@ -5216,15 +5217,15 @@
 \def\XC@resetcolorseries[#1]#2%
  {\begingroup
   \@namexdef
-   {\string\color@#2}{\noexpand\xcolor@{}{}\@nameuse{\string\colorB@#2}}%
-  \XC@let@Nc\@@tmp{\string\colorD@#2}%
+   {\@backslashchar color@#2}{\noexpand\xcolor@{}{}\@nameuse{\@backslashchar colorB@#2}}%
+  \XC@let@Nc\@@tmp{\@backslashchar colorD@#2}%
   \edef\@@met{\expandafter\@firstoftwo\@@tmp}%
   \edef\@@tmp{\expandafter\@secondoftwo\@@tmp}%
   \ifx\@@met\XC@met@step\else
     \edef\@@scl{\@ifxempty{#1}\colorseriescycle{#1}}%
     \expandafter\XC@calc@\@@tmp,,,,:D%
   \fi
-  \@namexdef{\string\colorS@#2}{\@@tmp}%
+  \@namexdef{\@backslashchar colorS@#2}{\@@tmp}%
   \endgroup}
 %    \end{macrocode}
 % \end{macro}
@@ -5236,14 +5237,14 @@
 % In the relative case, the (non-negative) number of single steps is supposed to be stored in |\@tempcnta|.
 %    \begin{macrocode}
 \def\XC@step#1%
- {\let\xcolor@\@gobbletwo\edef\@@tmp{\@nameuse{\string\color@#1}}%
+ {\let\xcolor@\@gobbletwo\edef\@@tmp{\@nameuse{\@backslashchar color@#1}}%
   \expandafter\XC@st@p\@@tmp{#1}%
-  \@namexdef{\string\color@#1}{\noexpand\xcolor@{}{}{\@@mod}{\@@tmp}}}
+  \@namexdef{\@backslashchar color@#1}{\noexpand\xcolor@{}{}{\@@mod}{\@@tmp}}}
 %    \end{macrocode}
 %
 %    \begin{macrocode}
 \def\XC@st@p#1#2#3%
- {\def\@@mod{#1}\def\@@tmp{#2}\edef\@@vec{\@nameuse{\string\colorS@#3}}%
+ {\def\@@mod{#1}\def\@@tmp{#2}\edef\@@vec{\@nameuse{\@backslashchar colorS@#3}}%
   \@whilenum\@tempcnta>\z@\do
    {\XC@inflate\@@mod\@@tmp\@@vec\@@tmp
     \expandafter\XC@add\@@tmp,\@@tmp \expandafter\XC@calc@\@@tmp,,,,:U%
@@ -5252,7 +5253,7 @@
 %
 %    \begin{macrocode}
 \def\XC@stepabs#1%
- {\edef\@@tmp{\@nameuse{\string\colorB@#1}}%
+ {\edef\@@tmp{\@nameuse{\@backslashchar colorB@#1}}%
   \expandafter\XC@st@p\@@tmp{#1}%
   \edef\@@tmp
    {\def\noexpand\@@mod{\@@mod}\def\noexpand\@@clr{\@@tmp}}}
@@ -5406,7 +5407,7 @@
 %
 %    \begin{macrocode}
 \def\XC@declaredc@lor
- {\XC@let@Nc\XC@current@color{\string\color@\XC@@tmp}%
+ {\XC@let@Nc\XC@current@color{\@backslashchar color@\XC@@tmp}%
   \edef\current@color{\XC@current@color}%
   \XC@display}
 %    \end{macrocode}
@@ -5444,7 +5445,7 @@
 %    \begin{macrocode}
 \def\nopagecolor
  {\@ifundefined{no@page@color}%
-   {\PackageInfo{xcolor}{\string\nopagecolor\space is not supported}}%
+   {\PackageInfo{xcolor}{\@backslashchar nopagecolor\space is not supported}}%
    {\no@page@color}}
 %    \end{macrocode}
 %  \end{macro}
@@ -5778,7 +5779,7 @@
   \ifodd\count@\@tempswatrue\else\@tempswafalse\fi
   \@ifundefinedcolor\@@nam
    {\c@lor@error{`\@@nam'}\def\@@nam{black}}{}%
-  \let\xcolor@\@xcolor@\@nameuse{\string\color@\@@nam}}
+  \let\xcolor@\@xcolor@\@nameuse{\@backslashchar color@\@@nam}}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -5852,11 +5853,11 @@
 % Write information to log file and display the current color.
 %    \begin{macrocode}
 \def\XC@display
- {\XC@bcolor\XC@let@cN{\string\color@.}\XC@current@color
+ {\XC@bcolor\XC@let@cN{\@backslashchar color@.}\XC@current@color
   \ifnum\XC@type{.}=1
     \PackageWarning{xcolor}{Incompatible color definition}\else
   \ifnum\XC@tracing>2
-    \begingroup \let\xcolor@\@empty \def\@nil{\string\@nil}%
+    \begingroup \let\xcolor@\@empty \def\@nil{\@backslashchar @nil}%
     \PackageInfo{xcolor}{Setting color `\XC@current@color'}%
     \endgroup
   \fi\fi
@@ -6058,7 +6059,7 @@
 %   \marg{name}\marg{undefined}\marg{defined}\\
 % Checks whether \Meta{name} is a defined color name and executes the respective code.
 %    \begin{macrocode}
-\def\@ifundefinedcolor#1{\@ifundefined{\string\color@#1}}
+\def\@ifundefinedcolor#1{\@ifundefined{\@backslashchar color@#1}}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -6086,7 +6087,7 @@
 %    \begin{macrocode}
 \def\XC@type#1%
  {\expandafter\expandafter\expandafter\XC@typ@
-  \csname\string\color@#1\endcsname\@empty\@empty\@empty\XC@@}
+  \csname\@backslashchar color@#1\endcsname\@empty\@empty\@empty\XC@@}
 %    \end{macrocode}
 %
 %    \begin{macrocode}
@@ -6925,7 +6926,7 @@
     \expandafter\expandafter\expandafter\c@lor@to@ps#1#2\@@
   \else
     \expandafter\expandafter\expandafter\expandafter\expandafter\expandafter
-    \expandafter\c@lor@to@ps\csname\string\color@#1#2\endcsname\@@
+    \expandafter\c@lor@to@ps\csname\@backslashchar color@#1#2\endcsname\@@
   \fi
   \space}
 %    \end{macrocode}
@@ -6986,18 +6987,18 @@
  {{dvipdf,dvipdfm,dvipdfmx,dvips,pctex32}%
   {\def\c@lor@@named#1,#2,#3\@@#4%
     {\edef#4{\expandafter\expandafter\expandafter\@thirdoffive
-             \csname\string\color@#1\endcsname}}
+             \csname\@backslashchar color@#1\endcsname}}
    \def\define@color@named#1#2%
-    {\@namedef{\string\color@#1}{{}{}{ \colornameprefix#1}{}{}}}}%
+    {\@namedef{\@backslashchar color@#1}{{}{}{ \colornameprefix#1}{}{}}}}%
 %    \end{macrocode}
 %
 %    \begin{macrocode}
   {dvipsone,luatex,pctexps,pdftex,tcidvi,truetex,vtex,xetex}%
   {\def\c@lor@@named#1,#2,#3\@@#4%
     {\edef#4{\expandafter\expandafter\expandafter\@thirdoffive
-             \csname\string\color@#1\endcsname}}
+             \csname\@backslashchar color@#1\endcsname}}
    \def\define@color@named#1#2%
-    {\let\@@cls\@empty\@namedef{\string\color@#1}{{}{}{#2}{}{}}}}%
+    {\let\@@cls\@empty\@namedef{\@backslashchar color@#1}{{}{}{#2}{}{}}}}%
 %    \end{macrocode}
 %
 %    \begin{macrocode}
@@ -7010,7 +7011,7 @@
    \def\c@lor@ps@#1 #2\@@
     {\expandafter\expandafter\expandafter\expandafter\expandafter
      \expandafter\expandafter\c@lor@to@ps@
-     \csname\string\color@#1\expandafter\endcsname\space
+     \csname\@backslashchar color@#1\expandafter\endcsname\space
      #2. \@@{#1}}}%
 %    \end{macrocode}
 %
