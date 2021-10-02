@@ -15,6 +15,7 @@ tdslocations = {"dvips/xcolor/xcolor.pro"}
 
 function typeset_xcolor2 (f)
  typesetexe='latex'
+ cp('xcolor2.tex',unpackdir,'.')
  tex(f)
  tex(f)
  runcmd('dvips xcolor2')
