@@ -1,7 +1,6 @@
 Package `xcolor' by Dr. Uwe Kern
 Maintained by the LaTeX Project https://github.com/latex3/xcolor/issues
 
-v2.13 (2016/09/21)
 
 `xcolor' provides easy driver-independent access to several kinds of
 colors, tints, shades, tones, and mixes of arbitrary colors by means of
