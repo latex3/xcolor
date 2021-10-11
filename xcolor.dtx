@@ -19,7 +19,7 @@
 %</package>
 %<*extract|driver|test1|test2|test3|test4>
 \def\XCfileversion{v2.13}%
-\def\XCfiledate{2021/09/21}%
+\def\XCfiledate{2021/10/10}%
 %</extract|driver|test1|test2|test3|test4>
 %
 % This file may be distributed and/or modified under the
@@ -377,7 +377,7 @@
 %
 % In general, there are several types of options:
 % \begin{itemize}
-% \item options that determine the color driver as explained in \cite{dpc} and \cite{color}, currently: \Option{dvips}, \Option{xdvi}, \Option{dvipdf}, \Option{dvipdfm}, \Option{dvipdfmx}, \Option{luatex}, \Option{pdftex}, \Option{dvipsone}, \Option{dviwindo}, \Option{emtex}, \Option{dviwin}, \Option{oztex}, \Option{textures}, \Option{pctexps}, \Option{pctexwin}, \Option{pctexhp}, \Option{pctex32}, \Option{truetex}, \Option{tcidvi}, \Option{vtex}, \Option{xetex},
+% \item options that determine the color driver as explained in \cite{dpc} and \cite{color}, currently: \Option{dvips}, \Option{xdvi}, \Option{dvipdf}, \Option{dvipdfm}, \Option{dvipdfmx}, \Option{luatex}, \Option{pdftex}, \Option{dvipsone}, \Option{dviwindo}, \Option{emtex}, \Option{dviwin}, \Option{oztex}, \Option{textures}, \Option{pctexps}, \Option{pctexwin}, \Option{pctexhp}, \Option{pctex32}, \Option{truetex}, \Option{tcidvi}, \Option{vtex}, \Option{xetex}, \Option{dvisvgm},
 % \item options that determine the target color model\footnote{Section \vref{sec.tgt} explains how this setting can be overridden at any point in a document.} (\Option{natural}, \Option{rgb}, \Option{cmy}, \Option{cmyk}, \Option{hsb}, \Option{gray}, \Option{RGB}, \Option{HTML}, \Option{HSB}, \Option{Gray}) or disable colored output (\Option{monochrome}),
 % \item options that control whether and how certain sets of predefined colors are being loaded: \Option{dvipsnames}, \Option{dvipsnames*}, \Option{svgnames}, \Option{svgnames*}, \Option{x11names}, \Option{x11names*},
 % \item options that determine which other packages are to be loaded or supported: \Option{table}, \Option{fixpdftex},
@@ -3145,6 +3145,13 @@
 % \subsection*{History}
 % \addcontentsline{toc}{subsection}{History}
 %
+% \subsubsection*{2021/11/10 v2.13}
+% \begin{itemize}
+% \item Bug Fixes:
+%   \begin{itemize}
+%   \item Avoid use of |\string| to generate csnames
+%   \item Declare |dvisvgm| option and make |dvipdfm| an alias to |dvipdfmx| to match graphics and color packages.
+%
 % \subsubsection*{2016/05/11 v2.12}
 % \begin{itemize}
 % \item New features:
@@ -4045,9 +4052,9 @@
 %
 % Drivers that come with their individual definition files:
 %    \begin{macrocode}
-\@tfor\@@tmp:={dvipdf}{dvipdfm}{dvipdfmx}{dvips}{dvipsone}{dviwin}%
+\@tfor\@@tmp:={dvipdf}{dvipdfmx}{dvips}{dvipsone}{dviwin}%
               {emtex}{luatex}{pctex32}{pctexhp}{pctexps}{pctexwin}{pdftex}%
-              {tcidvi}{textures}{truetex}{vtex}{xetex}\do
+              {tcidvi}{textures}{truetex}{vtex}{xetex}{dvisvgm}\do
  {\edef\@@tmp{\noexpand\DeclareOption{\@@tmp}%
     {\def\noexpand\Gin@driver{\@@tmp.def}}}%
   \@@tmp}
@@ -4058,6 +4065,7 @@
 \DeclareOption{dviwindo}{\ExecuteOptions{dvipsone}}
 \DeclareOption{oztex}{\ExecuteOptions{dvips}}
 \DeclareOption{xdvi}{\ExecuteOptions{dvips,monochrome}}
+\DeclareOption{dvipdfm}{\ExecuteOptions{dvipdfmx}}
 %    \end{macrocode}
 %
 % Options used by (some) drivers.

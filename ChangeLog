@@ -8,6 +8,8 @@ History
     - use \@backslashchar color rather than \string\color to
 	generate internal csnames, to avoid relying on the
 	current setting	of \escapechar
+    - Declare dvisvgm option to match graphics and color packages.
+       Make dvipdfm an alias for dvipdfmx	  
 	
 2016/05/11 v2.12
 * New features:

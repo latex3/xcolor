@@ -1,0 +1,9 @@
+\documentclass[dvisvgm]{article}
+\usepackage{xcolor}
+\input{regression-test}
+\begin{document}
+\START
+\makeatletter
+\ASSERT{\Gin@driver}{dvisvgm.def}
+\makeatother
+\END
