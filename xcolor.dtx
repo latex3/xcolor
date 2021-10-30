@@ -19,7 +19,7 @@
 %</package>
 %<*extract|driver|test1|test2|test3|test4>
 \def\XCfileversion{v2.13}%
-\def\XCfiledate{2021/10/10}%
+\def\XCfiledate{2021/10/31}%
 %</extract|driver|test1|test2|test3|test4>
 %
 % This file may be distributed and/or modified under the
@@ -3145,12 +3145,15 @@
 % \subsection*{History}
 % \addcontentsline{toc}{subsection}{History}
 %
-% \subsubsection*{2021/11/10 v2.13}
+% \subsubsection*{2021/10/31 v2.13}
 % \begin{itemize}
 % \item Bug Fixes:
 %   \begin{itemize}
 %   \item Avoid use of |\string| to generate csnames
 %   \item Declare |dvisvgm| option and make |dvipdfm| an alias to |dvipdfmx| to match graphics and color packages.
+%   \item Modify |\XC@info| to avoid spurious text from |\colorlet{foo}{.!50}|
+%   \end{itemize}
+% \end{itemize}
 %
 % \subsubsection*{2016/05/11 v2.12}
 % \begin{itemize}
@@ -6126,11 +6129,13 @@
 %    \begin{macrocode}
 \def\XC@info#1#2%
  {\XC@edef#2{#1}%
-  \if.#2\def#2{0}\else\expandafter\in@\expandafter>\expandafter{#2}%
+  \expandafter\in@\expandafter>\expandafter{#2}%
   \ifin@\def#2{4}\else\expandafter\in@\expandafter:\expandafter{#2}%
   \ifin@\def#2{3}\else\expandafter\in@\expandafter!\expandafter{#2}%
-  \ifin@\def#2{2}\else\edef#2{\noexpand\in@{/-}{/#2}}#2%
-  \edef#2{\ifin@2\else1\fi}\fi\fi\fi\fi}
+  \ifin@\def#2{2}\else % now there's no >,:,!
+  \if-\expandafter\@car#2\@nil\def#2{2}\else % catches -red
+  \edef#2{\noexpand\in@{/./}{/#2/}}#2%
+  \edef#2{\ifin@0\else1\fi}\fi\fi\fi\fi}
 %    \end{macrocode}
 % \end{macro}
 %
