@@ -1,0 +1,10 @@
+\documentclass{article}
+\usepackage{xcolor}
+\input{regression-test}
+\begin{document}
+
+\setbox0\hbox{\colorlet{foo}{.!50}}
+\START
+% This should be empty box
+\showbox0
+\END
