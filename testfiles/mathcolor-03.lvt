@@ -1,0 +1,27 @@
+\input{regression-test}
+\documentclass{article}
+
+\usepackage{xcolor}
+
+\showoutput
+
+\begin{document}
+
+\START
+
+\[
+A= \mathcolor{red}{\int}\limits_1^2 x =
+   \mathcolor{red}{\sum}\nolimits_1^2 x =
+   \mathcolor{red}{\sum}\displaylimits_1^2 x =
+\]
+
+
+
+\newpage
+
+\OMIT
+\end{document}
+
+
+
+

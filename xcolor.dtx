@@ -1137,6 +1137,12 @@
 % This is still experimental code that may confuse \File{.dvi} viewers.
 % The opposite option \Option{noxcdraw} forces usage of the generic (driver-independent) code.
 %
+% \subsubsection{Colors in math}
+%
+% While it is possible to color parts of a formula using |\color| commands the approach is fairly cumbersome.
+% Therefor the command \cs{mathcolor} has been added  to the \pkg{color} and \pkg{xcolor} package,
+% which has the same syntax as \cs{textcolor}. The full documentation and examples of its use is in \texttt{mathcolor.pdf}
+% in the \LaTeX{} documentation.
 %
 % \subsubsection{Using the current color}
 %
@@ -5461,6 +5467,11 @@
 %    \end{macrocode}
 %  \end{macro}
 %
+% \subsubsection{mathcolor}
+% We load the new mathcolor support from the kernel if it exists. The documentation
+% is in \texttt{mathcolor.pdf}
+%
+\InputIfFileExists{mathcolor.ltx}{}{}
 %
 % \subsubsection{Colored boxes}
 %
