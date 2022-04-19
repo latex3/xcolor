@@ -18,8 +18,8 @@
 %%
 %</package>
 %<*extract|driver|test1|test2|test3|test4>
-\def\XCfileversion{v2.13}%
-\def\XCfiledate{2021/10/31}%
+\def\XCfileversion{v2.14}%
+\def\XCfiledate{2022/04/19}%
 %</extract|driver|test1|test2|test3|test4>
 %
 % This file may be distributed and/or modified under the
@@ -6143,7 +6143,7 @@
   \ifin@\def#2{4}\else\expandafter\in@\expandafter:\expandafter{#2}%
   \ifin@\def#2{3}\else\expandafter\in@\expandafter!\expandafter{#2}%
   \ifin@\def#2{2}\else % now there's no >,:,!
-  \if-\expandafter\@car#2\@nil\def#2{2}\else % catches -red
+  \if-\expandafter\@car#2\relax\@nil\def#2{2}\else % catches -red
   \edef#2{\noexpand\in@{/./}{/#2/}}#2%
   \edef#2{\ifin@0\else1\fi}\fi\fi\fi\fi}
 %    \end{macrocode}
