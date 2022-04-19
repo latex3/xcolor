@@ -1,0 +1,145 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line ....
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line ....
+Completed box being shipped out [1]
+\vbox(633.0+0.0)x407.0, direction TLT
+.\hbox(0.0+0.0)x0.0, direction TLT
+..\kern-72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, direction TLT
+...\kern-72.26999
+...\hbox(0.0+0.0)x0.0, direction TLT
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 16.0
+.\vbox(617.0+0.0)x345.0, shifted 62.0, direction TLT
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil, direction TLT
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0, direction TLT
+....\pdfcolorstack 0 push {0 g 0 G}
+....\hbox(0.0+0.0)x345.0, direction TLT
+....\pdfcolorstack 0 pop
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(550.0+0.0)x345.0, glue set 487.03665fil, direction TLT
+...\write-{}
+...\pdfcolorstack 0 push {0 g 0 G}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 122.9979fil, direction TLT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\hbox(0.0+0.0)x15.0, direction TLT
+....\hbox(0.0+0.0)x207.0021, glue set 103.50105fil, direction TLT
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\glue(\abovedisplayskip) 10.0 plus 2.0 minus 5.0
+...\glue(\lineskip) 1.0
+...\hbox(21.12231+15.789)x123.57597, shifted 110.71202, direction TLT
+....\OML/cmm/m/it/10 A
+....\glue(\thickmuskip) 2.77771 plus 2.77771
+....\OT1/cmr/m/n/10 =
+....\pdfcolorstack 0 push {1 0 0 rg 1 0 0 RG}
+....\glue(\thickmuskip) 2.77771 plus 2.77771
+....\vbox(21.12231+15.789)x10.00002, direction TLT
+.....\kern1.0 (font)
+.....\hbox(4.51111+0.0)x10.00002, glue set 3.00694fil, shifted 2.22223, directio
+n TLT
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(4.51111+0.0)x3.98613, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\OT1/cmr/m/n/7 2
+......\pdfcolorstack 0 pop
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\kern1.99998 (font)
+.....\hbox(13.61122+8.61124)x10.00002, direction TLT
+......\hbox(0.0+22.22246)x10.00002, shifted -13.61122, direction TLT
+.......\OMX/cmex/m/n/10 Z
+.....\kern1.66666 (font)
+.....\hbox(4.51111+0.0)x10.00002, glue set 3.00694fil, shifted -2.22223, directi
+on TLT
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(4.51111+0.0)x3.98613, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\OT1/cmr/m/n/7 1
+......\pdfcolorstack 0 pop
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\kern1.0 (font)
+....\pdfcolorstack 0 pop
+....\glue(\thinmuskip) 1.66663
+....\OML/cmm/m/it/10 x
+....\glue(\thickmuskip) 2.77771 plus 2.77771
+....\OT1/cmr/m/n/10 =
+....\pdfcolorstack 0 push {1 0 0 rg 1 0 0 RG}
+....\glue(\thickmuskip) 2.77771 plus 2.77771
+....\hbox(1.0+15.00012)x14.44447, shifted -9.50006, direction TLT
+.....\OMX/cmex/m/n/10 X
+....\vbox(18.53902+0.0)x4.48613, shifted 6.00005, direction TLT
+.....\hbox(4.51111+0.0)x4.48613, direction TLT
+......\hbox(4.51111+0.0)x3.98613, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\OT1/cmr/m/n/7 2
+......\pdfcolorstack 0 pop
+.....\kern9.5168 (font)
+.....\hbox(4.51111+0.0)x4.48613, direction TLT
+......\hbox(4.51111+0.0)x3.98613, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\OT1/cmr/m/n/7 1
+......\pdfcolorstack 0 pop
+....\pdfcolorstack 0 pop
+....\glue(\thinmuskip) 1.66663
+....\OML/cmm/m/it/10 x
+....\glue(\thickmuskip) 2.77771 plus 2.77771
+....\OT1/cmr/m/n/10 =
+....\pdfcolorstack 0 push {1 0 0 rg 1 0 0 RG}
+....\glue(\thickmuskip) 2.77771 plus 2.77771
+....\vbox(18.01115+12.67783)x14.44447, direction TLT
+.....\kern1.0 (font)
+.....\hbox(4.51111+0.0)x14.44447, glue set 5.22917fil, direction TLT
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(4.51111+0.0)x3.98613, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\OT1/cmr/m/n/7 2
+......\pdfcolorstack 0 pop
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\kern1.99998 (font)
+.....\hbox(10.50006+5.50006)x14.44447, direction TLT
+......\hbox(1.0+15.00012)x14.44447, shifted -9.50006, direction TLT
+.......\OMX/cmex/m/n/10 X
+.....\kern1.66666 (font)
+.....\hbox(4.51111+0.0)x14.44447, glue set 5.22917fil, direction TLT
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(4.51111+0.0)x3.98613, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\OT1/cmr/m/n/7 1
+......\pdfcolorstack 0 pop
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\kern1.0 (font)
+....\pdfcolorstack 0 pop
+....\glue(\thinmuskip) 1.66663
+....\OML/cmm/m/it/10 x
+....\glue(\thickmuskip) 2.77771 plus 2.77771
+....\OT1/cmr/m/n/10 =
+...\penalty 0
+...\glue(\belowdisplayskip) 10.0 plus 2.0 minus 5.0
+...\glue -5.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 23.34
+..\hbox(6.66+0.0)x345.0, direction TLT
+...\pdfcolorstack 0 push {0 g 0 G}
+...\hbox(6.66+0.0)x345.0, glue set 170.0fil, direction TLT
+....\glue 0.0 plus 1.0fil
+....\TU/lmr/m/n/10 1
+....\glue 0.0 plus 1.0fil
+...\pdfcolorstack 0 pop
+.\kern0.0

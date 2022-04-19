@@ -3,6 +3,9 @@ https://github.com/latex3/xcolor/issues
 
 History
 =======
+XXXX/XX/XX v2.14
+* Load if it exists the code from LaTeX to define \mathcolor.
+
 2021/10/31 v2.13
 * Bugfixes (LaTeX Team)
     - use \@backslashchar color rather than \string\color to
