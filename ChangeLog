@@ -8,8 +8,8 @@ History
     - Load if it exists the code from LaTeX to define \mathcolor.
 * Bugfixes (LaTeX Team)
     - Modify \XC@info to avoid spurious error from \colorlet{foo}{} issue #12
-* make \normalcolor, \colorbox, \fcolorbox \textcolor, \pagecolor, 
- \nopagecolor, \definecolor, \DefineNamedColor protected as in color.sty issue#17
+    - make \normalcolor, \colorbox, \fcolorbox \textcolor, \pagecolor, 
+      \nopagecolor, \definecolor, \DefineNamedColor protected as in color.sty issue #17
 
 2021/10/31 v2.13
 * Bugfixes (LaTeX Team)
