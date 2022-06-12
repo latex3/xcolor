@@ -99,15 +99,18 @@
 \listfiles
 \ProvidesFile{xcolor.dtx}[\XCfiledate\space\XCfileversion\space
                           `xcolor' source and documentation (UK)]
+\PassOptionsToPackage
+ {
+   hyperindex=false,bookmarks,bookmarksopen,bookmarksopenlevel=1,%
+   pdftitle={xcolor \XCfileversion{} (\XCfiledate)},
+   pdfauthor={Dr. Uwe Kern},%
+   pdfsubject={Color extensions for LaTeX and pdfLaTeX},%
+   pdfkeywords={xcolor,color,colour,model,tint,tone,shade,harmony,spot,latex,pdftex,dvips,%
+   conversion,blend,mix,mask,separation,rgb,cmy,cmyk,hsb,gray,html,wave,thsb,wheel}
+ }{hyperref}
 \documentclass{ltxdoc}
 \usepackage[table,showerrors,dvipsnames,hyperref]{xcolor}[2005/06/06]
 \usepackage{chngpage,varioref,tabularx,amsmath,amsthm}
-\usepackage
- [\GinDriver,hyperindex=false,bookmarks,bookmarksopen,bookmarksopenlevel=1,%
-  pdftitle={xcolor \XCfileversion{} (\XCfiledate)},pdfauthor={Dr. Uwe Kern},%
-  pdfsubject={Color extensions for LaTeX and pdfLaTeX},%
-  pdfkeywords={xcolor,color,colour,model,tint,tone,shade,harmony,spot,latex,pdftex,dvips,%
-   conversion,blend,mix,mask,separation,rgb,cmy,cmyk,hsb,gray,html,wave,thsb,wheel}]{hyperref}
 \OnlyDescription
 \EnableCrossrefs
 \CodelineIndex
