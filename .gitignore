@@ -18,5 +18,7 @@ build/*
 *.lot
 *.out
 *.toc
-
+xcolor2.ps
+xcolor2.dvi
+xcolor2.tmp
 .DS_Store
