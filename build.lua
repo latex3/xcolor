@@ -32,6 +32,6 @@ specialtypesetting={}
 specialtypesetting['xcolor2.tex'] = {func = typeset_xcolor2}
 
 
-textfiles= {"ChangeLog", "README"}
+textfiles= {"ChangeLog", "README.md"}
 
 

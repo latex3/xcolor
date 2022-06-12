@@ -1,6 +1,8 @@
-Package `xcolor' by Dr. Uwe Kern
-Maintained by the LaTeX Project https://github.com/latex3/xcolor/issues
+## Package `xcolor' by Dr. Uwe Kern
 
+Version 2022-06-12 v2.14
+
+Maintained by the LaTeX Project https://github.com/latex3/xcolor/issues
 
 `xcolor' provides easy driver-independent access to several kinds of
 colors, tints, shades, tones, and mixes of arbitrary colors by means of
@@ -10,8 +12,14 @@ for automatic color schemes, conversion between nine color models,
 alternating table row colors, color blending and masking, color
 separation, and color wheel calculations.
 
-Installation instructions
-=========================
+## Copyright (C)
+- 2003-2021    Dr. Uwe Kern 
+- 2021-2022    The LaTeX Project 
+
+## License
+LaTeX Project Public License, version 1.3c or later.
+
+## Installation instructions
 
 Extract all package files:
   `latex xcolor.ins'
@@ -33,8 +41,7 @@ Run the test files (N=1,2,...):
   `latex xcolorN.tex'
   `latex xcolorN.tex'
 
-Notes
-=====
+## Notes
 
 - `xcolor1.tex' should run with both LaTeX and pdfLaTeX, it yields a
   50-page document with several systematic color conversion examples
@@ -50,7 +57,6 @@ Notes
   and quit the LaTeX compiler as soon as the first error message
   appears.
 
-History
-=======
+## History
 
 See file `ChangeLog'.
