@@ -4855,7 +4855,7 @@
 % \end{itemize}
 % See table \vref{tab.internal} for some examples.
 %    \begin{macrocode}
-\def\definecolor{\@testopt{\XC@definecolor}{}}
+\protected\def\definecolor{\@testopt{\XC@definecolor}{}}
 \def\XC@definecolor[#1]#2%
  {\@testopt{\XC@definec@lor[#1]{#2}}\colornameprefix}
 %    \end{macrocode}
@@ -5072,7 +5072,7 @@
 % \begin{macro}{\DefineNamedColor}
 %   \marg{type}\marg{name}\marg{model-list}\marg{spec-list}
 %    \begin{macrocode}
-\def\DefineNamedColor#1%
+\protected\def\DefineNamedColor#1%
  {\@nameuse{XC@\ifdefinecolors defin\else prepar\fi ecolor}[#1]}
 %    \end{macrocode}
 %  \end{macro}
@@ -5437,7 +5437,7 @@
 % The naming is by analogy with |\textrm| (as opposed to |\rm| and |\rmfamily|) although it is slightly a misnomer as the command also works in math-mode.
 % Additionally, it calls |\leavevmode| to ensure the start of horizontal mode.
 %    \begin{macrocode}
-\def\textcolor#1#{\@textcolor{#1}}
+\protected\def\textcolor#1#{\@textcolor{#1}}
 \def\@textcolor#1#2#3{\protect\leavevmode{\color#1{#2}#3}}
 %    \end{macrocode}
 %  \end{macro}
@@ -5448,7 +5448,7 @@
 % Specifies the background color for the current, and all following, pages.
 % It is a global declaration which does not respect \TeX\ groups.
 %    \begin{macrocode}
-\def\pagecolor
+\protected\def\pagecolor
  {\begingroup
   \let\ignorespaces\endgroup \let\set@color\set@page@color
   \color}
@@ -5459,7 +5459,7 @@
 % Removes any currently specified page color returning to the default transparent background.
 % It is not yet supported by all driver options and so generates a warning if there is no definition in the driver file.
 %    \begin{macrocode}
-\def\nopagecolor
+\protected\def\nopagecolor
  {\@ifundefined{no@page@color}%
    {\PackageInfo{xcolor}{\@backslashchar nopagecolor\space is not supported}}%
    {\no@page@color}}
@@ -5479,7 +5479,7 @@
 %   \oarg{model}\marg{spec}\marg{text}\\
 % Takes the same argument forms as |\textcolor|, but the color specifies the \emph{background} color of the box.
 %    \begin{macrocode}
-\def\colorbox#1#{\protect\color@box{#1}}
+\protected\def\colorbox#1#{\color@box{#1}}
 \def\color@box#1#2{\color@b@x\relax{\color#1{#2}}}
 %    \end{macrocode}
 % \end{macro}
@@ -5492,7 +5492,7 @@
 % Puts a frame of the first color around a box with a background specified by the second color.
 % If only the first optional argument is given, it specifies the color model for both colors.
 %    \begin{macrocode}
-\def\fcolorbox#1#{\color@fbox{#1}}
+\protected\def\fcolorbox#1#{\color@fbox{#1}}
 \def\color@fbox#1#2#3#{\protect\color@fb@x{#1}{#2}{#3}}
 \def\color@fb@x#1#2#3#4%
  {\color@b@x{\fboxsep\z@\color#1{#2}\XC@fbox}%
@@ -6985,7 +6985,7 @@
 % |\normalcolor| is defined (to |\relax|) in the \LaTeX\ kernel, so it is safe to use this in macros that may possibly be used in conjunction with color.
 % It will have no effect until the \XCP{} is also loaded.
 %    \begin{macrocode}
-\def\normalcolor{\let\current@color\default@color\set@color}
+\protected\def\normalcolor{\let\current@color\default@color\set@color}
 %    \end{macrocode}
 % \end{macro}
 %
