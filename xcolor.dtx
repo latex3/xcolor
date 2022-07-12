@@ -456,9 +456,9 @@
 % \hline
 % \rowcolor{tableheadcolor}
 % \em Action/Package    & \Package{colortbl}& \Package{pdfcolmk}& \Package{hyperref}& \Package{pstricks}& \LC& \Package{pstcol}\\
-% load before \XC       & no & no & allowed & allowed\rlap{\footnotemark[1]} & no & no  \\
+% load before \XC       & allowed & no & allowed & allowed\rlap{\footnotemark[1]} & no & no  \\
 % load with \XC{} option& \Option{table} & \Option{fixpdftex} & --- & --- & --- & --- \\
-% load after \XC        & no & allowed & allowed & allowed & no & no \\
+% load after \XC        & allowed & allowed & allowed & allowed & no & no \\
 % \hline\hline
 % \multicolumn6{c}{\footnotemark[1]\,recent \Package{pstricks} versions do load \XC\ by default}\\
 % \hline
@@ -1399,6 +1399,13 @@
 %
 %
 % \subsection{Color in tables}
+% The commands in this subjection
+% were in previous versions provided by the \Package{xcolor} package as
+% an extension of the \Package{colortbl} commands. They have now
+% been merged into the \Package{colortbl} package properly. The package can be loaded
+% either with the \Option{table} option or independently with |\usepackage|.
+% The description of the commands is kept only for historical reasons. If in doubt
+% consult the documentation of \Package{colortbl}.
 %
 % \DescribeMacro\rowcolors
 %   \oarg{commands}\marg{row}\marg{odd-row color}\marg{even-row color}\\
@@ -1416,7 +1423,6 @@
 % \DescribeMacro\rownum
 % The counter |\rownum| may be used within such a table to access the current row number.
 % An example is given in figure \vref{fig.row}.
-% These commands require the \Option{table} option (which loads the \Package{colortbl} package).
 %
 % Note that table coloring may be combined with color series.
 % This method was used to construct the examples in figure \vref{fig.csx}.
@@ -5923,7 +5929,8 @@
 %
 % \subsubsection{Colored rows in tables}
 %
-% The following definitions make only sense if the \Package{colortbl} package has been loaded by the \Option{table} option.
+% The following definitions make only sense if the \Package{colortbl} package
+% has been loaded and if \Package{colortbl} doesn't already define the commands.
 %    \begin{macrocode}
 \AddToHook{package/colortbl/after}{%
 %    \end{macrocode}
