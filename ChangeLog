@@ -3,6 +3,13 @@ https://github.com/latex3/xcolor/issues
 
 History
 =======
+unreleased
+* if a LaTeX older than 2022-06-01 is detected a frozen version is used.
+  All new features apply only if LaTeX 2022-06-01 is detected 
+* The new LaTeX key/val handler is used
+* rowcolors command has moved to the colortbl package
+
+
 2022/06/12 v2.14
 * New features:
     - Load if it exists the code from LaTeX to define \mathcolor.
