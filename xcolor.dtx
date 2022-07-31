@@ -4835,8 +4835,7 @@
 %    \end{macrocode}
 % |\@expl@xcolor@set@@nonn| prepares color for the l3color support.
 %    \begin{macrocode}
-\IfDocumentMetadataTF{}
- {\providecommand\@expl@xcolor@set@@nonn[4]{}}
+\providecommand\@expl@xcolor@set@@nonn[4]{}
 \def\XC@definec@lor[#1]#2[#3]#4#5%
  {\@expl@xcolor@set@@nonn{#2}{#4}{#5}{#1}%
   \begingroup
@@ -5007,8 +5006,12 @@
 \def\colorlet{\@testopt{\XC@colorlet}{}}
 %    \end{macrocode}
 % |\@expl@xcolor@set@@ne| prepares colors also for l3color.
-\IfDocumentMetadataTF{}
- {\providecommand\@expl@xcolor@set@@ne[2]{}}
+% As the old patch defined it with |\cs_new| we have to undefine it again temporarly.
+%    \begin{macrocode}
+\IfDocumentMetadataTF
+ {\@ifundefined{@expl@xcolor@set@@ne}{\AtEndOfPackage{\let\@expl@xcolor@set@@ne\undefined}{}}{}}
+ {}
+\providecommand\@expl@xcolor@set@@ne[2]{}
 \def\XC@colorlet[#1]#2{\@testopt{\XC@col@rlet[#1]{#2}}{}}
 \def\XC@col@rlet[#1]#2[#3]#4%
  {\@expl@xcolor@set@@ne{#2}{#4}%
