@@ -6862,7 +6862,9 @@
 % |\normalcolor| is defined (to |\relax|) in the \LaTeX\ kernel, so it is safe to use this in macros that may possibly be used in conjunction with color.
 % It will have no effect until the \XCP{} is also loaded.
 %    \begin{macrocode}
-\protected\def\normalcolor{\let\current@color\default@color\set@color}
+\protected\def\normalcolor{\let\current@color\default@color
+\let\XC@current@color\XC@default@color\XC@display}
+\AtBeginDocument{\let\XC@default@color\XC@current@color}
 %    \end{macrocode}
 % \end{macro}
 %
