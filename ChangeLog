@@ -9,6 +9,7 @@ unreleased
 * The new LaTeX key/val handler is used
 * rowcolors command has moved to the colortbl package
 * the fixpdftex option is obsolete and does nothing at all (issue #20)
+* prepared optional support for l3colors (this is currently used by pdfmanagement-testphase)
 
 
 2022/06/12 v2.14

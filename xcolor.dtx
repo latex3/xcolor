@@ -4833,10 +4833,12 @@
 \def\XC@definecolor[#1]#2%
  {\@testopt{\XC@definec@lor[#1]{#2}}\colornameprefix}
 %    \end{macrocode}
-%
+% |\@expl@xcolor@set@@nonn| prepares color for the l3color support.
 %    \begin{macrocode}
+\providecommand\@expl@xcolor@set@@nonn[4]{}
 \def\XC@definec@lor[#1]#2[#3]#4#5%
- {\begingroup
+ {\@expl@xcolor@set@@nonn{#2}{#4}{#5}{#1}%
+  \begingroup
   \XC@sdef\@@cls{#1}\XC@edef\@@nam{#2}\edef\colornameprefix{#3}%
   \XC@logdef\@@nam
   \XC@getmodclr02{#4}{#5}{\let\@@tmp\relax}%
@@ -5002,9 +5004,13 @@
 % Create a color `name' consisting of \Meta{color}, converted to \Meta{num model} if non-empty.
 %    \begin{macrocode}
 \def\colorlet{\@testopt{\XC@colorlet}{}}
+%    \end{macrocode}
+% |\@expl@xcolor@set@@ne| prepares colors also for l3color.
+\providecommand\@expl@xcolor@set@@ne[2]{}
 \def\XC@colorlet[#1]#2{\@testopt{\XC@col@rlet[#1]{#2}}{}}
 \def\XC@col@rlet[#1]#2[#3]#4%
- {\begingroup
+ {\@expl@xcolor@set@@ne{#2}{#4}%
+  \begingroup
   \edef\@@cls{#1}\XC@edef\@@nam{#2}\XC@sdef\@@mod{#3}\XC@edef\@@clr{#4}%
 %    \end{macrocode}
 %
