@@ -382,12 +382,11 @@
 % \item options that determine the color driver as explained in \cite{dpc} and \cite{color}, currently: \Option{dvips}, \Option{xdvi}, \Option{dvipdf}, \Option{dvipdfm}, \Option{dvipdfmx}, \Option{luatex}, \Option{pdftex}, \Option{dvipsone}, \Option{dviwindo}, \Option{emtex}, \Option{dviwin}, \Option{oztex}, \Option{textures}, \Option{pctexps}, \Option{pctexwin}, \Option{pctexhp}, \Option{pctex32}, \Option{truetex}, \Option{tcidvi}, \Option{vtex}, \Option{xetex}, \Option{dvisvgm},
 % \item options that determine the target color model\footnote{Section \vref{sec.tgt} explains how this setting can be overridden at any point in a document.} (\Option{natural}, \Option{rgb}, \Option{cmy}, \Option{cmyk}, \Option{hsb}, \Option{gray}, \Option{RGB}, \Option{HTML}, \Option{HSB}, \Option{Gray}) or disable colored output (\Option{monochrome}),
 % \item options that control whether and how certain sets of predefined colors are being loaded: \Option{dvipsnames}, \Option{dvipsnames*}, \Option{svgnames}, \Option{svgnames*}, \Option{x11names}, \Option{x11names*},
-% \item options that determine which other packages are to be loaded or supported: \Option{table}, \Option{fixpdftex},
-% \Option{hyperref},
+% \item options that determine which other packages are to be loaded or supported: \Option{table},
 % \item options that influence the behaviour of other commands: \Option{prologue}, \Option{kernelfbox}, \Option{xcdraw}, \Option{noxcdraw}, \Option{fixinclude}, \Option{showerrors}, \Option{hideerrors},
 % \item obsolete options:
 % \oOption{pst},
-% \oOption{override}, \oOption{usenames}, \oOption{nodvipsnames}.
+% \oOption{override}, \oOption{usenames}, \oOption{nodvipsnames}, \oOption{fixpdftex}, \oOption{hyperref}.
 % \end{itemize}
 % All available package options (except driver selection and obsolete options) are listed in table \vref{tab.opt}.
 % \DescribeMacro\GetGinDriver
@@ -427,7 +426,7 @@
 % \Option{x11names}, \Option{x11names*}& Load a set of predefined colors according to \Index{Unix}/\Index{X11}.\footnotemark[1]\\
 % \hline
 % \Option{table}& Load the \Package{colortbl} package, in order to use the tools for coloring rows, columns, and cells within tables.\\
-% \Option{fixpdftex}& Load the \Package{pdfcolmk} package, in order to improve |pdftex|'s color behaviour (see section \vref{sec.fixpdftex}).\\
+% \Option{fixpdftex}& This option is obsolete and does nothing at all.\\
 % \Option{hyperref}& Support the \Package{hyperref} package in terms of color expressions by defining additional keys (see section \vref{sec.hyperref}).\\
 % \hline
 % \Option{prologue}& Write prologue information to \File{.xcp} file for every color definition (as described in section \vref{sec.prologue}).\\
@@ -452,15 +451,15 @@
 % \raggedleft
 % \extrarowheight2pt
 % \rowcolors{3}{tablerowcolor}{}
-% \begin{tabular}{l*{6}{c}}
+% \begin{tabular}{l*{5}{c}}
 % \hline
 % \rowcolor{tableheadcolor}
-% \em Action/Package    & \Package{colortbl}& \Package{pdfcolmk}& \Package{hyperref}& \Package{pstricks}& \LC& \Package{pstcol}\\
-% load before \XC       & allowed & no & allowed & allowed\rlap{\footnotemark[1]} & no & no  \\
-% load with \XC{} option& \Option{table} & \Option{fixpdftex} & --- & --- & --- & --- \\
-% load after \XC        & allowed & allowed & allowed & allowed & no & no \\
+% \em Action/Package    & \Package{colortbl}&  \Package{hyperref}& \Package{pstricks}& \LC& \Package{pstcol}\\
+% load before \XC       & allowed &  allowed & allowed\rlap{\footnotemark[1]} & no & no  \\
+% load with \XC{} option& \Option{table} &  --- & --- & --- & --- \\
+% load after \XC        & allowed &  allowed & allowed & no & no \\
 % \hline\hline
-% \multicolumn6{c}{\footnotemark[1]\,recent \Package{pstricks} versions do load \XC\ by default}\\
+% \multicolumn5{c}{\footnotemark[1]\,\Package{pstricks}  loads \XC\ by default}\\
 % \hline
 % \end{tabular}
 % \end{adjustwidth}
@@ -1483,28 +1482,6 @@
 % \end{verbatim}
 % Now all colors from the \Index{SVG} set are available (except \Color{Fuchsia}) plus \Color{Fuchsia} from the other set.
 %
-% \subsubsection{Page breaks and pdf\TeX}\label{sec.fixpdftex}
-%
-% Since pdf\TeX{} does not maintain a \emph{\Index{color stack}} --- in contrast to \Program{dvips} --- a typical problem is the behaviour of colors in the case of page breaks, as illustrated by the following example:
-% \begin{verbatim}
-% \documentclass{minimal}
-% \usepackage{xcolor}
-% \begin{document}
-% black\color{red}red1\newpage red2\color{black}black
-% \end{document}
-% \end{verbatim}
-% This works as expected with |dvips|, i.e., `red1' and `red2' being \Color{red}, however, with |pdftex|, `red2' is displayed in \Color{black}.
-% The problem may be solved by using the \Option{fixpdftex} option which simply loads Heiko Oberdiek's \Package{pdfcolmk} package \cite{pdfcolmk}.
-% However, its author also lists some limitations:
-% \begin{itemize}
-% \item Mark limitations: page breaks in math.
-% \item LaTeX's output routine is redefinded.
-% \begin{itemize}
-% \item Changes in the output routine of newer versions of LaTeX are not detected.
-% \item Packages that change the output routine are not supported.
-% \end{itemize}
-% \item It does not support several independent text streams like footnotes.
-% \end{itemize}
 %
 % \subsubsection{Change color of included \File{.eps} file}\label{sec.fixinclude}
 %
@@ -4020,11 +3997,10 @@
    ,table .usage = preamble
 %    \end{macrocode}
 %
-% Use this option to load \People{Heiko}{Oberdiek}'s \Package{pdfcolmk} package:
+% These options are obsolete and only added for compatibility.
 %    \begin{macrocode}
    ,hyperref  .code = {}
-   ,fixpdftex .code = {\AddToHook{package/xcolor/after}{\RequirePackage{pdfcolmk}}}
-   ,fixpdftex .usage = preamble
+   ,fixpdftex .code = {}
  }
 %    \end{macrocode}
 %
