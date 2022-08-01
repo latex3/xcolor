@@ -3547,15 +3547,24 @@
 %
 %
 % \subsection{Preparation}
+%    \begin{macrocode}
+%<*package>
+%    \end{macrocode}
+%
+% \subsubsection{Release handling}
+%
+%    \begin{macrocode}
+\providecommand\DeclareRelease[3]{}
+\providecommand\DeclareCurrentRelease[2]{}
+\DeclareRelease{v2}{0000-00-00}{xcolor-2022-06-12.sty}
+\DeclareCurrentRelease{}{2022-06-01}
+%    \end{macrocode}
 %
 % \subsubsection{File identification}
 %
 % \renewcommand*\MacroFont{\footnotesize\ttfamily}
 % \renewcommand*\AltMacroFont{\footnotesize\ttfamily\slshape}
 %
-%    \begin{macrocode}
-%<*package>
-%    \end{macrocode}
 %
 % \fbox{\MacroFont\string\ProvidesPackage\string{xcolor\string}[\XCfiledate\space\XCfileversion\space LaTeX color extensions (UK)]}
 %
