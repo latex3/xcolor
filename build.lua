@@ -6,8 +6,8 @@
 bundle = ""
 module = "xcolor"
 
-installfiles = {"svgnam.def", "x11nam.def", "xcolor.pro", "xcolor.sty","xcolor-2021-10-31.sty"}
-sourcefiles = {"xcolor.dtx", "xcolor.ins","xcolor-2021-10-31.sty"}
+installfiles = {"svgnam.def", "x11nam.def", "xcolor.pro", "xcolor.sty","xcolor-2022-06-12.sty"}
+sourcefiles = {"xcolor.dtx", "xcolor.ins","xcolor-2022-06-12.sty"}
 unpackfiles = {"xcolor.ins"}
 
 -- Get the .pro files in the right place
