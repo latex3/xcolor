@@ -21,12 +21,12 @@
 %% same distribution. (The sources need not necessarily be
 %% in the same archive or directory.)
 %%
-\ProvidesPackage{xcolor-2021-10-31}
- [2021/10/31 v2.13 LaTeX color extensions (UK)]
+\ProvidesPackage{xcolor}
+ [2022/06/12 v2.14 LaTeX color extensions (UK)]
 %%
 %% ----------------------------------------------------------------
 %% Copyright (C) 2003-2021 by Dr. Uwe Kern <xcolor at ukern dot de>
-%%               2021      LaTeX Project https://github.com/latex3/xcolor/issues
+%%               2021-2022    LaTeX Project https://github.com/latex3/xcolor/issues
 %% ----------------------------------------------------------------
 %%
 %% Please send error reports and suggestions for
@@ -470,7 +470,7 @@
 \def\XC@clr@gray@white{1}
 \@tfor\@@tmp:={grad}{last}{step}\do
  {\XC@let@cN{XC@met@\@@tmp}\@@tmp}
-\def\definecolor{\@testopt{\XC@definecolor}{}}
+\protected\def\definecolor{\@testopt{\XC@definecolor}{}}
 \def\XC@definecolor[#1]#2%
  {\@testopt{\XC@definec@lor[#1]{#2}}\colornameprefix}
 \def\XC@definec@lor[#1]#2[#3]#4#5%
@@ -582,7 +582,7 @@
    {\edef\@@tmp
      {\ifglobalcolors\global\else\xglobal@\fi
       \noexpand\XC@let@cc{\@backslashchar color@#1}{\@backslashchar color@#2}}}}
-\def\DefineNamedColor#1%
+\protected\def\DefineNamedColor#1%
  {\@nameuse{XC@\ifdefinecolors defin\else prepar\fi ecolor}[#1]}
 \def\preparecolor{\@testopt{\XC@preparecolor}{}}
 \def\XC@preparecolor[#1]#2%
@@ -755,20 +755,20 @@
  {\XC@let@Nc\XC@current@color{\@backslashchar color@\XC@@tmp}%
   \edef\current@color{\XC@current@color}%
   \XC@display}
-\def\textcolor#1#{\@textcolor{#1}}
+\protected\def\textcolor#1#{\@textcolor{#1}}
 \def\@textcolor#1#2#3{\protect\leavevmode{\color#1{#2}#3}}
-\def\pagecolor
+\protected\def\pagecolor
  {\begingroup
   \let\ignorespaces\endgroup \let\set@color\set@page@color
   \color}
-\def\nopagecolor
+\protected\def\nopagecolor
  {\@ifundefined{no@page@color}%
    {\PackageInfo{xcolor}{\@backslashchar nopagecolor\space is not supported}}%
    {\no@page@color}}
 \InputIfFileExists{mathcolor.ltx}{}{}
-\def\colorbox#1#{\protect\color@box{#1}}
+\protected\def\colorbox#1#{\color@box{#1}}
 \def\color@box#1#2{\color@b@x\relax{\color#1{#2}}}
-\def\fcolorbox#1#{\color@fbox{#1}}
+\protected\def\fcolorbox#1#{\color@fbox{#1}}
 \def\color@fbox#1#2#3#{\protect\color@fb@x{#1}{#2}{#3}}
 \def\color@fb@x#1#2#3#4%
  {\color@b@x{\fboxsep\z@\color#1{#2}\XC@fbox}%
@@ -1055,7 +1055,7 @@
   \ifin@\def#2{4}\else\expandafter\in@\expandafter:\expandafter{#2}%
   \ifin@\def#2{3}\else\expandafter\in@\expandafter!\expandafter{#2}%
   \ifin@\def#2{2}\else % now there's no >,:,!
-  \if-\expandafter\@car#2\@nil\def#2{2}\else % catches -red
+  \if-\expandafter\@car#2\relax\@nil\def#2{2}\else % catches -red
   \edef#2{\noexpand\in@{/./}{/#2/}}#2%
   \edef#2{\ifin@0\else1\fi}\fi\fi\fi\fi}
 \def\tracingcolors{\begingroup\afterassignment\XC@tracingcolors\count@}
@@ -1405,7 +1405,7 @@
 \let\pst@getcolor\XC@getcolor
 \let\pst@usecolor\XC@usecolor
 \def\c@lor@special#1#2{\edef\@tempa{\write#1{#2}}\@tempa}
-\def\normalcolor{\let\current@color\default@color\set@color}
+\protected\def\normalcolor{\let\current@color\default@color\set@color}
 \AtBeginDocument{\let\default@color\current@color}
 \XC@ifcase\XC@@drv
  {{dvipdf,dvipdfm,dvipdfmx,dvips,pctex32}%
