@@ -1,0 +1,9 @@
+\documentclass{article}
+\input{regression-test}
+\usepackage{xcolor}
+\begin{document}
+\START
+    \selectcolormodel{Gray}
+    \definecolor{SomeColor}{Gray}{12}
+\END
+\end{document}

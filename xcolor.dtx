@@ -3840,6 +3840,7 @@
 % Performs the test |\if|\Meta{str}\Meta[kl]{str} for $k=1,\dots,n$ and $l=1,\ldots,m_n$.
 % If for some $k,l$ the test is `true', then the attached code \Meta[k]{code} is executed.
 % If all tests are `false', then \Meta{default code} is executed.
+% \changes{3.0}{2022-08-10}{moved the patch from hycolor to correct Gray model, issue \#23}
 %    \begin{macrocode}
 \long\def\XC@ifcase#1#2#3%
  {\long\def\XC@if@##1##2%
@@ -6429,10 +6430,12 @@
 %
 % \begin{macro}{\XC@cnv@gray}
 %   \Meta{gray}|,|
+% \changes{3.0}{2022-08-10}{moved the patch from hycolor to correct Gray model, issue \#23}
 %    \begin{macrocode}
 \def\XC@cnv@gray#1,%
  {\XC@ifxcase\tm
    {\XC@mod@rgb {\XC@calcN{#1}\@@tmp \edef\@@tmp{\@@tmp,\@@tmp,\@@tmp}}%
+    \XC@mod@gray{}%
     \XC@mod@cmy {\XC@calcC{#1}\@@tmp \edef\@@tmp{\@@tmp,\@@tmp,\@@tmp}}%
     \XC@mod@cmyk{\XC@calcC{#1}\@@tmp \edef\@@tmp{0,0,0,\@@tmp}}%
     \XC@mod@RGB {\edef\@@scl{\rangeRGB}\XC@calcM{#1}\@@tmp
