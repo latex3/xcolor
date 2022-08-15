@@ -4823,7 +4823,21 @@
 %
 %
 % \subsubsection{Colors}\label{sec.definition}
-%
+% \begin{macro}{\XC@expl@color@set@@nnn}
+% \begin{macro}{\XC@expl@color@set@@nn}
+% We want to define colors also for l3color.
+%    \begin{macrocode}
+\ExplSyntaxOn
+\cs_set_eq:NN \XC@expl@color@set@@nnn \color_set:nnn
+\cs_set_eq:NN \XC@expl@color@set@@nn \color_set:nn
+\ExplSyntaxOff
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% We have to suppress the pdfresources patch
+%    \begin{macrocode}
+\disable@package@load{xcolor-patches-tmp-ltx}{}
+%    \end{macrocode}
 % \begin{macro}{\definecolor}
 %   \oarg{type}\marg{name}\oarg{prefix}\marg{model-list}\marg{spec-list}\\
 % Extends the facilities of \LC's |\definecolor|.
@@ -4843,12 +4857,10 @@
 \def\XC@definecolor[#1]#2%
  {\@testopt{\XC@definec@lor[#1]{#2}}\colornameprefix}
 %    \end{macrocode}
-% |\@expl@xcolor@set@@nonn| prepares color for the l3color support.
+%
 %    \begin{macrocode}
-\providecommand\@expl@xcolor@set@@nonn[4]{}
 \def\XC@definec@lor[#1]#2[#3]#4#5%
- {\@expl@xcolor@set@@nonn{#2}{#4}{#5}{#1}%
-  \begingroup
+ {\begingroup
   \XC@sdef\@@cls{#1}\XC@edef\@@nam{#2}\edef\colornameprefix{#3}%
   \XC@logdef\@@nam
   \XC@getmodclr02{#4}{#5}{\let\@@tmp\relax}%
@@ -4888,13 +4900,15 @@
       \fi
 %    \end{macrocode}
 %
-% Finally write all information into macro |\\color@|\Meta{name}:
+% Finally write all information into macro |\\color@|\Meta{name}
+% and setup the l3color:
 %    \begin{macrocode}
       \toks@\expandafter{\@@drv}%
       \edef\@@tmp
        {\ifglobalcolors\global\else\xglobal@\fi
         \noexpand\@namedef{\@backslashchar color@\@@nam}%
-         {\noexpand\xcolor@{\@@cls}{\the\toks@}{\@@mod}{\@@clr}}}%
+         {\noexpand\xcolor@{\@@cls}{\the\toks@}{\@@mod}{\@@clr}}%
+        \noexpand\XC@expl@color@set@@nnn{\@@nam}{\@@mod}{\@@clr}}%
     \fi}%
   \expandafter\endgroup\@@tmp\xglobal@stop}
 %    \end{macrocode}
@@ -5015,16 +5029,11 @@
 %    \begin{macrocode}
 \def\colorlet{\@testopt{\XC@colorlet}{}}
 %    \end{macrocode}
-% |\@expl@xcolor@set@@ne| prepares colors also for l3color.
-% As the old patch defined it with |\cs_new| we have to undefine it again temporarly.
+%
 %    \begin{macrocode}
-\IfDocumentMetadataTF
- {\@ifundefined{@expl@xcolor@set@@ne}{\AtEndOfPackage{\let\@expl@xcolor@set@@ne\undefined}{}}{}}
- {}
-\providecommand\@expl@xcolor@set@@ne[2]{}
 \def\XC@colorlet[#1]#2{\@testopt{\XC@col@rlet[#1]{#2}}{}}
 \def\XC@col@rlet[#1]#2[#3]#4%
- {\@expl@xcolor@set@@ne{#2}{#4}%
+ {%
   \begingroup
   \edef\@@cls{#1}\XC@edef\@@nam{#2}\XC@sdef\@@mod{#3}\XC@edef\@@clr{#4}%
 %    \end{macrocode}
@@ -5060,7 +5069,8 @@
    {\c@lor@error{`#2'}\let\@@tmp\@empty}%
    {\edef\@@tmp
      {\ifglobalcolors\global\else\xglobal@\fi
-      \noexpand\XC@let@cc{\@backslashchar color@#1}{\@backslashchar color@#2}}}}
+      \noexpand\XC@let@cc{\@backslashchar color@#1}{\@backslashchar color@#2}%
+      \noexpand\XC@expl@color@set@@nn{#1}{#2}}}}
 %    \end{macrocode}
 % \end{macro}
 %
