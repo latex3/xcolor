@@ -5388,6 +5388,9 @@
 %    \begin{macrocode}
 \let\XC@ori@set@color\set@color
 \ExplSyntaxOn
+\str_if_exist:NF \c_sys_backend_str
+      { \sys_load_backend:n { } }
+
 \cs_new_protected:Npn \XC@set@color #1#2#3#4#5
  {
   \tl_if_eq:NnTF \current@color {#3}
@@ -5398,7 +5401,16 @@
         { cmy }{ \color_select:nn{cmyk}{#5,0} }
        }
        {
-         \color_select:nn{#4}{#5}
+         \str_if_eq:VnTF\c_sys_backend_str { dvips }
+          {
+            \str_case:nnF {#2}
+              {
+                {ps}     { \XC@ori@set@color }
+                {named}  { \XC@ori@set@color }
+              }
+              { \color_select:nn{#4}{#5}}
+          }
+          { \color_select:nn{#4}{#5} }
        }
     }
     {
