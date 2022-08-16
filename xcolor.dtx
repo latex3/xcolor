@@ -5383,7 +5383,34 @@
 % \subsection{Color application}
 %
 % \subsubsection{Standard color commands}
-%
+%  \begin{macro}{\set@color}
+%  |\set@color| is redefined to use the l3color command if possible.
+%    \begin{macrocode}
+\let\XC@ori@set@color\set@color
+\ExplSyntaxOn
+\cs_new_protected:Npn \XC@set@color #1#2#3#4#5
+ {
+  \tl_if_eq:NnTF \current@color {#3}
+    {
+      \str_case:nnF {#4}
+       {
+        {&spot}{ \XC@ori@set@color }
+        { cmy }{ \color_select:nn{cmyk}{#5,0} }
+       }
+       {
+         \color_select:nn{#4}{#5}
+       }
+    }
+    {
+      %for package like crop that sets \current@color manually
+      \PackageWarning{xcolor}{color~differences~detected}{}
+      \XC@ori@set@color
+    }
+ }
+\ExplSyntaxOff
+\def\set@color{\expandafter\XC@set@color\XC@current@color}
+%    \end{macrocode}
+%  \end{macro}
 %  \begin{macro}{\color}
 %   \marg{color}\\
 %   \oarg{model-list}\marg{spec-list}\\
