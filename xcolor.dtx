@@ -3855,22 +3855,38 @@
 % \subsubsection{Color model selection}
 %
 % \begin{macro}{\selectcolormodel}
+% \begin{macro}{\XC@expl@setcolormodel@n}
 %   \marg{num model}\\
 % Determines the target model for color definitions with |\definecolor| and friends.
+% The command sets also the target model for l3colors.
 %    \begin{macrocode}
 \def\selectcolormodel#1%
  {\@ifundefined{XC@mod@#1}%
    {\c@lor@error{target model `#1'}}%
    {\expandafter\ifx\csname XC@mod@#1\endcsname\XC@mod@natural
       \def\XC@tgt@mod##1{##1}\convertcolorsDfalse\convertcolorsUfalse
+      \XC@expl@setcolormodel@n {natural}%
     \else\expandafter\ifx\csname XC@mod@#1\endcsname\XC@mod@named
       \c@lor@error{target model `#1'}
     \else
       \edef\XC@tgt@mod##1{#1}\convertcolorsDtrue\convertcolorsUtrue
+      \XC@expl@setcolormodel@n {#1}%
     \fi\fi}}
+\ExplSyntaxOn
+\cs_set_protected:Npn \XC@expl@setcolormodel@n #1
+  {
+    \str_if_eq:nnTF {#1} { natural }
+      {
+        \tl_set:Nn \l_color_fixed_model_tl {}
+      }
+      {
+        \tl_set:Nn \l_color_fixed_model_tl { #1 }
+      }
+  }
+\ExplSyntaxOff
 %    \end{macrocode}
 % \end{macro}
-%
+% \end{macro}
 % \begin{macro}{\XC@mod@Hsb}
 % \begin{macro}{\XC@mod@tHsb}
 % \begin{macro}{\XC@mod@ignore}
@@ -4828,7 +4844,16 @@
 % We want to define colors also for l3color.
 %    \begin{macrocode}
 \ExplSyntaxOn
-\cs_set_eq:NN \XC@expl@color@set@@nnn \color_set:nnn
+\cs_set_protected:Npn \XC@expl@color@set@@nnn #1#2#3
+ {
+   \str_if_eq:nnTF {#2}{ cmy }
+    {
+      \color_set:nnn{#1}{ cmyk }{#3,0}
+    }
+    {
+      \color_set:nnn{#1}{#2}{#3}
+    }
+ }
 \cs_set_eq:NN \XC@expl@color@set@@nn \color_set:nn
 \ExplSyntaxOff
 %    \end{macrocode}
