@@ -1,0 +1,24 @@
+% !Mode:: "TeX:UTF-8:Main"
+\DocumentMetadata{}
+\input{regression-test}
+\documentclass{article}
+
+\usepackage{xcolor}
+\usepackage{colorspace}
+
+\begin{document}
+\ExplSyntaxOn\makeatletter
+% no full support for spot colors, 
+% they use the cmyk fallback. 
+\TEST{colorspace-spotcolor}
+ {
+   \definespotcolor{test}{PANTONE 3005 U}{1,0.56,0,0}
+   \color_export:nnnN {cmyk}{1,0.56,0,0}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }
+\ExplSyntaxOff
+
+
+\OMIT 
+\end{document}
