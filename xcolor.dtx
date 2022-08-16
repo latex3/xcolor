@@ -4978,9 +4978,10 @@
 % Retrieve model position |\XC@@pos|, model |\@@mod|, and target model |\@@Mod| from multiple definitions (up to~8), separated by `|/|'.
 %    \begin{macrocode}
 \def\XC@getmod#1/#2/#3/#4/#5/#6/#7/#8/#9\XC@@
- {\XC@g@tm@d0#1::\XC@@ \XC@getm@d1{#2}\XC@getm@d2{#3}%
+ {\def\XC@dflt@@mod{#1}%
+  \XC@g@tm@d0#1::\XC@@ \XC@getm@d1{#2}\XC@getm@d2{#3}%
   \XC@getm@d3{#4}\XC@getm@d4{#5}\XC@getm@d5{#6}\XC@getm@d6{#7}%
-  \XC@getm@d7{#8}\def\XC@@pos{0}\def\@@mod{#1}\@gobble\@nnil}%
+  \XC@getm@d7{#8}\def\XC@@pos{0}\let\@@mod\XC@dflt@@mod\@gobble\@nnil}%
 %    \end{macrocode}
 %
 %    \begin{macrocode}
@@ -4992,7 +4993,10 @@
 %    \begin{macrocode}
 \def\XC@g@tm@d#1#2:#3:#4\XC@@
  {\@ifxempty{#3}{\let\@@Mod\XC@mod@ignore\XC@getm@d0{#2}}%
-    {\def\@@Mod{#2}\XC@getm@d0{#3}}}%
+    {\def\@@Mod{#2}%
+     \def\XC@tgt@mod##1{#2}%
+     \def\XC@dflt@@mod{#3}%
+     \XC@getm@d0{#3}}}%
 %    \end{macrocode}
 % \end{macro}
 %
