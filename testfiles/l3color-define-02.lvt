@@ -7,7 +7,7 @@
 
 \begin{document}
 \ExplSyntaxOn\makeatletter
-
+\START
 \TEST{gray}
  {
    \definecolor{test}{gray} {0.5}
@@ -54,7 +54,7 @@
 %small rounding differences possible
 \TEST{wave}
  {
-   \definecolor{test}{wave} {363}   
+   \definecolor{test}{wave} {363}
    \color_export:nnnN {wave}{363}{backend}\l_tmpa_tl
    \color_export:nnN  {test}{backend}\l_tmpb_tl
    \TYPE{Value:~363}
@@ -74,7 +74,7 @@
    \TYPE{l3color (original):~\l_tmpa_tl}
    \TYPE{}
    \tl_set:Nn\l_tmpa_tl{{rgb}{0.30068~0~0.30069}}
-   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}   
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
    \definecolor{test}{wave} {610}
    \color_export:nnnN {wave}{610}{backend}\l_tmpa_tl
    \color_export:nnN  {test}{backend}\l_tmpb_tl
@@ -85,7 +85,7 @@
    \TYPE{l3color (original):~\l_tmpa_tl}
    \TYPE{}
    \tl_set:Nn\l_tmpa_tl{{rgb}{1.0~0.54072~0}}
-   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}   
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
    \definecolor{test}{wave} {780}
    \color_export:nnnN {wave}{780}{backend}\l_tmpa_tl
    \color_export:nnN  {test}{backend}\l_tmpb_tl
@@ -96,7 +96,7 @@
    \TYPE{l3color (original):~\l_tmpa_tl}
    \TYPE{}
    \tl_set:Nn\l_tmpa_tl{ {rgb}{0.30524~0~0}}
-   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}   
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
    \definecolor{test}{wave} {814}
    \color_export:nnnN {wave}{814}{backend}\l_tmpa_tl
    \color_export:nnN  {test}{backend}\l_tmpb_tl
@@ -118,7 +118,7 @@
    \color_export:nnN  {test}{backend}\l_tmpb_tl
    \TYPE{xcolor:~\tl_use:c{\string\color@test}}
    \TYPE{l3color:~\l_tmpb_tl}
-   \TYPE{}   
+   \TYPE{}
    \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
  }
 
@@ -169,7 +169,7 @@
    \definecolor{test}{RGB} {12,98,254}
    \color_export:nnnN {RGB}{\fpeval{12*255/300},\fpeval{98*255/300},\fpeval{254*255/300}}{backend}\l_tmpa_tl
    \color_export:nnN  {test}{backend}\l_tmpb_tl
-   \tl_set:Nn\l_tmpa_tl{{rgb}{0.04~0.32668~0.84668}}   
+   \tl_set:Nn\l_tmpa_tl{{rgb}{0.04~0.32668~0.84668}}
    \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
  }
 
@@ -180,15 +180,15 @@
    \color_export:nnN  {test}{backend}\l_tmpb_tl
    \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
  }
- 
+
 \TEST{Hsb}
  {
    \definecolor{test}{Hsb} {180,0.4,0.2}
    \color_export:nnnN {Hsb}{180,0.4,0.2}{backend}\l_tmpa_tl
    \color_export:nnN  {test}{backend}\l_tmpb_tl
    \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
- } 
- 
+ }
+
 \TEST{Hsb-with-range}
  {
    \def\rangeHsb{400}
@@ -196,9 +196,9 @@
    \color_export:nnnN {Hsb}{\fp_eval:n{180*360/400},0.4,0.2}{backend}\l_tmpa_tl
    \color_export:nnN  {test}{backend}\l_tmpb_tl
    \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
- }  
- 
-% HSB has a rounding error (0.79166 <-> 0.79167) 
+ }
+
+% HSB has a rounding error (0.79166 <-> 0.79167)
 \TEST{HSB}
  {
    \definecolor{test}{HSB} {180,100,240}
@@ -216,8 +216,8 @@
    \color_export:nnN  {test}{backend}\l_tmpb_tl
    \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
  }
- 
-% xcolor makes 1 from FF and not 1.0 
+
+% xcolor makes 1 from FF and not 1.0
 \TEST{HTML}
  {
    \definecolor{test}{HTML} {FF5733}
@@ -225,9 +225,9 @@
    \color_export:nnN  {test}{backend}\l_tmpb_tl
    \tl_set:Nn \l_tmpa_tl{{rgb}{1.0~0.34119~0.2}}
    \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
- } 
- 
-% named is ignored and only the model is used 
+ }
+
+% named is ignored and only the model is used
 \TEST{named}
  {
    \definecolor[named]{test}{HTML} {FF5733}
@@ -236,27 +236,27 @@
    \tl_set:Nn \l_tmpa_tl{{rgb}{1.0~0.34119~0.2}}
    \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
  }
- 
-% later, when l3color no longer tries to pick it up 
+
+% later, when l3color no longer tries to pick it up
 \TEST{ps}
  {
   % \definecolor[ps]{test}{rgb}{bar},
 %   \color_export:nnN  {test}{backend}\l_tmpb_tl
 %   \tl_set:Nn \l_tmpa_tl{{rgb}{1.0 1.0 1.0}}
 %   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
- } 
- 
- 
-% 
+ }
+
+
+%
 \TEST{force-target}
  {
    \definecolor{test}{cmyk:HTML} {FF5733}
    \color_export:nnN  {test}{backend}\l_tmpb_tl
    \tl_set:Nn\l_tmpa_tl {{cmyk}{0.0~0.65881~0.8~0.0}}
    \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
- } 
- 
-% color is cmyk. But export and use converts to rgb 
+ }
+
+% color is cmyk. But export and use converts to rgb
 \TEST{force-target-with-select}
  {
    \selectcolormodel{rgb}
@@ -267,8 +267,8 @@
    \color_export:nnN  {test}{backend}\l_tmpb_tl
    \tl_set:Nn\l_tmpa_tl {{rgb}{1~0.34119~0.2}}
    \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
- }  
- 
+ }
+
 \TEST{force-target-multi}
  {
    \definecolor{test}{cmyk:HTML/cmyk} {FF5733/0.4,0.6,1,1}
@@ -276,17 +276,17 @@
    \color_export:nnN  {test}{backend}\l_tmpb_tl
    \TYPE{xcolor:~\tl_use:c{\string\color@test}}
    \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
- } 
-  
+ }
+
 \TEST{multi-model}
  {
    \definecolor{test}{rgb/cmyk} {0.3,0.4,0.5/1,0.1,0.5,0.6}
    \color_show:n{test}
    \color_export:nnnN {rgb}{0.3,0.4,0.5}{backend}\l_tmpa_tl
-   \color_export:nnN  {test}{backend}\l_tmpb_tl   
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
    \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
  }
- 
+
 \TEST{multi-model-with-target}
  {
    \selectcolormodel{cmyk}
@@ -298,16 +298,16 @@
    \TYPE{l3color:~\l_tmpb_tl}
    \TYPE{}
    \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
- } 
+ }
 \ExplSyntaxOff
 
 
 \TEST{force-target-multi-catcode}
  {
-   \definecolor{test}{cmyk:HTML/cmyk} {FF5733/0.4,0.6,1,1}   
+   \definecolor{test}{cmyk:HTML/cmyk} {FF5733/0.4,0.6,1,1}
    \TYPE{xcolor: \csname\string\color@test\endcsname}
-   \csname color_show:n\endcsname{test}   
- } 
- 
-\OMIT 
+   \csname color_show:n\endcsname{test}
+ }
+
+\OMIT
 \end{document}

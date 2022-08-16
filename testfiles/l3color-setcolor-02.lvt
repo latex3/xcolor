@@ -1,0 +1,271 @@
+% !Mode:: "TeX:UTF-8:Main"
+
+\documentclass{article}
+\input{regression-test}
+\usepackage{xcolor}
+\usepackage{colorspace}
+
+\begin{document}
+\ExplSyntaxOn\makeatletter
+\START
+\TEST{gray}
+ {
+   \definecolor{test}{gray} {0.5}
+   \color{test} gray
+   \TYPE{\XC@current@color}
+   \TYPE{\l__color_current_tl}
+   \TYPE{\current@color}
+ }
+\TEST{rgb}
+ {
+   \definecolor{test}{rgb} {1,0.3,0.5}
+   \color{test} rgb
+   \TYPE{\XC@current@color}
+   \TYPE{\l__color_current_tl}
+   \TYPE{\current@color}
+ }
+
+\TEST{rgb-to-cmyk}
+ {
+   \selectcolormodel{cmyk}
+   \definecolor{test}{rgb} {1,0.3,0.5}
+   \color{test} rgb-to-cmyk
+   \TYPE{\XC@current@color}
+   \TYPE{\l__color_current_tl}
+   \TYPE{\current@color}
+
+ }
+
+\TEST{cmyk}
+ {
+   \definecolor{test}{cmyk} {0.5,0.4,1,0.2}
+   \color{test} cmyk
+   \TYPE{\XC@current@color}
+   \TYPE{\l__color_current_tl}
+   \TYPE{\current@color}
+ }
+
+% hsb is stored as rgb in l3color and the xcolor backend
+\TEST{hsb}
+ {
+   \definecolor{test}{hsb} {0.5,0.4,0.2}
+   \color{test} rhsb
+   \TYPE{\XC@current@color}
+   \TYPE{\l__color_current_tl}
+   \TYPE{\current@color}
+ }
+
+%small rounding differences possible
+\TEST{wave}
+ {
+   \definecolor{test}{wave} {610}
+   \color{test} wave
+   \TYPE{\XC@current@color}
+   \TYPE{\l__color_current_tl}
+   \TYPE{\current@color}
+ }
+
+%the model doesn't exist. We only test the value
+\TEST{tHsb}
+ {
+   \definecolor{test}{tHsb} {233,0.4,0.2}
+   \color{test} tHsb
+   \TYPE{\XC@current@color}
+   \TYPE{\l__color_current_tl}
+   \TYPE{\current@color}
+ }
+
+\TEST{tHsb-with-range}
+ {
+   \def\rangeHsb{300}
+   \def\rangetHsb{80,45;130,70;185,130;210,175;240,240;300,300}
+   \definecolor{test}{tHsb} {233,0.4,0.2}
+   \color{test} tHsb~with~range
+   \TYPE{\XC@current@color}
+   \TYPE{\l__color_current_tl={rgb}{0.15973~0.12~0.2}}
+   \TYPE{\current@color}
+ }
+
+\TEST{Gray}
+ {
+   \definecolor{test}{Gray} {12}
+   \color{test} Gray
+   \TYPE{\XC@current@color}
+   \TYPE{\l__color_current_tl}
+   \TYPE{\current@color}
+ }
+
+
+\TEST{Gray-with-range}
+ {
+   \def\rangeGray{30}
+   \definecolor{test}{Gray} {12}
+   \color{test} Gray-with-range
+   \TYPE{\XC@current@color}
+   \TYPE{\l__color_current_tl}
+   \TYPE{\current@color}
+ }
+
+\TEST{RGB}
+ {
+   \definecolor{test}{RGB} {12,98,254}
+   \color{test} RGB
+   \TYPE{\XC@current@color}
+   \TYPE{\l__color_current_tl}
+   \TYPE{\current@color}
+ }
+
+%small rounding error
+\TEST{RGB-with-range}
+ {
+   \def\rangeRGB{300}
+   \definecolor{test}{RGB} {12,98,254}
+   \color{test} tHsb
+   \TYPE{\XC@current@color}
+   \TYPE{\l__color_current_tl}
+   \TYPE{\current@color}
+ }
+
+\TEST{cmy}
+ {
+   \definecolor{test}{cmy}{0.5,0.5,1}
+   \color{test} cmy
+   \TYPE{\XC@current@color}
+   \TYPE{\l__color_current_tl}
+   \TYPE{\current@color}
+ }
+
+\TEST{Hsb}
+ {
+   \definecolor{test}{Hsb} {180,0.4,0.2}
+   \color{test} Hsb
+   \TYPE{\XC@current@color}
+   \TYPE{\l__color_current_tl}
+   \TYPE{\current@color}
+ }
+
+\TEST{Hsb-with-range}
+ {
+   \def\rangeHsb{400}
+   \definecolor{test}{Hsb} {180,0.4,0.2}
+   \color{test} Hsb-with-range
+   \TYPE{\XC@current@color}
+   \TYPE{\l__color_current_tl}
+   \TYPE{\current@color}
+ }
+
+% HSB has a rounding error (0.79166 <-> 0.79167)
+\TEST{HSB}
+ {
+   \definecolor{test}{HSB} {180,100,240}
+   \color{test} HSB
+   \tl_set:Nn \l_tmpa_tl{{rgb}{0.79166~0.58333~1.0}}
+   \TYPE{\XC@current@color}
+   \TYPE{\l__color_current_tl=\l_tmpa_tl?}
+   \TYPE{\current@color}
+  }
+
+\TEST{HSB-with-range}
+ {
+   \def\rangeHSB{400}
+   \definecolor{test}{HSB} {180,100,240}
+   \color{test} HSB-with-range
+   \TYPE{\XC@current@color}
+   \TYPE{\l__color_current_tl}
+   \TYPE{\current@color}
+ }
+
+% xcolor makes 1 from FF and not 1.0
+\TEST{HTML}
+ {
+   \definecolor{test}{HTML} {FF5733}
+   \color{test} HTML
+   \TYPE{\XC@current@color}
+   \TYPE{\l__color_current_tl}
+   \TYPE{\current@color}
+ }
+
+% named is ignored and only the model is used
+\TEST{named}
+ {
+   \definecolor[named]{test}{HTML} {FF5733}
+   \color{test} named
+   \show\XC@current@color
+   \TYPE{\XC@current@color}
+   \TYPE{\l__color_current_tl}
+   \TYPE{\current@color}
+ }
+
+\TEST{ps}
+ {
+   \definecolor[ps]{test}{rgb}{bar},
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \tl_set:Nn \l_tmpa_tl{{rgb}{1.0~1.0~1.0}}
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }
+
+
+%
+\TEST{force-target}
+ {
+   \definecolor{test}{cmyk:HTML} {FF5733}
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \tl_set:Nn\l_tmpa_tl {{cmyk}{0.0~0.65881~0.8~0.0}}
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }
+
+% color is cmyk. But export and use converts to rgb
+\TEST{force-target-with-select}
+ {
+   \selectcolormodel{rgb}
+   \definecolor{test}{cmyk:HTML} {FF5733}
+   \color_show:n{test}
+   \color{test}
+   \TYPE{xcolor:~\XC@current@color}
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \tl_set:Nn\l_tmpa_tl {{rgb}{1~0.34119~0.2}}
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }
+
+\TEST{force-target-multi}
+ {
+   \definecolor{test}{cmyk:HTML/cmyk} {FF5733/0.4,0.6,1,1}
+   \color_export:nnnN  {cmyk}{0.4,0.6,1,1}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \TYPE{xcolor:~\tl_use:c{\string\color@test}}
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }
+
+\TEST{multi-model}
+ {
+   \definecolor{test}{rgb/cmyk} {0.3,0.4,0.5/1,0.1,0.5,0.6}
+   \color_show:n{test}
+   \color_export:nnnN {rgb}{0.3,0.4,0.5}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }
+
+\TEST{multi-model-with-target}
+ {
+   \selectcolormodel{cmyk}
+   \definecolor{test}{rgb/cmyk} {0.3,0.4,0.5/1,0.1,0.5,0.6}
+   \color_show:n{test}
+   \color_export:nnnN {cmyk}{1,0.1,0.5,0.6}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \TYPE{xcolor:~\tl_use:c{\string\color@test}}
+   \TYPE{l3color:~\l_tmpb_tl}
+   \TYPE{}
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }
+\ExplSyntaxOff
+
+
+\TEST{force-target-multi-catcode}
+ {
+   \definecolor{test}{cmyk:HTML/cmyk} {FF5733/0.4,0.6,1,1}
+   \TYPE{xcolor: \csname\string\color@test\endcsname}
+   \csname color_show:n\endcsname{test}
+ }
+
+\OMIT
+\end{document}

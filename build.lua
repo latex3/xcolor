@@ -26,6 +26,7 @@ function typeset_xcolor2 (f)
  return 0
 end
  
+checkconfigs ={"build", "config-etex"} 
 
 typesetfiles={"xcolor.dtx","xcolor2.tex"}
 specialtypesetting={}

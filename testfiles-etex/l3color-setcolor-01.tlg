@@ -1,0 +1,119 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+============================================================
+TEST 1: gray
+============================================================
+gray 0.5
+{gray}{0.5}
+gray 0.5
+============================================================
+============================================================
+TEST 2: rgb
+============================================================
+rgb 1 0.3 0.5
+{rgb}{1.0 0.3 0.5}
+rgb 1 0.3 0.5
+============================================================
+============================================================
+TEST 3: cmyk
+============================================================
+cmyk 0.5 0.4 1 0.2
+{cmyk}{0.5 0.4 1.0 0.2}
+cmyk 0.5 0.4 1 0.2
+============================================================
+============================================================
+TEST 4: named
+============================================================
+> \XC@current@color=macro:
+->\xcolor@ {named}{ XC@test}{rgb}{1,0.34119,0.2}.
+<argument> ... {test}named\show \XC@current@color 
+                                                  \TYPE {\XC@current@color }...
+l. ... }
+ XC@test
+{gray}{0.0}
+ XC@test
+============================================================
+============================================================
+TEST 5: ps
+============================================================
+> \XC@current@color=macro:
+->\xcolor@ {ps}{rgb bar}{rgb}{1,1,1}.
+<argument> ...lor {test}ps\show \XC@current@color 
+                                                  \TYPE {\XC@current@color }...
+l. ... }
+rgb bar
+{gray}{0.0}
+rgb bar
+============================================================
+Completed box being shipped out [1]
+\vbox(633.0+0.0)x407.0
+.\hbox(0.0+0.0)x0.0
+.\glue 16.0
+.\vbox(617.0+0.0)x345.0, shifted 62.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{color push gray 0.0}
+....\special{ps:SDict begin /color.sc {} def end}
+....\hbox(0.0+0.0)x345.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(550.0+0.0)x345.0, glue set 539.94232fil
+...\write-{}
+...\special{color push gray 0.0}
+...\special{ps:SDict begin /color.sc {} def end}
+...\special{color push gray 0.5}
+...\special{ps:SDict begin /color.sc {} def end}
+...\glue(\topskip) 3.05556
+...\hbox(6.94444+1.94444)x345.0, glue set 235.16643fil
+....\hbox(0.0+0.0)x15.0
+....\OT1/cmr/m/n/10 g
+....\OT1/cmr/m/n/10 r
+....\OT1/cmr/m/n/10 a
+....\kern-0.27779
+....\OT1/cmr/m/n/10 y
+....\special{color pop}
+....\special{color push rgb 1.0 0.3 0.5}
+....\special{ps:SDict begin /color.sc {} def end}
+....\OT1/cmr/m/n/10 r
+....\OT1/cmr/m/n/10 g
+....\OT1/cmr/m/n/10 b
+....\special{color pop}
+....\special{color push cmyk 0.5 0.4 1.0 0.2}
+....\special{ps:SDict begin /color.sc {} def end}
+....\OT1/cmr/m/n/10 c
+....\OT1/cmr/m/n/10 m
+....\kern-0.27779
+....\OT1/cmr/m/n/10 y
+....\OT1/cmr/m/n/10 k
+....\special{color pop}
+....\special{color push  XC@test}
+....\OT1/cmr/m/n/10 n
+....\OT1/cmr/m/n/10 a
+....\OT1/cmr/m/n/10 m
+....\OT1/cmr/m/n/10 e
+....\OT1/cmr/m/n/10 d
+....\special{color pop}
+....\special{color push rgb bar}
+....\OT1/cmr/m/n/10 p
+....\OT1/cmr/m/n/10 s
+....\special{color pop}
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue -1.94444
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 23.55556
+..\hbox(6.44444+0.0)x345.0
+...\special{color push gray 0.0}
+...\special{ps:SDict begin /color.sc {} def end}
+...\hbox(6.44444+0.0)x345.0, glue set 170.0fil
+....\glue 0.0 plus 1.0fil
+....\OT1/cmr/m/n/10 1
+....\glue 0.0 plus 1.0fil
+...\special{color pop}
+.\kern 0.0
+(l3color-setcolor-01.aux)

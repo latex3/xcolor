@@ -5,54 +5,13 @@
 
 \usepackage{xcolor}
 
-
+\definespotcolor{spot}{PANTONE 3005 U}{1,0.56,0,0}
 \begin{document}
-\ExplSyntaxOn\makeatletter
-% no full support for spot colors, 
-% they use the cmyk fallback. 
-\TEST{colorlet}
- {
-   \colorlet{test}{red}
-   \color_export:nnN  {red}{backend}\l_tmpa_tl
-   \color_export:nnN  {test}{backend}\l_tmpb_tl
-   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
- }
- 
-\TEST{colorlet}
- {
-   \colorlet{test}{red!50!blue}
-   \color_export:nnnN {rgb}{0.5,0,0.5}{backend}\l_tmpa_tl
-   \color_export:nnN  {test}{backend}\l_tmpb_tl
-   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
- } 
- 
-\TEST{colorlet}
- {
-   \colorlet{test}[cmyk]{red!50!blue}
-   \color_export:nnnN {cmyk}{0,0.5,0,0.5}{backend}\l_tmpa_tl
-   \color_export:nnN  {test}{backend}\l_tmpb_tl
-   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
- }  
- 
-%the named + ps is only of interest in dvips, and is ignored by l3color 
-\TEST{colorlet}
- {
-   \colorlet[named]{test}{red!50!blue}
-   \color_export:nnnN {rgb}{0.5,0,0.5}{backend}\l_tmpa_tl
-   \color_export:nnN  {test}{backend}\l_tmpb_tl
-   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
- }   
- 
-% value is always black with l3color 
-\TEST{colorlet}
- {
-   \colorlet[ps]{test}{red!50!blue}
-   \color_export:nnnN {rgb}{1,1,1}{backend}\l_tmpa_tl
-   \color_export:nnN  {test}{backend}\l_tmpb_tl
-   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
- }    
-\ExplSyntaxOff
+\START
+\showoutput
 
+\color{spot} spot
 
-\OMIT 
+\color{red!
+\OMIT
 \end{document}

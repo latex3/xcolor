@@ -1,0 +1,64 @@
+% !Mode:: "TeX:UTF-8:Main"
+
+\documentclass{article}
+\input{regression-test}
+\usepackage{xcolor}
+
+\begin{document}
+\ExplSyntaxOn\makeatletter
+\showoutput
+\START
+\TEST{gray}
+ {
+   \definecolor{test}{gray} {0.5}
+   \color{test} gray
+   \TYPE{\XC@current@color}
+   \TYPE{\l__color_current_tl}
+   \TYPE{\current@color}
+ }
+\TEST{rgb}
+ {
+   \definecolor{test}{rgb} {1,0.3,0.5}
+   \color{test} rgb
+   \TYPE{\XC@current@color}
+   \TYPE{\l__color_current_tl}
+   \TYPE{\current@color} 
+ }
+
+
+\TEST{cmyk}
+ {
+   \definecolor{test}{cmyk} {0.5,0.4,1,0.2}
+   \color{test} cmyk
+   \TYPE{\XC@current@color}
+   \TYPE{\l__color_current_tl}
+   \TYPE{\current@color}
+ }
+
+
+\TEST{named}
+ {
+   \definecolor[named]{test}{HTML} {FF5733}
+   \color{test} named
+   \show\XC@current@color
+   \TYPE{\XC@current@color}
+   \TYPE{\l__color_current_tl}
+   \TYPE{\current@color}
+ }
+
+% later, when l3color no longer tries to pick it up
+\TEST{ps}
+ {
+    \definecolor[ps]{test}{rgb}{bar}
+    \color{test} ps
+       \show\XC@current@color
+   \TYPE{\XC@current@color}
+   \TYPE{\l__color_current_tl}
+   \TYPE{\current@color}
+ 
+ }
+
+
+\ExplSyntaxOff
+
+\end{document}
