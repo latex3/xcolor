@@ -1,0 +1,312 @@
+% !Mode:: "TeX:UTF-8:Main"
+
+\documentclass{article}
+\input{regression-test}
+\usepackage{xcolor}
+
+\begin{document}
+\ExplSyntaxOn\makeatletter
+
+\TEST{gray}
+ {
+   \definecolor{test}{gray} {0.5}
+   \color_export:nnnN {gray}{0.5}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }
+
+\TEST{rgb}
+ {
+   \selectcolormodel{cmyk}
+   \definecolor{test}{rgb} {1,0.3,0.5}
+   \color_export:nnnN {cmyk}{0,0.7,0.5,0}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }
+
+\TEST{rgb-to-cmyk}
+ {
+   \definecolor{test}{rgb} {1,0.3,0.5}
+   \color_export:nnnN {rgb}{1,0.3,0.5}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }
+
+
+\TEST{cmyk}
+ {
+   \definecolor{test}{cmyk} {0.5,0.4,1,0.2}
+   \color_export:nnnN {cmyk}{0.5,0.4,1,0.2}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }
+
+% hsb is stored as rgb in l3color and the xcolor backend
+\TEST{hsb}
+ {
+   \definecolor{test}{hsb} {0.5,0.4,0.2}
+   \color_export:nnnN {hsb}{0.5,0.4,0.2}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }
+
+%small rounding differences possible
+\TEST{wave}
+ {
+   \definecolor{test}{wave} {363}   
+   \color_export:nnnN {wave}{363}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \TYPE{Value:~363}
+   \TYPE{xcolor:~\tl_use:c{\string\color@test}}
+   \TYPE{l3color:~\l_tmpb_tl}
+   \TYPE{l3color (original):~\l_tmpa_tl}
+   \TYPE{}
+   \tl_set:Nn\l_tmpa_tl{{rgb}{0.00316~0~0.00316}}
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+   \definecolor{test}{wave} {380}
+   \color_export:nnnN {wave}{380}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \TYPE{-----------}
+   \TYPE{Value:~380~(l3color~range)}
+   \TYPE{xcolor:~\tl_use:c{\string\color@test}}
+   \TYPE{l3color:~\l_tmpb_tl}
+   \TYPE{l3color (original):~\l_tmpa_tl}
+   \TYPE{}
+   \tl_set:Nn\l_tmpa_tl{{rgb}{0.30068~0~0.30069}}
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}   
+   \definecolor{test}{wave} {610}
+   \color_export:nnnN {wave}{610}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \TYPE{-----------}
+   \TYPE{Value:~610}
+   \TYPE{xcolor:~\tl_use:c{\string\color@test}}
+   \TYPE{l3color:~\l_tmpb_tl}
+   \TYPE{l3color (original):~\l_tmpa_tl}
+   \TYPE{}
+   \tl_set:Nn\l_tmpa_tl{{rgb}{1.0~0.54072~0}}
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}   
+   \definecolor{test}{wave} {780}
+   \color_export:nnnN {wave}{780}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \TYPE{-----------}
+   \TYPE{Value:~780~(l3color~range)}
+   \TYPE{xcolor:~\tl_use:c{\string\color@test}}
+   \TYPE{l3color:~\l_tmpb_tl}
+   \TYPE{l3color (original):~\l_tmpa_tl}
+   \TYPE{}
+   \tl_set:Nn\l_tmpa_tl{ {rgb}{0.30524~0~0}}
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}   
+   \definecolor{test}{wave} {814}
+   \color_export:nnnN {wave}{814}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \TYPE{-----------}
+   \TYPE{Value:~814}
+   \TYPE{xcolor:~\tl_use:c{\string\color@test}}
+   \TYPE{l3color:~\l_tmpb_tl}
+   \TYPE{l3color (original):~\l_tmpa_tl}
+   \TYPE{}
+   \tl_set:Nn\l_tmpa_tl{{rgb}{0.00797~0~0}}
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }
+
+%the model doesn't exist. We only test the value
+\TEST{tHsb}
+ {
+   \definecolor{test}{tHsb} {233,0.4,0.2}
+   \tl_set:Nn\l_tmpa_tl{{rgb}{0.12~0.13866~0.2}}
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \TYPE{xcolor:~\tl_use:c{\string\color@test}}
+   \TYPE{l3color:~\l_tmpb_tl}
+   \TYPE{}   
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }
+
+\TEST{tHsb-with-range}
+ { \def\rangeHsb{300}
+   \def\rangetHsb{80,45;130,70;185,130;210,175;240,240;300,300}
+   \definecolor{test}{tHsb} {233,0.4,0.2}
+   \tl_set:Nn\l_tmpa_tl{{rgb}{0.15973~0.12~0.2}}
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \TYPE{xcolor:~\tl_use:c{\string\color@test}}
+   \TYPE{l3color:~\l_tmpb_tl}
+   \TYPE{}
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }
+
+
+
+\TEST{Gray}
+ {
+   \definecolor{test}{Gray} {12}
+   \color_export:nnnN {Gray}{12}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }
+
+
+\TEST{Gray-with-range}
+ {
+   \def\rangeGray{30}
+   \definecolor{test}{Gray} {12}
+   \color_export:nnnN {Gray}{\fp_eval:n{12*15/30}}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }
+
+\TEST{RGB}
+ {
+   \definecolor{test}{RGB} {12,98,254}
+   \color_export:nnnN {RGB}{12,98,254}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }
+
+%small rounding error
+\TEST{RGB-with-range}
+ {
+   \def\rangeRGB{300}
+   \definecolor{test}{RGB} {12,98,254}
+   \color_export:nnnN {RGB}{\fpeval{12*255/300},\fpeval{98*255/300},\fpeval{254*255/300}}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \tl_set:Nn\l_tmpa_tl{{rgb}{0.04~0.32668~0.84668}}   
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }
+
+\TEST{cmy}
+ {
+   \definecolor{test}{cmy}{0.5,0.5,1}
+   \color_export:nnnN {cmyk}{0.5,0.5,1,0}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }
+ 
+\TEST{Hsb}
+ {
+   \definecolor{test}{Hsb} {180,0.4,0.2}
+   \color_export:nnnN {Hsb}{180,0.4,0.2}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ } 
+ 
+\TEST{Hsb-with-range}
+ {
+   \def\rangeHsb{400}
+   \definecolor{test}{Hsb} {180,0.4,0.2}
+   \color_export:nnnN {Hsb}{\fp_eval:n{180*360/400},0.4,0.2}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }  
+ 
+% HSB has a rounding error (0.79166 <-> 0.79167) 
+\TEST{HSB}
+ {
+   \definecolor{test}{HSB} {180,100,240}
+   \color_export:nnnN {HSB}{180,100,240}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \tl_set:Nn \l_tmpa_tl{{rgb}{0.79166~0.58333~1.0}}
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }
+
+\TEST{HSB-with-range}
+ {
+   \def\rangeHSB{400}
+   \definecolor{test}{HSB} {180,100,240}
+   \color_export:nnnN{HSB}{\fp_eval:n{180*240/400},\fp_eval:n{100*240/400},\fp_eval:n{240*240/400}}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }
+ 
+% xcolor makes 1 from FF and not 1.0 
+\TEST{HTML}
+ {
+   \definecolor{test}{HTML} {FF5733}
+   \color_export:nnnN {HTML}{FF5733}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \tl_set:Nn \l_tmpa_tl{{rgb}{1.0~0.34119~0.2}}
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ } 
+ 
+% named is ignored and only the model is used 
+\TEST{named}
+ {
+   \definecolor[named]{test}{HTML} {FF5733}
+   \color_export:nnnN {HTML}{FF5733}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \tl_set:Nn \l_tmpa_tl{{rgb}{1.0~0.34119~0.2}}
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }
+ 
+% later, when l3color no longer tries to pick it up 
+\TEST{ps}
+ {
+  % \definecolor[ps]{test}{rgb}{bar},
+%   \color_export:nnN  {test}{backend}\l_tmpb_tl
+%   \tl_set:Nn \l_tmpa_tl{{rgb}{1.0 1.0 1.0}}
+%   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ } 
+ 
+ 
+% 
+\TEST{force-target}
+ {
+   \definecolor{test}{cmyk:HTML} {FF5733}
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \tl_set:Nn\l_tmpa_tl {{cmyk}{0.0~0.65881~0.8~0.0}}
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ } 
+ 
+% color is cmyk. But export and use converts to rgb 
+\TEST{force-target-with-select}
+ {
+   \selectcolormodel{rgb}
+   \definecolor{test}{cmyk:HTML} {FF5733}
+   \color_show:n{test}
+   \color{test}
+   \TYPE{xcolor:~\XC@current@color}
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \tl_set:Nn\l_tmpa_tl {{rgb}{1~0.34119~0.2}}
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }  
+ 
+\TEST{force-target-multi}
+ {
+   \definecolor{test}{cmyk:HTML/cmyk} {FF5733/0.4,0.6,1,1}
+   \color_export:nnnN  {cmyk}{0.4,0.6,1,1}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \TYPE{xcolor:~\tl_use:c{\string\color@test}}
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ } 
+  
+\TEST{multi-model}
+ {
+   \definecolor{test}{rgb/cmyk} {0.3,0.4,0.5/1,0.1,0.5,0.6}
+   \color_show:n{test}
+   \color_export:nnnN {rgb}{0.3,0.4,0.5}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl   
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ }
+ 
+\TEST{multi-model-with-target}
+ {
+   \selectcolormodel{cmyk}
+   \definecolor{test}{rgb/cmyk} {0.3,0.4,0.5/1,0.1,0.5,0.6}
+   \color_show:n{test}
+   \color_export:nnnN {cmyk}{1,0.1,0.5,0.6}{backend}\l_tmpa_tl
+   \color_export:nnN  {test}{backend}\l_tmpb_tl
+   \TYPE{xcolor:~\tl_use:c{\string\color@test}}
+   \TYPE{l3color:~\l_tmpb_tl}
+   \TYPE{}
+   \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
+ } 
+\ExplSyntaxOff
+
+
+\TEST{force-target-multi-catcode}
+ {
+   \definecolor{test}{cmyk:HTML/cmyk} {FF5733/0.4,0.6,1,1}   
+   \TYPE{xcolor: \csname\string\color@test\endcsname}
+   \csname color_show:n\endcsname{test}   
+ } 
+ 
+\OMIT 
+\end{document}
