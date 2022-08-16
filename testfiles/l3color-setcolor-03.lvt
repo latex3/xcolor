@@ -1,0 +1,84 @@
+% !Mode:: "TeX:UTF-8:Main"
+\input{regression-test}
+\documentclass{article}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{colorspace}
+\definespotcolor{spot}{PANTONE 3005 U}{1,0.56,0,0}
+\begin{document}
+\START
+\showoutput
+
+\color{spot} spot
+
+\color{red!50!RoyalBlue} mix
+
+\color[gray] {0.5} gray 0.5
+
+\color[rgb] {1,0.3,0.5} rgb
+
+{
+ \selectcolormodel{cmyk}
+   \color[rgb] {1,0.3,0.5} rgb as cmyk
+}   
+
+
+\color[cmyk] {0.5,0.4,1,0.2} cmyk
+
+\color[hsb] {0.5,0.4,0.2} xxx
+
+\color[wave] {610} wave
+
+\color[tHsb] {233,0.4,0.2} tHsb
+
+{
+\def\rangeHsb{300}
+\def\rangetHsb{80,45;130,70;185,130;210,175;240,240;300,300}
+\color[tHsb] {233,0.4,0.2} tHsb~with~range
+
+{rgb}{0.15973~0.12~0.2}
+
+}
+
+
+\color[Gray] {12} xxx
+
+
+ {
+   \def\rangeGray{30}
+   \color[Gray] {12} xxx
+ }
+
+\color[RGB] {12,98,254} xxx
+
+{
+   \def\rangeRGB{300}
+   \color[RGB] {12,98,254}
+   tHsb
+}
+
+\color[cmy]{0.5,0.5,1} cmy
+
+\color[Hsb] {180,0.4,0.2} Hsb
+
+ {
+   \def\rangeHsb{400}
+   \color[Hsb] {180,0.4,0.2}
+   Hsb-with-range
+ }
+
+
+\color[HSB] {180,100,240} HSB
+
+ {
+   \def\rangeHSB{400}
+   \color[HSB] {180,100,240}
+   HSB-with-range
+ }
+
+\color[HTML] {FF5733} HTML
+
+\color[cmyk:HTML] {FF5733} Target
+
+\OMIT
+\end{document}
