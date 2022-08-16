@@ -5398,17 +5398,22 @@
       \str_case:nnF {#4}
        {
         {&spot}{ \XC@ori@set@color }
-        {tHsb}{ \XC@ori@set@color }
+        { tHsb}{ \XC@ori@set@color }
         { cmy }{ \color_select:nn{cmyk}{#5,0} }
        }
        {
          \str_if_eq:VnTF\c_sys_backend_str { dvips }
           {
-            \str_case:nnF {#2}
+            \bool_lazy_any:nTF
               {
-                {ps}     { \XC@ori@set@color }
-                {named}  { \XC@ori@set@color }
+                {\str_if_eq_p:nn{#4}{hsb}}
+                {\str_if_eq_p:nn{#4}{Hsb}}
+                {\str_if_eq_p:nn{#4}{HSB}}
+                {\str_if_eq_p:nn{#4}{wave}}
+                {\str_if_eq_p:nn{#2}{names}}
+                {\str_if_eq_p:nn{#2}{ps}}
               }
+              { \XC@ori@set@color }
               { \color_select:nn{#4}{#5}}
           }
           { \color_select:nn{#4}{#5} }
