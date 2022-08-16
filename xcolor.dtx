@@ -3875,9 +3875,11 @@
 \ExplSyntaxOn
 \cs_set_protected:Npn \XC@expl@setcolormodel@n #1
   {
-    \str_if_eq:nnTF {#1} { natural }
+    \str_case:nnF {#1}
       {
-        \tl_set:Nn \l_color_fixed_model_tl {}
+        { natural } {\tl_set:Nn \l_color_fixed_model_tl {}}
+        { cmy }     {\tl_set:Nn \l_color_fixed_model_tl {cmyk}}
+        { hsb }     {\tl_set:Nn \l_color_fixed_model_tl {rgb}}
       }
       {
         \tl_set:Nn \l_color_fixed_model_tl { #1 }
