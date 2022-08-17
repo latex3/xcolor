@@ -30,7 +30,7 @@ TEST 4: named
                                                   \TYPE {\XC@current@color }...
 l. ... }
  XC@test
-{gray}{0.0}
+{rgb}{1.0 0.34119 0.2}
  XC@test
 ============================================================
 ============================================================
@@ -88,7 +88,8 @@ Completed box being shipped out [1]
 ....\OT1/cmr/m/n/10 y
 ....\OT1/cmr/m/n/10 k
 ....\special{color pop}
-....\special{color push  XC@test}
+....\special{color push rgb 1.0 0.34119 0.2}
+....\special{ps:SDict begin /color.sc {} def end}
 ....\OT1/cmr/m/n/10 n
 ....\OT1/cmr/m/n/10 a
 ....\OT1/cmr/m/n/10 m

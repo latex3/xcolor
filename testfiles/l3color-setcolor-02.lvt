@@ -1,11 +1,12 @@
 % !Mode:: "TeX:UTF-8:Main"
-
+\DocumentMetadata{}
 \documentclass{article}
 \input{regression-test}
 \usepackage{xcolor}
-\usepackage{colorspace}
+
 
 \begin{document}
+\showoutput
 \ExplSyntaxOn\makeatletter
 \START
 \TEST{gray}
@@ -16,6 +17,7 @@
    \TYPE{\l__color_current_tl}
    \TYPE{\current@color}
  }
+\par
 \TEST{rgb}
  {
    \definecolor{test}{rgb} {1,0.3,0.5}
@@ -25,6 +27,7 @@
    \TYPE{\current@color}
  }
 
+\par
 \TEST{rgb-to-cmyk}
  {
    \selectcolormodel{cmyk}
@@ -36,6 +39,7 @@
 
  }
 
+\par
 \TEST{cmyk}
  {
    \definecolor{test}{cmyk} {0.5,0.4,1,0.2}
@@ -45,6 +49,7 @@
    \TYPE{\current@color}
  }
 
+\par
 % hsb is stored as rgb in l3color and the xcolor backend
 \TEST{hsb}
  {
@@ -65,6 +70,7 @@
    \TYPE{\current@color}
  }
 
+\par
 %the model doesn't exist. We only test the value
 \TEST{tHsb}
  {
@@ -75,6 +81,7 @@
    \TYPE{\current@color}
  }
 
+\par
 \TEST{tHsb-with-range}
  {
    \def\rangeHsb{300}
@@ -86,6 +93,7 @@
    \TYPE{\current@color}
  }
 
+\par
 \TEST{Gray}
  {
    \definecolor{test}{Gray} {12}
@@ -95,7 +103,7 @@
    \TYPE{\current@color}
  }
 
-
+\par
 \TEST{Gray-with-range}
  {
    \def\rangeGray{30}
@@ -106,6 +114,7 @@
    \TYPE{\current@color}
  }
 
+\par
 \TEST{RGB}
  {
    \definecolor{test}{RGB} {12,98,254}
@@ -115,6 +124,7 @@
    \TYPE{\current@color}
  }
 
+\par
 %small rounding error
 \TEST{RGB-with-range}
  {
@@ -126,6 +136,7 @@
    \TYPE{\current@color}
  }
 
+\par
 \TEST{cmy}
  {
    \definecolor{test}{cmy}{0.5,0.5,1}
@@ -135,6 +146,7 @@
    \TYPE{\current@color}
  }
 
+\par
 \TEST{Hsb}
  {
    \definecolor{test}{Hsb} {180,0.4,0.2}
@@ -144,6 +156,7 @@
    \TYPE{\current@color}
  }
 
+\par
 \TEST{Hsb-with-range}
  {
    \def\rangeHsb{400}
@@ -154,6 +167,7 @@
    \TYPE{\current@color}
  }
 
+\par
 % HSB has a rounding error (0.79166 <-> 0.79167)
 \TEST{HSB}
  {
@@ -165,6 +179,7 @@
    \TYPE{\current@color}
   }
 
+\par
 \TEST{HSB-with-range}
  {
    \def\rangeHSB{400}
@@ -175,6 +190,7 @@
    \TYPE{\current@color}
  }
 
+\par
 % xcolor makes 1 from FF and not 1.0
 \TEST{HTML}
  {
@@ -185,6 +201,7 @@
    \TYPE{\current@color}
  }
 
+\par
 % named is ignored and only the model is used
 \TEST{named}
  {
@@ -196,6 +213,7 @@
    \TYPE{\current@color}
  }
 
+\par
 \TEST{ps}
  {
    \definecolor[ps]{test}{rgb}{bar},
@@ -204,7 +222,7 @@
    \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
  }
 
-
+\par
 %
 \TEST{force-target}
  {
@@ -214,6 +232,7 @@
    \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
  }
 
+\par
 % color is cmyk. But export and use converts to rgb
 \TEST{force-target-with-select}
  {
@@ -227,6 +246,7 @@
    \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
  }
 
+\par
 \TEST{force-target-multi}
  {
    \definecolor{test}{cmyk:HTML/cmyk} {FF5733/0.4,0.6,1,1}
@@ -236,6 +256,7 @@
    \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
  }
 
+\par
 \TEST{multi-model}
  {
    \definecolor{test}{rgb/cmyk} {0.3,0.4,0.5/1,0.1,0.5,0.6}
@@ -245,6 +266,7 @@
    \ASSERTSTR{\l_tmpa_tl}{\l_tmpb_tl}
  }
 
+\par
 \TEST{multi-model-with-target}
  {
    \selectcolormodel{cmyk}
@@ -267,5 +289,5 @@
    \csname color_show:n\endcsname{test}
  }
 
-\OMIT
+
 \end{document}

@@ -7,24 +7,24 @@ Completed box being shipped out [1]
 ..\vbox(12.0+0.0)x345.0, glue set 12.0fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x345.0
-....\special{color push gray 0}
+....\special{pdf:bc [0.0]}
 ....\hbox(0.0+0.0)x345.0
-....\special{color pop}
+....\special{pdf:ec}
 ..\glue 25.0
 ..\glue(\lineskip) 0.0
 ..\vbox(550.0+0.0)x345.0, glue set 539.94232fil
 ...\write-{}
-...\special{color push gray 0}
-...\special{color push rgb 1 0 0}
+...\special{pdf:bc [0.0]}
+...\special{pdf:bc [1.0 0.0 0.0]}
 ...\glue(\topskip) 3.06
 ...\hbox(6.94+0.10999)x345.0, glue set 248.24fil
 ....\hbox(0.0+0.0)x15.0
 ....\TU/lmr/m/n/10 red
 ....\glue 3.33 plus 1.665 minus 1.11
-....\special{color push gray 0}
+....\special{pdf:bc [0.0]}
 ....\TU/lmr/m/n/10 normal
 ....\glue 3.33 plus 1.665 minus 1.11
-....\special{color push gray 0}
+....\special{pdf:bc [0.0]}
 ....\TU/lmr/m/n/10 normal
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
@@ -35,9 +35,9 @@ Completed box being shipped out [1]
 ...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 23.34
 ..\hbox(6.66+0.0)x345.0
-...\special{color push gray 0}
+...\special{pdf:bc [0.0]}
 ...\hbox(6.66+0.0)x345.0, glue set 170.0fil
 ....\glue 0.0 plus 1.0fil
 ....\TU/lmr/m/n/10 1
 ....\glue 0.0 plus 1.0fil
-...\special{color pop}
+...\special{pdf:ec}

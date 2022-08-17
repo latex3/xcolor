@@ -1,0 +1,14 @@
+% !Mode:: "TeX:UTF-8:Main"
+\input{regression-test}
+\documentclass{article}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{colorspace}
+\definespotcolor{spot}{PANTONE 3005 U}{1,0.56,0,0}
+\begin{document}
+\START
+\showoutput
+
+\color{spot} spot
+
+\end{document}

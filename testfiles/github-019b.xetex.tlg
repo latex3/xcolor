@@ -22,9 +22,9 @@ Completed box being shipped out [1]
 ...\glue 0.0 plus 1.0fil
 ...\special{pdf:nolink}
 ...\hbox(0.0+0.0)x345.0
-....\special{color push gray 0}
+....\special{pdf:bc [0.0]}
 ....\hbox(0.0+0.0)x345.0
-....\special{color pop}
+....\special{pdf:ec}
 ...\special{pdf:link}
 ..\glue 25.0
 ..\glue(\lineskip) 0.0
@@ -32,17 +32,17 @@ Completed box being shipped out [1]
 ...\special{pdf:put @pdf.obj1<</opacity1 <</ca 1/CA 1>>>>}
 ...\special{pdf:trailerid[ <00112233445566778899aabbccddeeff> <001122334455667788\ETC.}
 ...\write-{}
-...\special{color push gray 0}
-...\special{color push rgb 1 0 0}
+...\special{pdf:bc [0.0]}
+...\special{pdf:bc [1.0 0.0 0.0]}
 ...\glue(\topskip) 3.06
 ...\hbox(6.94+0.10999)x345.0, glue set 248.24fil
 ....\hbox(0.0+0.0)x15.0
 ....\TU/lmr/m/n/10 red
 ....\glue 3.33 plus 1.665 minus 1.11
-....\special{color push gray 0}
+....\special{pdf:bc [0.0]}
 ....\TU/lmr/m/n/10 normal
 ....\glue 3.33 plus 1.665 minus 1.11
-....\special{color push gray 0}
+....\special{pdf:bc [0.0]}
 ....\TU/lmr/m/n/10 normal
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
@@ -54,12 +54,12 @@ Completed box being shipped out [1]
 ..\special{pdf:nolink}
 ..\glue(\baselineskip) 23.34
 ..\hbox(6.66+0.0)x345.0
-...\special{color push gray 0}
+...\special{pdf:bc [0.0]}
 ...\hbox(6.66+0.0)x345.0, glue set 170.0fil
 ....\glue 0.0 plus 1.0fil
 ....\TU/lmr/m/n/10 1
 ....\glue 0.0 plus 1.0fil
-...\special{color pop}
+...\special{pdf:ec}
 ..\special{pdf:link}
 .\kern 0.0
 .\kern 0.0

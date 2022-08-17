@@ -3,140 +3,140 @@ Don't change this file in any respect.
 ============================================================
 TEST 1: gray
 ============================================================
-0.5 g 0.5 G
+gray 0.5
 {gray}{0.5}
-0.5 g 0.5 G
+gray 0.5
 ============================================================
 ============================================================
 TEST 2: rgb
 ============================================================
-1 0.3 0.5 rg 1 0.3 0.5 RG
+rgb 1 0.3 0.5
 {rgb}{1.0 0.3 0.5}
-1 0.3 0.5 rg 1 0.3 0.5 RG
+rgb 1 0.3 0.5
 ============================================================
 ============================================================
 TEST 3: rgb-to-cmyk
 ============================================================
-0 0.7 0.5 0 k 0 0.7 0.5 0 K
+cmyk 0 0.7 0.5 0
 {cmyk}{0.0 0.7 0.5 0.0}
-0 0.7 0.5 0 k 0 0.7 0.5 0 K
+cmyk 0 0.7 0.5 0
 ============================================================
 ============================================================
 TEST 4: cmyk
 ============================================================
-0.5 0.4 1 0.2 k 0.5 0.4 1 0.2 K
+cmyk 0.5 0.4 1 0.2
 {cmyk}{0.5 0.4 1.0 0.2}
-0.5 0.4 1 0.2 k 0.5 0.4 1 0.2 K
+cmyk 0.5 0.4 1 0.2
 ============================================================
 ============================================================
 TEST 5: hsb
 ============================================================
-0.12 0.2 0.2 rg 0.12 0.2 0.2 RG
+hsb 0.5 0.4 0.2
 {rgb}{0.12 0.2 0.2}
-0.12 0.2 0.2 rg 0.12 0.2 0.2 RG
+hsb 0.5 0.4 0.2
 ============================================================
 ============================================================
 TEST 6: wave
 ============================================================
-1 0.54073 0 rg 1 0.54073 0 RG
+hsb 0.09012 1 1
 {rgb}{1.0 0.54072 0}
-1 0.54073 0 rg 1 0.54073 0 RG
+hsb 0.09012 1 1
 ============================================================
 ============================================================
 TEST 7: tHsb
 ============================================================
-0.12 0.13866 0.2 rg 0.12 0.13866 0.2 RG
+hsb 0.62779 0.4 0.2
 {rgb}{0.12 0.13866 0.2}
-0.12 0.13866 0.2 rg 0.12 0.13866 0.2 RG
+hsb 0.62779 0.4 0.2
 ============================================================
 ============================================================
 TEST 8: tHsb-with-range
 ============================================================
-0.15973 0.12 0.2 rg 0.15973 0.12 0.2 RG
+hsb 0.74944 0.4 0.2
 {rgb}{0.15973 0.12 0.2}={rgb}{0.15973 0.12 0.2}
-0.15973 0.12 0.2 rg 0.15973 0.12 0.2 RG
+hsb 0.74944 0.4 0.2
 ============================================================
 ============================================================
 TEST 9: Gray
 ============================================================
-0.8 g 0.8 G
+gray 0.8
 {gray}{0.8}
-0.8 g 0.8 G
+gray 0.8
 ============================================================
 ============================================================
 TEST 10: Gray-with-range
 ============================================================
-0.4 g 0.4 G
+gray 0.4
 {gray}{0.4}
-0.4 g 0.4 G
+gray 0.4
 ============================================================
 ============================================================
 TEST 11: RGB
 ============================================================
-0.04706 0.38431 0.99608 rg 0.04706 0.38431 0.99608 RG
+rgb 0.04706 0.38431 0.99608
 {rgb}{0.04706 0.38431 0.99608}
-0.04706 0.38431 0.99608 rg 0.04706 0.38431 0.99608 RG
+rgb 0.04706 0.38431 0.99608
 ============================================================
 ============================================================
 TEST 12: RGB-with-range
 ============================================================
-0.04 0.32668 0.84668 rg 0.04 0.32668 0.84668 RG
+rgb 0.04 0.32668 0.84668
 {rgb}{0.04 0.32668 0.84668}
-0.04 0.32668 0.84668 rg 0.04 0.32668 0.84668 RG
+rgb 0.04 0.32668 0.84668
 ============================================================
 ============================================================
 TEST 13: cmy
 ============================================================
-0.5 0.5 1 0 k 0.5 0.5 1 0 K
+cmyk 0.5 0.5 1 0
 {cmyk}{0.5 0.5 1.0 0.0}
-0.5 0.5 1 0 k 0.5 0.5 1 0 K
+cmyk 0.5 0.5 1 0
 ============================================================
 ============================================================
 TEST 14: Hsb
 ============================================================
-0.12 0.2 0.2 rg 0.12 0.2 0.2 RG
+hsb 0.5 0.4 0.2
 {rgb}{0.12 0.2 0.2}
-0.12 0.2 0.2 rg 0.12 0.2 0.2 RG
+hsb 0.5 0.4 0.2
 ============================================================
 ============================================================
 TEST 15: Hsb-with-range
 ============================================================
-0.12 0.2 0.176 rg 0.12 0.2 0.176 RG
+hsb 0.45 0.4 0.2
 {rgb}{0.12 0.2 0.176}
-0.12 0.2 0.176 rg 0.12 0.2 0.176 RG
+hsb 0.45 0.4 0.2
 ============================================================
 ============================================================
 TEST 16: HSB
 ============================================================
-0.79167 0.58333 1 rg 0.79167 0.58333 1 RG
+hsb 0.75 0.41667 1
 {rgb}{0.79166 0.58333 1.0}={rgb}{0.79166 0.58333 1.0}?
-0.79167 0.58333 1 rg 0.79167 0.58333 1 RG
+hsb 0.75 0.41667 1
 ============================================================
 ============================================================
 TEST 17: HSB-with-range
 ============================================================
-0.45 0.6 0.555 rg 0.45 0.6 0.555 RG
+hsb 0.45 0.25 0.6
 {rgb}{0.45 0.6 0.555}
-0.45 0.6 0.555 rg 0.45 0.6 0.555 RG
+hsb 0.45 0.25 0.6
 ============================================================
 ============================================================
 TEST 18: HTML
 ============================================================
-1 0.34119 0.2 rg 1 0.34119 0.2 RG
+rgb 1 0.34119 0.2
 {rgb}{1.0 0.34119 0.2}
-1 0.34119 0.2 rg 1 0.34119 0.2 RG
+rgb 1 0.34119 0.2
 ============================================================
 ============================================================
 TEST 19: named
 ============================================================
 > \XC@current@color=macro:
-->\xcolor@ {}{1 0.34119 0.2 rg 1 0.34119 0.2 RG}{rgb}{1,0.34119,0.2}.
+->\xcolor@ {}{rgb 1 0.34119 0.2}{rgb}{1,0.34119,0.2}.
 <argument> ... {test}named\show \XC@current@color 
                                                   \TYPE {\XC@current@color }...
 l. ... }
-1 0.34119 0.2 rg 1 0.34119 0.2 RG
+rgb 1 0.34119 0.2
 {rgb}{1.0 0.34119 0.2}
-1 0.34119 0.2 rg 1 0.34119 0.2 RG
+rgb 1 0.34119 0.2
 ============================================================
 ============================================================
 TEST 20: ps
@@ -156,13 +156,13 @@ The color test has the properties:
 >  cmyk  =>  0.0 0.65881 0.8 0.0.
 <recently read> }
 l. ... }
-xcolor: 1 0.34119 0.2 rg 1 0.34119 0.2 RG
+xcolor: rgb 1 0.34119 0.2
 PASSED
 ============================================================
 ============================================================
 TEST 23: force-target-multi
 ============================================================
-xcolor: 0.4 0.6 1 1 k 0.4 0.6 1 1 K
+xcolor: cmyk 0.4 0.6 1 1
 PASSED
 ============================================================
 ============================================================
@@ -183,14 +183,14 @@ The color test has the properties:
 >  cmyk  =>  1.0 0.1 0.5 0.6.
 <recently read> }
 l. ... }
-xcolor: 1 0.1 0.5 0.6 k 1 0.1 0.5 0.6 K
+xcolor: cmyk 1 0.1 0.5 0.6
 l3color: {cmyk}{1.0 0.1 0.5 0.6}
 PASSED
 ============================================================
 ============================================================
 TEST 26: force-target-multi-catcode
 ============================================================
-xcolor: 0.4 0.6 1 1 k 0.4 0.6 1 1 K
+xcolor: cmyk 0.4 0.6 1 1
 The color test has the properties:
 >  model  =>  cmyk
 >  cmyk  =>  0.4 0.6 1.0 1.0.
@@ -199,367 +199,243 @@ l. ... }
 ============================================================
 Completed box being shipped out [1]
 \vbox(633.0+0.0)x407.0
-.\hbox(0.0+0.0)x0.0
-..\kern -72.26999
-..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
-...\kern -72.26999
-...\hbox(0.0+0.0)x0.0
-....\glue 0.0 plus 1.0fil minus 1.0fil
-...\glue 0.0 plus 1.0fil minus 1.0fil
 .\glue 16.0
 .\vbox(617.0+0.0)x345.0, shifted 62.0
 ..\vbox(12.0+0.0)x345.0, glue set 12.0fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x345.0
-....\pdfcolorstack 0 push {0.0 g 0.0 G}
+....\special{pdf:bc [0.0]}
 ....\hbox(0.0+0.0)x345.0
-....\pdfcolorstack 0 pop
+....\special{pdf:ec}
 ..\glue 25.0
 ..\glue(\lineskip) 0.0
 ..\vbox(550.0+0.0)x345.0, glue set 323.9654fil
 ...\write-{}
-...\pdfcolorstack 0 push {0.0 g 0.0 G}
-...\pdfcolorstack 0 push {0.5 g 0.5 G}
-...\glue(\topskip) 5.69446
-...\hbox(4.30554+1.94444)x345.0, glue set 311.08328fil
+...\special{pdf:bc [0.0]}
+...\special{pdf:bc [0.5]}
+...\glue(\topskip) 5.47
+...\hbox(4.53+2.05998)x345.0, glue set 311.08fil
 ....\hbox(0.0+0.0)x15.0
-....\OT1/cmr/m/n/10 g
-....\OT1/cmr/m/n/10 r
-....\OT1/cmr/m/n/10 a
-....\kern-0.27779
-....\OT1/cmr/m/n/10 y
-....\pdfcolorstack 0 pop
+....\TU/lmr/m/n/10 gray
+....\special{pdf:ec}
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\pdfcolorstack 0 push {1.0 0.3 0.5 rg 1.0 0.3 0.5 RG}
+...\special{pdf:bc [1.0 0.3 0.5]}
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 3.11111
-...\hbox(6.94444+1.94444)x345.0, glue set 315.52774fil
+...\glue(\baselineskip) 3.00002
+...\hbox(6.94+2.05998)x345.0, glue set 315.52fil
 ....\hbox(0.0+0.0)x15.0
-....\OT1/cmr/m/n/10 r
-....\OT1/cmr/m/n/10 g
-....\OT1/cmr/m/n/10 b
-....\pdfcolorstack 0 pop
+....\TU/lmr/m/n/10 rgb
+....\special{pdf:ec}
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\pdfcolorstack 0 push {0.0 0.7 0.5 0.0 k 0.0 0.7 0.5 0.0 K}
+...\special{pdf:bc [0.0 0.7 0.5 0.0]}
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 3.11111
-...\hbox(6.94444+1.94444)x345.0, glue set 276.91655fil
+...\glue(\baselineskip) 3.00002
+...\hbox(6.94+2.05998)x345.0, glue set 276.92fil
 ....\hbox(0.0+0.0)x15.0
-....\OT1/cmr/m/n/10 r
-....\OT1/cmr/m/n/10 g
-....\OT1/cmr/m/n/10 b
-....\OT1/cmr/m/n/10 -
-....\discretionary
-....\OT1/cmr/m/n/10 t
-....\OT1/cmr/m/n/10 o
-....\OT1/cmr/m/n/10 -
-....\discretionary
-....\OT1/cmr/m/n/10 c
-....\OT1/cmr/m/n/10 m
-....\kern-0.27779
-....\OT1/cmr/m/n/10 y
-....\OT1/cmr/m/n/10 k
-....\pdfcolorstack 0 pop
+....\TU/lmr/m/n/10 rgb-to-cmyk
+....\special{pdf:ec}
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\pdfcolorstack 0 push {0.5 0.4 1.0 0.2 k 0.5 0.4 1.0 0.2 K}
+...\special{pdf:bc [0.5 0.4 1.0 0.2]}
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 3.11111
-...\hbox(6.94444+1.94444)x345.0, glue set 306.94438fil
+...\glue(\baselineskip) 3.00002
+...\hbox(6.94+2.04999)x345.0, glue set 306.95fil
 ....\hbox(0.0+0.0)x15.0
-....\OT1/cmr/m/n/10 c
-....\OT1/cmr/m/n/10 m
-....\kern-0.27779
-....\OT1/cmr/m/n/10 y
-....\OT1/cmr/m/n/10 k
-....\pdfcolorstack 0 pop
+....\TU/lmr/m/n/10 cmyk
+....\special{pdf:ec}
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\pdfcolorstack 0 push {0.12 0.2 0.2 rg 0.12 0.2 0.2 RG}
+...\special{pdf:bc [0.12 0.2 0.2]}
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 3.11111
-...\hbox(6.94444+0.0)x345.0, glue set 289.91661fil
+...\glue(\baselineskip) 3.01001
+...\hbox(6.94+0.10999)x345.0, glue set 289.92fil
 ....\hbox(0.0+0.0)x15.0
-....\OT1/cmr/m/n/10 r
-....\OT1/cmr/m/n/10 h
-....\OT1/cmr/m/n/10 s
-....\OT1/cmr/m/n/10 b
-....\pdfcolorstack 0 pop
-....\pdfcolorstack 0 push {1.0 0.54072 0 rg 1.0 0.54072 0 RG}
-....\OT1/cmr/m/n/10 w
-....\kern-0.27779
-....\OT1/cmr/m/n/10 a
-....\kern-0.27779
-....\OT1/cmr/m/n/10 v
-....\kern-0.27779
-....\OT1/cmr/m/n/10 e
-....\pdfcolorstack 0 pop
+....\TU/lmr/m/n/10 rhsb
+....\special{pdf:ec}
+....\special{pdf:bc [1.0 0.54072 0]}
+....\TU/lmr/m/n/10 wave
+....\special{pdf:ec}
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\pdfcolorstack 0 push {0.12 0.13866 0.2 rg 0.12 0.13866 0.2 RG}
+...\special{pdf:bc [0.12 0.13866 0.2]}
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 5.05556
-...\hbox(6.94444+0.0)x345.0, glue set 309.11107fil
+...\glue(\baselineskip) 4.95001
+...\hbox(6.94+0.10999)x345.0, glue set 309.11fil
 ....\hbox(0.0+0.0)x15.0
-....\OT1/cmr/m/n/10 t
-....\OT1/cmr/m/n/10 H
-....\OT1/cmr/m/n/10 s
-....\OT1/cmr/m/n/10 b
-....\pdfcolorstack 0 pop
+....\TU/lmr/m/n/10 tHsb
+....\special{pdf:ec}
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\pdfcolorstack 0 push {0.15973 0.12 0.2 rg 0.15973 0.12 0.2 RG}
+...\special{pdf:bc [0.15973 0.12 0.2]}
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 5.05556
-...\hbox(6.94444+1.94444)x345.0, glue set 259.0832fil
+...\glue(\baselineskip) 4.95001
+...\hbox(6.94+2.05998)x345.0, glue set 259.08fil
 ....\hbox(0.0+0.0)x15.0
-....\OT1/cmr/m/n/10 t
-....\OT1/cmr/m/n/10 H
-....\OT1/cmr/m/n/10 s
-....\OT1/cmr/m/n/10 b
-....\glue 3.33333 plus 1.66666 minus 1.11111
-....\OT1/cmr/m/n/10 w
-....\OT1/cmr/m/n/10 i
-....\OT1/cmr/m/n/10 t
-....\OT1/cmr/m/n/10 h
-....\glue 3.33333 plus 1.66666 minus 1.11111
-....\OT1/cmr/m/n/10 r
-....\OT1/cmr/m/n/10 a
-....\OT1/cmr/m/n/10 n
-....\OT1/cmr/m/n/10 g
-....\OT1/cmr/m/n/10 e
-....\pdfcolorstack 0 pop
+....\TU/lmr/m/n/10 tHsb
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 with
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 range
+....\special{pdf:ec}
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\pdfcolorstack 0 push {0.8 g 0.8 G}
+...\special{pdf:bc [0.8]}
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 3.22224
-...\hbox(6.83331+1.94444)x345.0, glue set 308.23607fil
+...\glue(\baselineskip) 2.89001
+...\hbox(7.05+2.04999)x345.0, glue set 308.23fil
 ....\hbox(0.0+0.0)x15.0
-....\OT1/cmr/m/n/10 G
-....\OT1/cmr/m/n/10 r
-....\OT1/cmr/m/n/10 a
-....\kern-0.27779
-....\OT1/cmr/m/n/10 y
-....\pdfcolorstack 0 pop
+....\TU/lmr/m/n/10 Gray
+....\special{pdf:ec}
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\pdfcolorstack 0 push {0.4 g 0.4 G}
+...\special{pdf:bc [0.4]}
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 3.11111
-...\hbox(6.94444+1.94444)x345.0, glue set 258.2082fil
+...\glue(\baselineskip) 2.90001
+...\hbox(7.05+2.05998)x345.0, glue set 258.2fil
 ....\hbox(0.0+0.0)x15.0
-....\OT1/cmr/m/n/10 G
-....\OT1/cmr/m/n/10 r
-....\OT1/cmr/m/n/10 a
-....\kern-0.27779
-....\OT1/cmr/m/n/10 y
-....\OT1/cmr/m/n/10 -
-....\discretionary
-....\OT1/cmr/m/n/10 w
-....\OT1/cmr/m/n/10 i
-....\OT1/cmr/m/n/10 t
-....\OT1/cmr/m/n/10 h
-....\OT1/cmr/m/n/10 -
-....\discretionary
-....\OT1/cmr/m/n/10 r
-....\OT1/cmr/m/n/10 a
-....\OT1/cmr/m/n/10 n
-....\OT1/cmr/m/n/10 g
-....\OT1/cmr/m/n/10 e
-....\pdfcolorstack 0 pop
+....\TU/lmr/m/n/10 Gray-with-range
+....\special{pdf:ec}
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\pdfcolorstack 0 push {0.04706 0.38431 0.99608 rg 0.04706 0.38431 0.99608 RG}
+...\special{pdf:bc [0.04706 0.38431 0.99608]}
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 3.22224
-...\hbox(6.83331+0.0)x345.0, glue set 307.98608fil
+...\glue(\baselineskip) 2.89001
+...\hbox(7.05+0.21999)x345.0, glue set 307.99fil
 ....\hbox(0.0+0.0)x15.0
-....\OT1/cmr/m/n/10 R
-....\kern-0.27779
-....\OT1/cmr/m/n/10 G
-....\OT1/cmr/m/n/10 B
-....\pdfcolorstack 0 pop
+....\TU/lmr/m/n/10 RGB
+....\special{pdf:ec}
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\pdfcolorstack 0 push {0.04 0.32668 0.84668 rg 0.04 0.32668 0.84668 RG}
+...\special{pdf:bc [0.04 0.32668 0.84668]}
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 5.05556
-...\hbox(6.94444+0.0)x345.0, glue set 309.11107fil
+...\glue(\baselineskip) 4.84001
+...\hbox(6.94+0.10999)x345.0, glue set 309.11fil
 ....\hbox(0.0+0.0)x15.0
-....\OT1/cmr/m/n/10 t
-....\OT1/cmr/m/n/10 H
-....\OT1/cmr/m/n/10 s
-....\OT1/cmr/m/n/10 b
-....\pdfcolorstack 0 pop
+....\TU/lmr/m/n/10 tHsb
+....\special{pdf:ec}
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\pdfcolorstack 0 push {0.5 0.5 1.0 0.0 k 0.5 0.5 1.0 0.0 K}
+...\special{pdf:bc [0.5 0.5 1.0 0.0]}
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 7.69446
-...\hbox(4.30554+1.94444)x345.0, glue set 312.22218fil
+...\glue(\baselineskip) 7.41002
+...\hbox(4.48+2.04999)x345.0, glue set 312.23fil
 ....\hbox(0.0+0.0)x15.0
-....\OT1/cmr/m/n/10 c
-....\OT1/cmr/m/n/10 m
-....\kern-0.27779
-....\OT1/cmr/m/n/10 y
-....\pdfcolorstack 0 pop
+....\TU/lmr/m/n/10 cmy
+....\special{pdf:ec}
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\pdfcolorstack 0 push {0.12 0.2 0.2 rg 0.12 0.2 0.2 RG}
+...\special{pdf:bc [0.12 0.2 0.2]}
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 3.11111
-...\hbox(6.94444+0.0)x345.0, glue set 312.99997fil
+...\glue(\baselineskip) 3.01001
+...\hbox(6.94+0.10999)x345.0, glue set 313.0fil
 ....\hbox(0.0+0.0)x15.0
-....\OT1/cmr/m/n/10 H
-....\OT1/cmr/m/n/10 s
-....\OT1/cmr/m/n/10 b
-....\pdfcolorstack 0 pop
+....\TU/lmr/m/n/10 Hsb
+....\special{pdf:ec}
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\pdfcolorstack 0 push {0.12 0.2 0.176 rg 0.12 0.2 0.176 RG}
+...\special{pdf:bc [0.12 0.2 0.176]}
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 5.05556
-...\hbox(6.94444+1.94444)x345.0, glue set 262.9721fil
+...\glue(\baselineskip) 4.95001
+...\hbox(6.94+2.05998)x345.0, glue set 262.97fil
 ....\hbox(0.0+0.0)x15.0
-....\OT1/cmr/m/n/10 H
-....\OT1/cmr/m/n/10 s
-....\OT1/cmr/m/n/10 b
-....\OT1/cmr/m/n/10 -
-....\discretionary
-....\OT1/cmr/m/n/10 w
-....\OT1/cmr/m/n/10 i
-....\OT1/cmr/m/n/10 t
-....\OT1/cmr/m/n/10 h
-....\OT1/cmr/m/n/10 -
-....\discretionary
-....\OT1/cmr/m/n/10 r
-....\OT1/cmr/m/n/10 a
-....\OT1/cmr/m/n/10 n
-....\OT1/cmr/m/n/10 g
-....\OT1/cmr/m/n/10 e
-....\pdfcolorstack 0 pop
+....\TU/lmr/m/n/10 Hsb-with-range
+....\special{pdf:ec}
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\pdfcolorstack 0 push {0.79166 0.58333 1.0 rg 0.79166 0.58333 1.0 RG}
+...\special{pdf:bc [0.79166 0.58333 1.0]}
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 3.22224
-...\hbox(6.83331+0.0)x345.0, glue set 309.86105fil
+...\glue(\baselineskip) 2.89001
+...\hbox(7.05+0.21999)x345.0, glue set 309.86fil
 ....\hbox(0.0+0.0)x15.0
-....\OT1/cmr/m/n/10 H
-....\OT1/cmr/m/n/10 S
-....\OT1/cmr/m/n/10 B
-....\pdfcolorstack 0 pop
+....\TU/lmr/m/n/10 HSB
+....\special{pdf:ec}
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\pdfcolorstack 0 push {0.45 0.6 0.555 rg 0.45 0.6 0.555 RG}
+...\special{pdf:bc [0.45 0.6 0.555]}
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 5.05556
-...\hbox(6.94444+1.94444)x345.0, glue set 259.83319fil
+...\glue(\baselineskip) 4.73001
+...\hbox(7.05+2.05998)x345.0, glue set 259.83fil
 ....\hbox(0.0+0.0)x15.0
-....\OT1/cmr/m/n/10 H
-....\OT1/cmr/m/n/10 S
-....\OT1/cmr/m/n/10 B
-....\OT1/cmr/m/n/10 -
-....\discretionary
-....\OT1/cmr/m/n/10 w
-....\OT1/cmr/m/n/10 i
-....\OT1/cmr/m/n/10 t
-....\OT1/cmr/m/n/10 h
-....\OT1/cmr/m/n/10 -
-....\discretionary
-....\OT1/cmr/m/n/10 r
-....\OT1/cmr/m/n/10 a
-....\OT1/cmr/m/n/10 n
-....\OT1/cmr/m/n/10 g
-....\OT1/cmr/m/n/10 e
-....\pdfcolorstack 0 pop
+....\TU/lmr/m/n/10 HSB-with-range
+....\special{pdf:ec}
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\pdfcolorstack 0 push {1.0 0.34119 0.2 rg 1.0 0.34119 0.2 RG}
+...\special{pdf:bc [1.0 0.34119 0.2]}
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 3.22224
-...\hbox(6.83331+0.0)x345.0, glue set 299.86105fil
+...\glue(\baselineskip) 3.11002
+...\hbox(6.83+0.0)x345.0, glue set 299.86fil
 ....\hbox(0.0+0.0)x15.0
-....\OT1/cmr/m/n/10 H
-....\OT1/cmr/m/n/10 T
-....\OT1/cmr/m/n/10 M
-....\OT1/cmr/m/n/10 L
-....\pdfcolorstack 0 pop
+....\TU/lmr/m/n/10 HTML
+....\special{pdf:ec}
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\pdfcolorstack 0 push {1.0 0.34119 0.2 rg 1.0 0.34119 0.2 RG}
+...\special{pdf:bc [1.0 0.34119 0.2]}
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 5.05556
-...\hbox(6.94444+0.0)x345.0, glue set 301.11104fil
+...\glue(\baselineskip) 5.06
+...\hbox(6.94+0.10999)x345.0, glue set 301.11fil
 ....\hbox(0.0+0.0)x15.0
-....\OT1/cmr/m/n/10 n
-....\OT1/cmr/m/n/10 a
-....\OT1/cmr/m/n/10 m
-....\OT1/cmr/m/n/10 e
-....\OT1/cmr/m/n/10 d
-....\pdfcolorstack 0 pop
+....\TU/lmr/m/n/10 named
+....\special{pdf:ec}
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 10.94446
-...\hbox(1.05554+1.94444)x345.0, glue set 327.22221fil
+...\glue(\baselineskip) 10.83002
+...\hbox(1.06+1.92998)x345.0, glue set 327.22fil
 ....\hbox(0.0+0.0)x15.0
-....\OT1/cmr/m/n/10 ,
+....\TU/lmr/m/n/10 ,
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\pdfcolorstack 0 push {1.0 0.34119 0.2 rg 1.0 0.34119 0.2 RG}
-...\pdfcolorstack 0 pop
-...\glue -1.94444
+...\special{pdf:bc [1.0 0.34119 0.2]}
+...\special{pdf:ec}
+...\glue -1.92998
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
-..\glue(\baselineskip) 23.55556
-..\hbox(6.44444+0.0)x345.0
-...\pdfcolorstack 0 push {0.0 g 0.0 G}
-...\hbox(6.44444+0.0)x345.0, glue set 170.0fil
+..\glue(\baselineskip) 23.34
+..\hbox(6.66+0.0)x345.0
+...\special{pdf:bc [0.0]}
+...\hbox(6.66+0.0)x345.0, glue set 170.0fil
 ....\glue 0.0 plus 1.0fil
-....\OT1/cmr/m/n/10 1
+....\TU/lmr/m/n/10 1
 ....\glue 0.0 plus 1.0fil
-...\pdfcolorstack 0 pop
-.\kern 0.0
+...\special{pdf:ec}
 (l3color-setcolor-01.aux)

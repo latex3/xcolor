@@ -1,0 +1,266 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+Completed box being shipped out [1]
+\vbox(633.0+0.0)x407.0
+.\glue 16.0
+.\vbox(617.0+0.0)x345.0, shifted 62.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{pdf:bc [0.0]}
+....\hbox(0.0+0.0)x345.0
+....\special{pdf:ec}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(550.0+0.0)x345.0, glue set 299.96796fil
+...\write-{}
+...\special{pdf:bc [0.0]}
+...\special{pdf:bc [0.5 0.25 0.5]}
+...\glue(\topskip) 3.43
+...\hbox(6.57+0.0)x345.0, glue set 313.61fil
+....\hbox(0.0+0.0)x15.0
+....\TU/lmr/m/n/10 mix
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\special{pdf:bc [0.5]}
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 5.34
+...\hbox(6.66+2.05998)x345.0, glue set 294.97fil
+....\hbox(0.0+0.0)x15.0
+....\TU/lmr/m/n/10 gray
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 0.5
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\special{pdf:bc [1.0 0.3 0.5]}
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 3.00002
+...\hbox(6.94+2.05998)x345.0, glue set 315.52fil
+....\hbox(0.0+0.0)x15.0
+....\TU/lmr/m/n/10 rgb
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\special{pdf:bc [0.0 0.7 0.5 0.0]}
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 3.00002
+...\hbox(6.94+2.05998)x345.0, glue set 273.54fil
+....\hbox(0.0+0.0)x15.0
+....\TU/lmr/m/n/10 rgb
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 as
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 cmyk
+....\glue 3.33 plus 1.665 minus 1.11
+....\special{pdf:ec}
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\special{pdf:bc [0.5 0.4 1.0 0.2]}
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 3.00002
+...\hbox(6.94+2.04999)x345.0, glue set 306.95fil
+....\hbox(0.0+0.0)x15.0
+....\TU/lmr/m/n/10 cmyk
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\special{pdf:bc [0.12 0.2 0.2]}
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 5.64001
+...\hbox(4.31+0.0)x345.0, glue set 314.16fil
+....\hbox(0.0+0.0)x15.0
+....\TU/lmr/m/n/10 xxx
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\special{pdf:bc [1.0 0.53846 0]}
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 7.52
+...\hbox(4.48+0.10999)x345.0, glue set 308.9fil
+....\hbox(0.0+0.0)x15.0
+....\TU/lmr/m/n/10 wave
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\special{color push hsb 0.62779 0.4 0.2}
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 4.95001
+...\hbox(6.94+0.10999)x345.0, glue set 309.11fil
+....\hbox(0.0+0.0)x15.0
+....\TU/lmr/m/n/10 tHsb
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\special{color push hsb 0.74944 0.4 0.2}
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 4.95001
+...\hbox(6.94+2.05998)x345.0, glue set 259.08fil
+....\hbox(0.0+0.0)x15.0
+....\TU/lmr/m/n/10 tHsb
+....\penalty 10000
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 with
+....\penalty 10000
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 range
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 3.00002
+...\hbox(6.94+2.05998)x345.0, glue set 245.52fil
+....\hbox(0.0+0.0)x15.0
+....\TU/lmr/m/n/10 rgb0.15973
+....\penalty 10000
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 0.12
+....\penalty 10000
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 0.2
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\special{color pop}
+...\special{pdf:bc [0.8]}
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 5.63002
+...\hbox(4.31+0.0)x345.0, glue set 314.16fil
+....\hbox(0.0+0.0)x15.0
+....\TU/lmr/m/n/10 xxx
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\special{pdf:bc [0.8]}
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 7.69
+...\hbox(4.31+0.0)x345.0, glue set 310.83fil
+....\hbox(0.0+0.0)x15.0
+....\TU/lmr/m/n/10 xxx
+....\glue 3.33 plus 1.665 minus 1.11
+....\special{pdf:ec}
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\special{pdf:bc [0.04706 0.38431 0.99608]}
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 7.69
+...\hbox(4.31+0.0)x345.0, glue set 314.16fil
+....\hbox(0.0+0.0)x15.0
+....\TU/lmr/m/n/10 xxx
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\special{pdf:bc [0.04706 0.38431 0.99608]}
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 5.06
+...\hbox(6.94+0.10999)x345.0, glue set 305.78fil
+....\hbox(0.0+0.0)x15.0
+....\TU/lmr/m/n/10 tHsb
+....\glue 3.33 plus 1.665 minus 1.11
+....\special{pdf:ec}
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\special{pdf:bc [0.5 0.5 1.0 0.0]}
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 7.41002
+...\hbox(4.48+2.04999)x345.0, glue set 312.23fil
+....\hbox(0.0+0.0)x15.0
+....\TU/lmr/m/n/10 cmy
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\special{pdf:bc [0.12 0.2 0.2]}
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 3.01001
+...\hbox(6.94+0.10999)x345.0, glue set 313.0fil
+....\hbox(0.0+0.0)x15.0
+....\TU/lmr/m/n/10 Hsb
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\special{pdf:bc [0.12 0.2 0.2]}
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 4.95001
+...\hbox(6.94+2.05998)x345.0, glue set 259.64fil
+....\hbox(0.0+0.0)x15.0
+....\TU/lmr/m/n/10 Hsb-with-range
+....\glue 3.33 plus 1.665 minus 1.11
+....\special{pdf:ec}
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\special{pdf:bc [0.79167 0.58333 1.0]}
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 2.89001
+...\hbox(7.05+0.21999)x345.0, glue set 309.86fil
+....\hbox(0.0+0.0)x15.0
+....\TU/lmr/m/n/10 HSB
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\special{pdf:bc [0.79167 0.58333 1.0]}
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 4.73001
+...\hbox(7.05+2.05998)x345.0, glue set 256.5fil
+....\hbox(0.0+0.0)x15.0
+....\TU/lmr/m/n/10 HSB-with-range
+....\glue 3.33 plus 1.665 minus 1.11
+....\special{pdf:ec}
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\special{pdf:bc [1 0.34118 0.2]}
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 3.11002
+...\hbox(6.83+0.0)x345.0, glue set 299.86fil
+....\hbox(0.0+0.0)x15.0
+....\TU/lmr/m/n/10 HTML
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\special{pdf:bc [0.0 0.65881 0.8 0.0]}
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 5.23
+...\hbox(6.77+2.05998)x345.0, glue set 301.36fil
+....\hbox(0.0+0.0)x15.0
+....\TU/lmr/m/n/10 Target
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue -2.05998
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 23.34
+..\hbox(6.66+0.0)x345.0
+...\special{pdf:bc [0.0]}
+...\hbox(6.66+0.0)x345.0, glue set 170.0fil
+....\glue 0.0 plus 1.0fil
+....\TU/lmr/m/n/10 1
+....\glue 0.0 plus 1.0fil
+...\special{pdf:ec}
+(l3color-setcolor-03.aux)

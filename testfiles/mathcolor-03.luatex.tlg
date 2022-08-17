@@ -18,14 +18,14 @@ Completed box being shipped out [1]
 ..\vbox(12.0+0.0)x345.0, glue set 12.0fil, direction TLT
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x345.0, direction TLT
-....\pdfcolorstack 0 push {0 g 0 G}
+....\pdfcolorstack 0 push {0.0 g 0.0 G}
 ....\hbox(0.0+0.0)x345.0, direction TLT
 ....\pdfcolorstack 0 pop
 ..\glue 25.0
 ..\glue(\lineskip) 0.0
 ..\vbox(550.0+0.0)x345.0, glue set 487.03665fil, direction TLT
 ...\write-{}
-...\pdfcolorstack 0 push {0 g 0 G}
+...\pdfcolorstack 0 push {0.0 g 0.0 G}
 ...\glue(\topskip) 10.0
 ...\hbox(0.0+0.0)x345.0, glue set 122.9979fil, direction TLT
 ....\localpar
@@ -47,7 +47,7 @@ Completed box being shipped out [1]
 ....\OML/cmm/m/it/10 A
 ....\glue(\thickmuskip) 2.77771 plus 2.77771
 ....\OT1/cmr/m/n/10 =
-....\pdfcolorstack 0 push {1 0 0 rg 1 0 0 RG}
+....\pdfcolorstack 0 push {1.0 0.0 0.0 rg 1.0 0.0 0.0 RG}
 ....\glue(\thickmuskip) 2.77771 plus 2.77771
 ....\vbox(21.12231+15.789)x10.00002, direction TLT
 .....\kern1.0 (font)
@@ -78,7 +78,7 @@ on TLT
 ....\OML/cmm/m/it/10 x
 ....\glue(\thickmuskip) 2.77771 plus 2.77771
 ....\OT1/cmr/m/n/10 =
-....\pdfcolorstack 0 push {1 0 0 rg 1 0 0 RG}
+....\pdfcolorstack 0 push {1.0 0.0 0.0 rg 1.0 0.0 0.0 RG}
 ....\glue(\thickmuskip) 2.77771 plus 2.77771
 ....\hbox(1.0+15.00012)x14.44447, shifted -9.50006, direction TLT
 .....\OMX/cmex/m/n/10 X
@@ -99,7 +99,7 @@ on TLT
 ....\OML/cmm/m/it/10 x
 ....\glue(\thickmuskip) 2.77771 plus 2.77771
 ....\OT1/cmr/m/n/10 =
-....\pdfcolorstack 0 push {1 0 0 rg 1 0 0 RG}
+....\pdfcolorstack 0 push {1.0 0.0 0.0 rg 1.0 0.0 0.0 RG}
 ....\glue(\thickmuskip) 2.77771 plus 2.77771
 ....\vbox(18.01115+12.67783)x14.44447, direction TLT
 .....\kern1.0 (font)
@@ -136,7 +136,7 @@ on TLT
 ...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 23.34
 ..\hbox(6.66+0.0)x345.0, direction TLT
-...\pdfcolorstack 0 push {0 g 0 G}
+...\pdfcolorstack 0 push {0.0 g 0.0 G}
 ...\hbox(6.66+0.0)x345.0, glue set 170.0fil, direction TLT
 ....\glue 0.0 plus 1.0fil
 ....\TU/lmr/m/n/10 1

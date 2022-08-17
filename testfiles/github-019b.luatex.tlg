@@ -16,7 +16,7 @@ Completed box being shipped out [1]
 ...\glue 0.0 plus 1.0fil
 ...\pdflinkstate 1
 ...\hbox(0.0+0.0)x345.0, direction TLT
-....\pdfcolorstack 0 push {0 g 0 G}
+....\pdfcolorstack 0 push {0.0 g 0.0 G}
 ....\hbox(0.0+0.0)x345.0, direction TLT
 ....\pdfcolorstack 0 pop
 ...\pdflinkstate 0
@@ -26,8 +26,8 @@ Completed box being shipped out [1]
 ...\latelua0{ltx.__pdf.Page.Resources.ExtGState=true}
 ...\latelua0{ltx.pdf.Page_Resources_gpush(tex.count["g_shipout_readonly_int"])}
 ...\write-{}
-...\pdfcolorstack 0 push {0 g 0 G}
-...\pdfcolorstack 0 push {1 0 0 rg 1 0 0 RG}
+...\pdfcolorstack 0 push {0.0 g 0.0 G}
+...\pdfcolorstack 0 push {1.0 0.0 0.0 rg 1.0 0.0 0.0 RG}
 ...\glue(\topskip) 3.06
 ...\hbox(6.94+0.11)x345.0, glue set 248.24fil, direction TLT
 ....\localpar
@@ -40,7 +40,7 @@ Completed box being shipped out [1]
 ....\TU/lmr/m/n/10 e
 ....\TU/lmr/m/n/10 d
 ....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
-....\pdfcolorstack 0 push {0 g 0 G}
+....\pdfcolorstack 0 push {0.0 g 0.0 G}
 ....\TU/lmr/m/n/10 n
 ....\TU/lmr/m/n/10 o
 ....\TU/lmr/m/n/10 r
@@ -50,7 +50,7 @@ Completed box being shipped out [1]
 ....\TU/lmr/m/n/10 a
 ....\TU/lmr/m/n/10 l
 ....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
-....\pdfcolorstack 0 push {0 g 0 G}
+....\pdfcolorstack 0 push {0.0 g 0.0 G}
 ....\TU/lmr/m/n/10 n
 ....\TU/lmr/m/n/10 o
 ....\TU/lmr/m/n/10 r
@@ -69,7 +69,7 @@ Completed box being shipped out [1]
 ..\pdflinkstate 1
 ..\glue(\baselineskip) 23.34
 ..\hbox(6.66+0.0)x345.0, direction TLT
-...\pdfcolorstack 0 push {0 g 0 G}
+...\pdfcolorstack 0 push {0.0 g 0.0 G}
 ...\hbox(6.66+0.0)x345.0, glue set 170.0fil, direction TLT
 ....\glue 0.0 plus 1.0fil
 ....\TU/lmr/m/n/10 1

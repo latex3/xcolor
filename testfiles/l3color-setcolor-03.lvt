@@ -3,13 +3,10 @@
 \documentclass{article}
 
 \usepackage[dvipsnames]{xcolor}
-\usepackage{colorspace}
-\definespotcolor{spot}{PANTONE 3005 U}{1,0.56,0,0}
 \begin{document}
 \START
 \showoutput
 
-\color{spot} spot
 
 \color{red!50!RoyalBlue} mix
 
@@ -20,7 +17,7 @@
 {
  \selectcolormodel{cmyk}
    \color[rgb] {1,0.3,0.5} rgb as cmyk
-}   
+}
 
 
 \color[cmyk] {0.5,0.4,1,0.2} cmyk
@@ -80,5 +77,5 @@
 
 \color[cmyk:HTML] {FF5733} Target
 
-\OMIT
+
 \end{document}
