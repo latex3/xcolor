@@ -3696,6 +3696,13 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\XC@debug}
+%  For debug messages. Currently no option exists to activate them,
+%  redefine to |\typeout| if needed.
+%    \begin{macrocode}
+\def\XC@debug#1{}
+%    \end{macrocode}
+% \end{macro}
 %
 % \subsubsection{Macro concatenation}
 %
@@ -5422,8 +5429,7 @@
        }
     }
     {
-      %for package like crop that sets \current@color manually
-      \PackageWarning{xcolor}{color~differences~detected}{}
+      \XC@debug{\string\current@color~differs~from~\string\XC@current@color!}%
       \XC@ori@set@color
     }
  }
