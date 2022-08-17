@@ -4849,7 +4849,7 @@
 %
 % \subsubsection{Colors}\label{sec.definition}
 % \begin{macro}{\XC@expl@color@set@@nnn}
-% \begin{macro}{\XC@expl@color@set@@nn}
+% \begin{macro}{\XC@expl@color@set@eq@@nn}
 % We want to define colors also for l3color.
 %    \begin{macrocode}
 \ExplSyntaxOn
@@ -4863,7 +4863,16 @@
       \color_set:nnn{#1}{#2}{#3}
     }
  }
-\cs_set_eq:NN \XC@expl@color@set@@nn \color_set:nn
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\cs_set_protected:Npn \XC@expl@color@set@eq@@nn #1 #2
+  {
+    \color_if_exist:nT{#2}
+     {
+       \color_set_eq:nn{#1}{#2}
+     }
+  }
 \ExplSyntaxOff
 %    \end{macrocode}
 % \end{macro}
@@ -5108,7 +5117,7 @@
    {\edef\@@tmp
      {\ifglobalcolors\global\else\xglobal@\fi
       \noexpand\XC@let@cc{\@backslashchar color@#1}{\@backslashchar color@#2}%
-      \noexpand\XC@expl@color@set@@nn{#1}{#2}}}}
+      \noexpand\XC@expl@color@set@eq@@nn{#1}{#2}}}}
 %    \end{macrocode}
 % \end{macro}
 %

@@ -1,0 +1,15 @@
+\documentclass{beamer}
+\input{regression-test}
+\setbeamertemplate{itemize item}[ball]
+\begin{document}
+\START \showoutput
+\begin{frame}
+\begin{itemize}
+  \item b
+  \expandafter\show\csname\string\color@item.fg\endcsname
+  \csname color_show:n\endcsname {item.fg}
+  \color{item.fg} cccccc
+\end{itemize}
+\end{frame}
+\OMIT
+\end{document}
