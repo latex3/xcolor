@@ -5428,7 +5428,7 @@
                 {\str_if_eq_p:nn{#4}{Hsb}}
                 {\str_if_eq_p:nn{#4}{HSB}}
                 {\str_if_eq_p:nn{#4}{wave}}
-                {\str_if_eq_p:nn{#2}{names}}
+                {\str_if_eq_p:nn{#2}{named}}
                 {\str_if_eq_p:nn{#2}{ps}}
               }
               { \XC@ori@set@color }
@@ -5438,7 +5438,7 @@
        }
     }
     {
-      \XC@debug{\string\current@color~differs~from~\string\XC@current@color!}%
+      \XC@debug{\string\current@color\c_space_tl~differs~from~\string\XC@current@color!}%
       \XC@ori@set@color
     }
  }
