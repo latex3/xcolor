@@ -4855,13 +4855,7 @@
 \ExplSyntaxOn
 \cs_set_protected:Npn \XC@expl@color@set@@nnn #1#2#3
  {
-   \str_if_eq:nnTF {#2}{ cmy }
-    {
-      \color_set:nnn{#1}{ cmyk }{#3,0}
-    }
-    {
-      \color_set:nnn{#1}{#2}{#3}
-    }
+   \color_set:nnn{#1}{#2}{#3}
  }
 %    \end{macrocode}
 %
