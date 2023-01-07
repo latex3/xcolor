@@ -6259,7 +6259,9 @@
 % This is to be used in contexts (e.g., `lrbox') where text is to be saved and used after some other, unknown, text that may contain color commands.
 % A matching |\color@endgroup| should be used at the end of the text.
 %    \begin{macrocode}
-\def\color@setgroup{\begingroup\set@color}
+\ExplSyntaxOn
+\def\color@setgroup{\begingroup\color_ensure_current: }
+\ExplSyntaxOff
 %    \end{macrocode}
 %  \end{macro}
 %
