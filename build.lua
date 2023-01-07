@@ -35,4 +35,4 @@ specialtypesetting['xcolor2.tex'] = {func = typeset_xcolor2}
 
 textfiles= {"ChangeLog", "README.md"}
 
-
+checkruns=2
