@@ -9,7 +9,8 @@ unreleased
 * The new LaTeX key/val handler is used
 * rowcolors command has moved to the colortbl package
 * the fixpdftex option is obsolete and does nothing at all (issue #20)
-* prepared optional support for l3colors (this is currently only used by pdfmanagement-testphase)
+* support for l3colors:
+   * every defined color is also defined as l3color.  
 * extended \normalcolor to set also the "dot" color, issue #19
 
 
