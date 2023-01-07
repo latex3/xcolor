@@ -856,7 +856,7 @@ Completed box being shipped out [1]
 ....\OT1/cmr/m/n/10 r
 ....\glue 3.33333 plus 1.66666 minus 1.11111
 ....\hbox(0.0+0.0)x0.0
-....\setlanguage1 (hyphenmin 2,3)
+....\setlanguage2 (hyphenmin 2,3)
 ....\OT1/cmtt/m/n/10 _
 ....\OT1/cmtt/m/n/10 \
 ....\OT1/cmtt/m/n/10 m

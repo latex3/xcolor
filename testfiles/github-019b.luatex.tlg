@@ -73,3 +73,6 @@ Completed box being shipped out [1]
 ....\glue 0.0 plus 1.0fil
 ...\pdfcolorstack 0 pop
 .\kern0.0
+.\kern-633.0
+.\hbox(0.0+0.0)x0.0, direction TLT
+.\kern633.0

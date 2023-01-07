@@ -736,7 +736,7 @@ Completed box being shipped out [1]
 ....\TU/lmr/m/n/10 for
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\hbox(0.0+0.0)x0.0
-....\setlanguage1 (hyphenmin 2,3)
+....\setlanguage2 (hyphenmin 2,3)
 ....\TU/lmtt/m/n/10 _\mathsf{foo}
 ....\setlanguage0 (hyphenmin 2,3)
 ....\TU/lmr/m/n/10 :
