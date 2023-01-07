@@ -217,12 +217,10 @@ Completed box being shipped out [1]
 .\vbox(617.0+0.0)x345.0, shifted 62.0
 ..\vbox(12.0+0.0)x345.0, glue set 12.0fil
 ...\glue 0.0 plus 1.0fil
-...\special{pdf:nolink}
 ...\hbox(0.0+0.0)x345.0
 ....\special{pdf:bc [0.0]}
 ....\hbox(0.0+0.0)x345.0
 ....\special{pdf:ec}
-...\special{pdf:link}
 ..\glue 25.0
 ..\glue(\lineskip) 0.0
 ..\vbox(550.0+0.0)x345.0, glue set 323.9654fil
@@ -448,7 +446,6 @@ Completed box being shipped out [1]
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
-..\special{pdf:nolink}
 ..\glue(\baselineskip) 23.34
 ..\hbox(6.66+0.0)x345.0
 ...\special{pdf:bc [0.0]}
@@ -457,15 +454,17 @@ Completed box being shipped out [1]
 ....\TU/lmr/m/n/10 1
 ....\glue 0.0 plus 1.0fil
 ...\special{pdf:ec}
-..\special{pdf:link}
 .\kern 0.0
 .\kern 0.0
 .\kern -633.0
 .\hbox(0.0+0.0)x0.0
-..\special{pdf:docinfo<</Creator (TeX)>>}
+..\special{pdf:stream @pdf.obj5 (
+<?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczk\ETC.}
 ..\special{pdf:docinfo<</Producer (xetex)>>}
+..\special{pdf:docinfo<</Creator (TeX)>>}
 ..\special{pdf:docinfo<</CreationDate (D:20010101205959-00'00')>>}
 ..\special{pdf:docinfo<</ModDate (D:20010101205959-00'00')>>}
 ..\special{pdf:put @catalog<</Lang (en-US)>>}
+..\special{pdf:put @catalog<</Metadata @pdf.obj5>>}
 .\kern 633.0
 (l3color-setcolor-02.aux)
