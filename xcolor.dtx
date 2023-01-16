@@ -7103,6 +7103,33 @@
 %-------------------------------------------------------------------------------
 % \fi
 %
+% \subsection{Temporary patches to other packages}
+% 
+% The following are patches needed during the transition to the l3color commands.
+% They should disappear again!
+%
+%  \subsubsection{pdfcol}
+%  The pdfcol package allows to switch the color stack, but it does it only 
+%  for the name |\@pdfcolorstack| used in the color/xcolor backend. We need to 
+%  switch also the l3color stack:
+%    \begin{macrocode}
+%<*package>
+\ExplSyntaxOn
+\AddToHook{package/pdfcol/after}
+  {
+   \def\pdfcolSwitchStack#1{%
+     \pdfcolIfStackExists{#1}{%
+       \expandafter\let\expandafter\@pdfcolorstack
+                      \csname pdfcol@Stack@#1\endcsname
+       \int_set:Nn\l__color_backend_stack_int{ \@pdfcolorstack }               
+     }{%
+      \pdfcol@ErrorNoStack{#1}%
+    }%
+  }%
+}
+\ExplSyntaxOff
+%</package>
+%    \end{macrocode}
 % \subsection{Auxiliary definitions}
 %
 % \subsubsection{\Index{PostScript} prologue file \File{xcolor.pro}}
