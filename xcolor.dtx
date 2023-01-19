@@ -7117,15 +7117,17 @@
 \ExplSyntaxOn
 \AddToHook{package/pdfcol/after}
   {
-   \def\pdfcolSwitchStack#1{%
-     \pdfcolIfStackExists{#1}{%
-       \expandafter\let\expandafter\@pdfcolorstack
+   \ifpdfcolAvailable
+    \def\pdfcolSwitchStack#1{%
+      \pdfcolIfStackExists{#1}{%
+        \expandafter\let\expandafter\@pdfcolorstack
                       \csname pdfcol@Stack@#1\endcsname
-       \int_set:Nn\l__color_backend_stack_int{ \@pdfcolorstack }               
-     }{%
-      \pdfcol@ErrorNoStack{#1}%
-    }%
-  }%
+        \int_set:Nn\l__color_backend_stack_int{ \@pdfcolorstack }               
+      }{%
+       \pdfcol@ErrorNoStack{#1}%
+     }%
+   }%
+  \fi 
 }
 \ExplSyntaxOff
 %</package>
