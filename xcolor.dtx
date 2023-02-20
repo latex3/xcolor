@@ -3645,6 +3645,18 @@
 \newif\ifglobalcolors \globalcolorsfalse
 %    \end{macrocode}
 % \end{macro}
+% \begin{macro}{\g__color_global_prop}
+% this will store color data that should be available globally.
+%    \begin{macrocode}
+\ExplSyntaxOn
+\prop_new:N\g__color_global_prop
+\cs_new_protected:Npn\XC@store@globalcolor#1#2 %#1 name, #2 {model}{value}
+  {
+    \prop_gput:Nxx \g__color_global_prop {#1}{#2}
+  }
+\ExplSyntaxOff
+%    \end{macrocode}
+% \end{macro}
 %
 % \begin{macro}{\ifdefinecolors}
 % Controls whether |\definecolorset| should \emph{define} or \emph{prepare} colors.
@@ -4942,7 +4954,7 @@
 %    \begin{macrocode}
       \toks@\expandafter{\@@drv}%
       \edef\@@tmp
-       {\ifglobalcolors\global\else\xglobal@\fi
+       {\ifglobalcolors\noexpand\XC@store@globalcolor{\@@nam}{{\@@mod}{\@@clr}}\else\xglobal@\fi        
         \noexpand\@namedef{\@backslashchar color@\@@nam}%
          {\noexpand\xcolor@{\@@cls}{\the\toks@}{\@@mod}{\@@clr}}%
         \noexpand\XC@expl@color@set@@nnn{\@@nam}{\@@mod}{\@@clr}}%
@@ -5108,8 +5120,9 @@
 \def\XC@c@l@rlet#1#2%
  {\@ifundefinedcolor{#2}%
    {\c@lor@error{`#2'}\let\@@tmp\@empty}%
-   {\edef\@@tmp
-     {\ifglobalcolors\global\else\xglobal@\fi
+   {\ifglobalcolors\extractcolorspecs{#2}\@@mod\@@clr\fi
+    \edef\@@tmp
+     {\ifglobalcolors\noexpand\XC@store@globalcolor{#1}{{\@@mod}{\@@clr}}\else\xglobal@\fi
       \noexpand\XC@let@cc{\@backslashchar color@#1}{\@backslashchar color@#2}%
       \noexpand\XC@expl@color@set@eq@@nn{#1}{#2}}}}
 %    \end{macrocode}
@@ -6063,6 +6076,21 @@
 % Checks whether \Meta{name} is a defined color name and executes the respective code.
 %    \begin{macrocode}
 \def\@ifundefinedcolor#1{\@ifundefined{\@backslashchar color@#1}}
+\ExplSyntaxOn
+\def\@ifundefinedcolor#1{%
+  \@ifundefined { \@backslashchar color@#1 }
+    {       
+      \exp_args:NNe
+      \prop_get:NnNTF \g__color_global_prop {#1} \l__color_tmp_tl
+        {
+          \exp_last_unbraced:Nno\definecolor{#1}{\l__color_tmp_tl}
+          \@secondoftwo
+        }
+        {\@firstoftwo}
+    }
+    \@secondoftwo
+  }
+\ExplSyntaxOff  
 %    \end{macrocode}
 % \end{macro}
 %
