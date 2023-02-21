@@ -4953,8 +4953,9 @@
 % and setup the l3color:
 %    \begin{macrocode}
       \toks@\expandafter{\@@drv}%
+      \ifx\xglobal@\global \globalcolorstrue\fi
       \edef\@@tmp
-       {\ifglobalcolors\noexpand\XC@store@globalcolor{\@@nam}{{\@@mod}{\@@clr}}\else\xglobal@\fi        
+       {\ifglobalcolors\noexpand\XC@store@globalcolor{\@@nam}{{\@@mod}{\@@clr}}\fi        
         \noexpand\@namedef{\@backslashchar color@\@@nam}%
          {\noexpand\xcolor@{\@@cls}{\the\toks@}{\@@mod}{\@@clr}}%
         \noexpand\XC@expl@color@set@@nnn{\@@nam}{\@@mod}{\@@clr}}%
@@ -5120,9 +5121,11 @@
 \def\XC@c@l@rlet#1#2%
  {\@ifundefinedcolor{#2}%
    {\c@lor@error{`#2'}\let\@@tmp\@empty}%
-   {\ifglobalcolors\extractcolorspecs{#2}\@@mod\@@clr\fi
+   {\ifx\xglobal@\global \globalcolorstrue\fi
+    \ifglobalcolors\extractcolorspecs{#2}\@@mod\@@clr\fi
     \edef\@@tmp
-     {\ifglobalcolors\noexpand\XC@store@globalcolor{#1}{{\@@mod}{\@@clr}}\else\xglobal@\fi
+     {\unexpanded{\XC@smuggle@color\global\let\XC@smuggle@color\relax}%
+      \ifglobalcolors\noexpand\XC@store@globalcolor{#1}{{\@@mod}{\@@clr}}\fi
       \noexpand\XC@let@cc{\@backslashchar color@#1}{\@backslashchar color@#2}%
       \noexpand\XC@expl@color@set@eq@@nn{#1}{#2}}}}
 %    \end{macrocode}
@@ -5520,7 +5523,9 @@
 %    \begin{macrocode}
 \def\XC@declaredcolor
  {\XC@split\XC@@tmp
-  \edef\@@tmp{\noexpand\@undeclaredcolor[\@@mod]{\@@clr}}%
+  \edef\@@tmp{%
+   \unexpanded{\XC@smuggle@color\global\let\XC@smuggle@color\relax}%
+   \noexpand\@undeclaredcolor[\@@mod]{\@@clr}}%
   \expandafter\endgroup\@@tmp}
 %    \end{macrocode}
 %
@@ -6077,13 +6082,15 @@
 %    \begin{macrocode}
 \def\@ifundefinedcolor#1{\@ifundefined{\@backslashchar color@#1}}
 \ExplSyntaxOn
+\tl_new:N\XC@smuggle@color
 \def\@ifundefinedcolor#1{%
   \@ifundefined { \@backslashchar color@#1 }
     {       
       \exp_args:NNe
       \prop_get:NnNTF \g__color_global_prop {#1} \l__color_tmp_tl
         {
-          \exp_last_unbraced:Nno\definecolor{#1}{\l__color_tmp_tl}
+          \tl_gset:Nx\XC@smuggle@color{\exp_not:N\definecolor{#1}\l__color_tmp_tl}
+          \XC@smuggle@color %not sure if needed ...
           \@secondoftwo
         }
         {\@firstoftwo}
