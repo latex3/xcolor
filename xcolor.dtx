@@ -18,8 +18,8 @@
 %%
 %</package>
 %<*extract|driver|test1|test2|test3|test4>
-\def\XCfileversion{v2.14}%
-\def\XCfiledate{2022/06/12}%
+\def\XCfileversion{v2.15}%
+\def\XCfiledate{2023/10/09}%
 %</extract|driver|test1|test2|test3|test4>
 %
 % This file may be distributed and/or modified under the
@@ -3143,7 +3143,21 @@
 %
 % \subsection*{History}
 % \addcontentsline{toc}{subsection}{History}
-%
+% \subsubsection*{2023/10/09 v2.15}
+% \begin{itemize}
+% \item if a \LaTeX{} older than 2022-06-01 is detected a frozen version is used.
+%  All new features apply only if LaTeX 2022-06-01 or newer is detected 
+% \item  The new LaTeX key/val handler is used for the package options.
+% That means there will be less option clash errors.
+% item  The |\rowcolors| command has moved to the |colortbl| package and is no longer
+% defined by |xcolor|.
+% \item The fixpdftex option is obsolete and does nothing at all (issue \#20)
+% \item Prepared optional support for l3colors 
+%  (this is currently only used if |pdfmanagement-testphase| is loaded)
+% \item Extended |\normalcolor| to set also the dot color, issue \#19
+% \item Fix Gray color model, issue \#23
+% \end{itemize}
+% 
 % \subsubsection*{2022/06/12 v2.14}
 % \begin{itemize}
 % \item Load if it exists the code from \LaTeX\ to define |\mathcolor|.
@@ -3569,7 +3583,7 @@
 \providecommand\DeclareRelease[3]{}
 \providecommand\DeclareCurrentRelease[2]{}
 \DeclareRelease{v2}{0000-00-00}{xcolor-2022-06-12.sty}
-\DeclareCurrentRelease{}{2022-06-01}
+\DeclareCurrentRelease{}{2023-10-09}
 %    \end{macrocode}
 %
 % \subsubsection{File identification}
@@ -3583,7 +3597,7 @@
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \providecommand\IfFormatAtLeastTF{\@ifl@t@r\fmtversion}
-\IfFormatAtLeastTF{2022/06/01}{}{\RequirePackageWithOptions{xcolor-2021-10-31}}
+\IfFormatAtLeastTF{2022/06/01}{}{\RequirePackageWithOptions{xcolor-2022-06-12}}
 \IfFormatAtLeastTF{2022/06/01}{}{\endinput}
 %    \end{macrocode}
 %

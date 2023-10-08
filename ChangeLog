@@ -4,14 +4,16 @@ https://github.com/latex3/xcolor/issues
 History
 =======
 unreleased
-* if a LaTeX older than 2022-06-01 is detected a frozen version is used.
+* If a LaTeX older than 2022-06-01 is detected a frozen version is used.
   All new features apply only if LaTeX 2022-06-01 or newer is detected 
-* The new LaTeX key/val handler is used
-* rowcolors command has moved to the colortbl package
-* the fixpdftex option is obsolete and does nothing at all (issue #20)
-* prepared optional support for l3colors (this is currently only used by pdfmanagement-testphase)
-* extended \normalcolor to set also the "dot" color, issue #19
-
+* The new LaTeX key/val handler is used for the package options. That means there
+  will be less option clash errors.
+* The \rowcolors command has moved to the colortbl package
+* The fixpdftex option is obsolete and does nothing at all (issue #20)
+* Prepared optional support for l3colors 
+  (this is currently only used if pdfmanagement-testphase is loaded)
+* Extended \normalcolor to set also the "dot" color, issue #19
+* Fix Gray color model, issue #23
 
 2022/06/12 v2.14
 * New features:
