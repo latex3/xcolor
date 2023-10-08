@@ -2,7 +2,7 @@
 %%
 %% ----------------------------------------------------------------
 %% Copyright (C) 2003-2021 by Dr. Uwe Kern <xcolor at ukern dot de>
-%%               2021-2022    LaTeX Project https://github.com/latex3/xcolor/issues
+%%               2021-2023    LaTeX Project https://github.com/latex3/xcolor/issues
 %% ----------------------------------------------------------------
 %%
 %<*package>
@@ -3144,6 +3144,18 @@
 % \subsection*{History}
 % \addcontentsline{toc}{subsection}{History}
 %
+% \subsubsection*{2022/06/12 v2.14}
+% \begin{itemize}
+% \item Load if it exists the code from \LaTeX\ to define |\mathcolor|.
+% \item Bug fixes:
+%   \begin{itemize}
+%   \item Modify |\XC@info| to avoid spurious error from |\colorlet{foo}{}|, issue \#12
+%   \item make |\normalcolor|, |\colorbox|, |\fcolorbox|, |\textcolor|, |\pagecolor|, 
+%      |\nopagecolor|, |\definecolor|, |\DefineNamedColor| 
+%      protected as in |color.sty|, issue \#17
+%   \end{itemize}
+% \end{itemize}
+
 % \subsubsection*{2021/10/31 v2.13}
 % \begin{itemize}
 % \item Bug Fixes:
