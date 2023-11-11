@@ -1,6 +1,6 @@
 ## Package `xcolor` by Dr. Uwe Kern
 
-Version 2022-06-12 v2.14
+Version 2023-11-11 v2.15
 
 Maintained by the LaTeX Project https://github.com/latex3/xcolor/issues
 
@@ -14,7 +14,7 @@ separation, and color wheel calculations.
 
 ## Copyright (C)
 - 2003-2021    Dr. Uwe Kern 
-- 2021-2022    The LaTeX Project 
+- 2021-2023    The LaTeX Project 
 
 ## License
 LaTeX Project Public License, version 1.3c or later.
