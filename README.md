@@ -1,6 +1,6 @@
 ## Package `xcolor` by Dr. Uwe Kern
 
-Version 2023-11-11 v2.15
+Version 2023-11-11 v3.00
 
 Maintained by the LaTeX Project https://github.com/latex3/xcolor/issues
 
