@@ -3,7 +3,7 @@ https://github.com/latex3/xcolor/issues
 
 History
 =======
-unreleased
+2023/11/11 v.2.15
 * If a LaTeX older than 2022-06-01 is detected a frozen version is used.
   All new features apply only if LaTeX 2022-06-01 or newer is detected 
 * The new LaTeX key/val handler is used for the package options. That means there
