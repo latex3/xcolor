@@ -25,7 +25,8 @@ function typeset_xcolor2 (f)
  rm(ctandir .. '/xcolor','xcolor2.tex')
  return 0
 end
- 
+
+checkruns=2 
 
 typesetfiles={"xcolor.dtx","xcolor2.tex"}
 specialtypesetting={}
