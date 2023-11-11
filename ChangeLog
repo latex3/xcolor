@@ -10,8 +10,6 @@ unreleased
   will be less option clash errors.
 * The \rowcolors command has moved to the colortbl package
 * The fixpdftex option is obsolete and does nothing at all (issue #20)
-* Prepared optional support for l3colors 
-  (this is currently only used if pdfmanagement-testphase is loaded)
 * Extended \normalcolor to set also the "dot" color, issue #19
 * Fix Gray color model, issue #23
 
