@@ -382,7 +382,7 @@
 % \item options that determine the color driver as explained in \cite{dpc} and \cite{color}, currently: \Option{dvips}, \Option{xdvi}, \Option{dvipdf}, \Option{dvipdfm}, \Option{dvipdfmx}, \Option{luatex}, \Option{pdftex}, \Option{dvipsone}, \Option{dviwindo}, \Option{emtex}, \Option{dviwin}, \Option{oztex}, \Option{textures}, \Option{pctexps}, \Option{pctexwin}, \Option{pctexhp}, \Option{pctex32}, \Option{truetex}, \Option{tcidvi}, \Option{vtex}, \Option{xetex}, \Option{dvisvgm},
 % \item options that determine the target color model\footnote{Section \vref{sec.tgt} explains how this setting can be overridden at any point in a document.} (\Option{natural}, \Option{rgb}, \Option{cmy}, \Option{cmyk}, \Option{hsb}, \Option{gray}, \Option{RGB}, \Option{HTML}, \Option{HSB}, \Option{Gray}) or disable colored output (\Option{monochrome}),
 % \item options that control whether and how certain sets of predefined colors are being loaded: \Option{dvipsnames}, \Option{dvipsnames*}, \Option{svgnames}, \Option{svgnames*}, \Option{x11names}, \Option{x11names*},
-% \item options that determine which other packages are to be loaded or supported: \Option{table},
+% \item option that determine which other packages are to be loaded or supported: \Option{table},
 % \item options that influence the behaviour of other commands: \Option{prologue}, \Option{kernelfbox}, \Option{xcdraw}, \Option{noxcdraw}, \Option{fixinclude}, \Option{showerrors}, \Option{hideerrors},
 % \item obsolete options:
 % \oOption{pst},
@@ -1398,7 +1398,7 @@
 %
 %
 % \subsection{Color in tables}
-% The commands in this subjection
+% The commands in this subsection
 % were in previous versions provided by the \Package{xcolor} package as
 % an extension of the \Package{colortbl} commands. They have now
 % been merged into the \Package{colortbl} package properly. The package can be loaded
@@ -3149,7 +3149,7 @@
 %  All new features apply only if LaTeX 2022-06-01 or newer is detected.
 %  The frozen version can also be requested with \usepackage{xcolor}[=v2]  
 % \item  The new LaTeX key/val handler is used for the package options.
-% That means there will be less option clash errors (issue \#29).
+% That means there will be fewer option clash errors (issue \#29).
 % item  The |\rowcolors| command has moved to the |colortbl| package and is no longer
 % defined by |xcolor|.
 % \item The fixpdftex option is obsolete and does nothing at all (issue \#20)
@@ -3159,7 +3159,7 @@
 % 
 % \subsubsection*{2022/06/12 v2.14}
 % \begin{itemize}
-% \item Load if it exists the code from \LaTeX\ to define |\mathcolor|.
+% \item Load code from \LaTeX\ to define |\mathcolor| if it is available.
 % \item Bug fixes:
 %   \begin{itemize}
 %   \item Modify |\XC@info| to avoid spurious error from |\colorlet{foo}{}|, issue \#12
@@ -3582,7 +3582,7 @@
 \providecommand\DeclareRelease[3]{}
 \providecommand\DeclareCurrentRelease[2]{}
 \DeclareRelease{v2}{0000-00-00}{xcolor-2022-06-12.sty}
-\DeclareCurrentRelease{}{2023-10-09}
+\DeclareCurrentRelease{}{2023-11-11}
 %    \end{macrocode}
 %
 % \subsubsection{File identification}
@@ -3596,7 +3596,8 @@
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \providecommand\IfFormatAtLeastTF{\@ifl@t@r\fmtversion}
-\IfFormatAtLeastTF{2022/06/01}{}{\RequirePackageWithOptions{xcolor-2022-06-12}}
+\IfFormatAtLeastTF{2022/06/01}{}
+ {\RequirePackageWithOptions{xcolor-2022-06-12}}
 \IfFormatAtLeastTF{2022/06/01}{}{\endinput}
 %    \end{macrocode}
 %
@@ -3923,7 +3924,7 @@
 \@tfor\@@tmp:={natural}{rgb}{cmy}{cmyk}{hsb}{gray}{RGB}{HTML}{HSB}{Gray}\do
  {\expandafter\XC@sdef\csname XC@mod@\@@tmp\endcsname{\@@tmp}%
   \edef\@@tmp
-   {\noexpand\DeclareKeys{\@@tmp\space .code= {\noexpand\selectcolormodel{\@@tmp}}}}%
+   {\noexpand\DeclareKeys{\@@tmp .code= {\noexpand\selectcolormodel{\@@tmp}}}}%
   \@@tmp}
 %    \end{macrocode}
 % \end{macro}
@@ -4057,8 +4058,8 @@
  {\edef\@@tmp{%
    \noexpand\DeclareKeys
      {
-      \@@tmp\space .code = {\def\noexpand\Gin@driver{\@@tmp.def}},
-      \@@tmp\space .usage=load
+      \@@tmp .code = {\def\noexpand\Gin@driver{\@@tmp.def}},
+      \@@tmp .usage=load
      }}%
   \@@tmp}
 %    \end{macrocode}
@@ -5037,8 +5038,6 @@
 % Create a color `name' consisting of \Meta{color}, converted to \Meta{num model} if non-empty.
 %    \begin{macrocode}
 \def\colorlet{\@testopt{\XC@colorlet}{}}
-%    \end{macrocode}
-%    \begin{macrocode}
 \def\XC@colorlet[#1]#2{\@testopt{\XC@col@rlet[#1]{#2}}{}}
 \def\XC@col@rlet[#1]#2[#3]#4%
  {\begingroup
@@ -6890,8 +6889,9 @@
 % |\normalcolor| is defined (to |\relax|) in the \LaTeX\ kernel, so it is safe to use this in macros that may possibly be used in conjunction with color.
 % It will have no effect until the \XCP{} is also loaded.
 %    \begin{macrocode}
-\protected\def\normalcolor{\let\current@color\default@color
-\let\XC@current@color\XC@default@color\XC@display}
+\protected\def\normalcolor{%
+  \let\current@color\default@color
+  \let\XC@current@color\XC@default@color\XC@display}
 \AtBeginDocument{\let\XC@default@color\XC@current@color}
 %    \end{macrocode}
 % \end{macro}
