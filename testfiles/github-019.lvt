@@ -1,0 +1,12 @@
+\input{regression-test}
+\documentclass{article}
+\usepackage{xcolor}
+\begin{document}
+\showoutput
+\START
+\color{red} red
+\normalcolor normal
+\color{.}   normal
+\newpage
+\OMIT
+\end{document}

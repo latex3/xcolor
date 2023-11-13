@@ -2,7 +2,7 @@
 %%
 %% ----------------------------------------------------------------
 %% Copyright (C) 2003-2021 by Dr. Uwe Kern <xcolor at ukern dot de>
-%%               2021-2022    LaTeX Project https://github.com/latex3/xcolor/issues
+%%               2021-2023    LaTeX Project https://github.com/latex3/xcolor/issues
 %% ----------------------------------------------------------------
 %%
 %<*package>
@@ -18,8 +18,8 @@
 %%
 %</package>
 %<*extract|driver|test1|test2|test3|test4>
-\def\XCfileversion{v2.14}%
-\def\XCfiledate{2022/06/12}%
+\def\XCfileversion{v3.00}%
+\def\XCfiledate{2023/11/11}%
 %</extract|driver|test1|test2|test3|test4>
 %
 % This file may be distributed and/or modified under the
@@ -382,12 +382,11 @@
 % \item options that determine the color driver as explained in \cite{dpc} and \cite{color}, currently: \Option{dvips}, \Option{xdvi}, \Option{dvipdf}, \Option{dvipdfm}, \Option{dvipdfmx}, \Option{luatex}, \Option{pdftex}, \Option{dvipsone}, \Option{dviwindo}, \Option{emtex}, \Option{dviwin}, \Option{oztex}, \Option{textures}, \Option{pctexps}, \Option{pctexwin}, \Option{pctexhp}, \Option{pctex32}, \Option{truetex}, \Option{tcidvi}, \Option{vtex}, \Option{xetex}, \Option{dvisvgm},
 % \item options that determine the target color model\footnote{Section \vref{sec.tgt} explains how this setting can be overridden at any point in a document.} (\Option{natural}, \Option{rgb}, \Option{cmy}, \Option{cmyk}, \Option{hsb}, \Option{gray}, \Option{RGB}, \Option{HTML}, \Option{HSB}, \Option{Gray}) or disable colored output (\Option{monochrome}),
 % \item options that control whether and how certain sets of predefined colors are being loaded: \Option{dvipsnames}, \Option{dvipsnames*}, \Option{svgnames}, \Option{svgnames*}, \Option{x11names}, \Option{x11names*},
-% \item options that determine which other packages are to be loaded or supported: \Option{table}, \Option{fixpdftex},
-% \Option{hyperref},
+% \item option that determine which other packages are to be loaded or supported: \Option{table},
 % \item options that influence the behaviour of other commands: \Option{prologue}, \Option{kernelfbox}, \Option{xcdraw}, \Option{noxcdraw}, \Option{fixinclude}, \Option{showerrors}, \Option{hideerrors},
 % \item obsolete options:
 % \oOption{pst},
-% \oOption{override}, \oOption{usenames}, \oOption{nodvipsnames}.
+% \oOption{override}, \oOption{usenames}, \oOption{nodvipsnames}, \oOption{fixpdftex}, \oOption{hyperref}.
 % \end{itemize}
 % All available package options (except driver selection and obsolete options) are listed in table \vref{tab.opt}.
 % \DescribeMacro\GetGinDriver
@@ -427,7 +426,7 @@
 % \Option{x11names}, \Option{x11names*}& Load a set of predefined colors according to \Index{Unix}/\Index{X11}.\footnotemark[1]\\
 % \hline
 % \Option{table}& Load the \Package{colortbl} package, in order to use the tools for coloring rows, columns, and cells within tables.\\
-% \Option{fixpdftex}& Load the \Package{pdfcolmk} package, in order to improve |pdftex|'s color behaviour (see section \vref{sec.fixpdftex}).\\
+% \Option{fixpdftex}& This option is obsolete and does nothing at all.\\
 % \Option{hyperref}& Support the \Package{hyperref} package in terms of color expressions by defining additional keys (see section \vref{sec.hyperref}).\\
 % \hline
 % \Option{prologue}& Write prologue information to \File{.xcp} file for every color definition (as described in section \vref{sec.prologue}).\\
@@ -452,15 +451,15 @@
 % \raggedleft
 % \extrarowheight2pt
 % \rowcolors{3}{tablerowcolor}{}
-% \begin{tabular}{l*{6}{c}}
+% \begin{tabular}{l*{5}{c}}
 % \hline
 % \rowcolor{tableheadcolor}
-% \em Action/Package    & \Package{colortbl}& \Package{pdfcolmk}& \Package{hyperref}& \Package{pstricks}& \LC& \Package{pstcol}\\
-% load before \XC       & no & no & allowed & allowed\rlap{\footnotemark[1]} & no & no  \\
-% load with \XC{} option& \Option{table} & \Option{fixpdftex} & --- & --- & --- & --- \\
-% load after \XC        & no & allowed & allowed & allowed & no & no \\
+% \em Action/Package    & \Package{colortbl}&  \Package{hyperref}& \Package{pstricks}& \LC& \Package{pstcol}\\
+% load before \XC       & allowed &  allowed & allowed\rlap{\footnotemark[1]} & no & no  \\
+% load with \XC{} option& \Option{table} &  --- & --- & --- & --- \\
+% load after \XC        & allowed &  allowed & allowed & no & no \\
 % \hline\hline
-% \multicolumn6{c}{\footnotemark[1]\,recent \Package{pstricks} versions do load \XC\ by default}\\
+% \multicolumn5{c}{\footnotemark[1]\,\Package{pstricks}  loads \XC\ by default}\\
 % \hline
 % \end{tabular}
 % \end{adjustwidth}
@@ -1350,6 +1349,14 @@
 %
 % \subsection{Border colors for hyperlinks}\label{sec.hyperref}
 %
+% \textbf{Change 2022}: The options described in this subsection have been removed from the code
+%  as no longer relevant. \Package{hyperref} can handle color names in the border color keys.
+%
+%  This affects the package options \Option{hyperref}, and the Keys
+%  \Key{xcitebordercolor}, \Key{xfilebordercolor}, \Key{xlinkbordercolor}, \Key{xmenubordercolor},
+%  \Key{xpagebordercolor}, \Key{xrunbordercolor}, \Key{xurlbordercolor} and \Key{xpdfborder}.
+%
+%
 % The \Package{hyperref} package offers all kinds of support for hyperlinks, pdfmarks etc.
 % There are two standard ways to make hyperlinks visible (see the package documentation \cite{hyperref} for additional information on how to set up these features):
 % \begin{itemize}
@@ -1391,6 +1398,13 @@
 %
 %
 % \subsection{Color in tables}
+% The commands in this subsection
+% were in previous versions provided by the \Package{xcolor} package as
+% an extension of the \Package{colortbl} commands. They have now
+% been merged into the \Package{colortbl} package properly. The package can be loaded
+% either with the \Option{table} option or independently with |\usepackage|.
+% The description of the commands is kept only for historical reasons. If in doubt
+% consult the documentation of \Package{colortbl}.
 %
 % \DescribeMacro\rowcolors
 %   \oarg{commands}\marg{row}\marg{odd-row color}\marg{even-row color}\\
@@ -1408,7 +1422,6 @@
 % \DescribeMacro\rownum
 % The counter |\rownum| may be used within such a table to access the current row number.
 % An example is given in figure \vref{fig.row}.
-% These commands require the \Option{table} option (which loads the \Package{colortbl} package).
 %
 % Note that table coloring may be combined with color series.
 % This method was used to construct the examples in figure \vref{fig.csx}.
@@ -1469,28 +1482,6 @@
 % \end{verbatim}
 % Now all colors from the \Index{SVG} set are available (except \Color{Fuchsia}) plus \Color{Fuchsia} from the other set.
 %
-% \subsubsection{Page breaks and pdf\TeX}\label{sec.fixpdftex}
-%
-% Since pdf\TeX{} does not maintain a \emph{\Index{color stack}} --- in contrast to \Program{dvips} --- a typical problem is the behaviour of colors in the case of page breaks, as illustrated by the following example:
-% \begin{verbatim}
-% \documentclass{minimal}
-% \usepackage{xcolor}
-% \begin{document}
-% black\color{red}red1\newpage red2\color{black}black
-% \end{document}
-% \end{verbatim}
-% This works as expected with |dvips|, i.e., `red1' and `red2' being \Color{red}, however, with |pdftex|, `red2' is displayed in \Color{black}.
-% The problem may be solved by using the \Option{fixpdftex} option which simply loads Heiko Oberdiek's \Package{pdfcolmk} package \cite{pdfcolmk}.
-% However, its author also lists some limitations:
-% \begin{itemize}
-% \item Mark limitations: page breaks in math.
-% \item LaTeX's output routine is redefinded.
-% \begin{itemize}
-% \item Changes in the output routine of newer versions of LaTeX are not detected.
-% \item Packages that change the output routine are not supported.
-% \end{itemize}
-% \item It does not support several independent text streams like footnotes.
-% \end{itemize}
 %
 % \subsubsection{Change color of included \File{.eps} file}\label{sec.fixinclude}
 %
@@ -3152,7 +3143,32 @@
 %
 % \subsection*{History}
 % \addcontentsline{toc}{subsection}{History}
-%
+% \subsubsection*{2023/11/11 v3.00}
+% \begin{itemize}
+% \item if a \LaTeX{} older than 2022-06-01 is detected a frozen version is used.
+%  All new features apply only if LaTeX 2022-06-01 or newer is detected.
+%  The frozen version can also be requested with \usepackage{xcolor}[=v2]  
+% \item  The new LaTeX key/val handler is used for the package options.
+% That means there will be fewer option clash errors (issue \#29).
+% item  The |\rowcolors| command has moved to the |colortbl| package and is no longer
+% defined by |xcolor|.
+% \item The fixpdftex option is obsolete and does nothing at all (issue \#20)
+% \item Extended |\normalcolor| to set also the dot color, issue \#19
+% \item Fix Gray color model, issue \#23
+% \end{itemize}
+% 
+% \subsubsection*{2022/06/12 v2.14}
+% \begin{itemize}
+% \item Load code from \LaTeX\ to define |\mathcolor| if it is available.
+% \item Bug fixes:
+%   \begin{itemize}
+%   \item Modify |\XC@info| to avoid spurious error from |\colorlet{foo}{}|, issue \#12
+%   \item make |\normalcolor|, |\colorbox|, |\fcolorbox|, |\textcolor|, |\pagecolor|, 
+%      |\nopagecolor|, |\definecolor|, |\DefineNamedColor| 
+%      protected as in |color.sty|, issue \#17
+%   \end{itemize}
+% \end{itemize}
+
 % \subsubsection*{2021/10/31 v2.13}
 % \begin{itemize}
 % \item Bug Fixes:
@@ -3556,20 +3572,33 @@
 %
 %
 % \subsection{Preparation}
+%    \begin{macrocode}
+%<*package>
+%    \end{macrocode}
+%
+% \subsubsection{Release handling}
+%
+%    \begin{macrocode}
+\providecommand\DeclareRelease[3]{}
+\providecommand\DeclareCurrentRelease[2]{}
+\DeclareRelease{v2}{0000-00-00}{xcolor-2022-06-12.sty}
+\DeclareCurrentRelease{}{2023-11-11}
+%    \end{macrocode}
 %
 % \subsubsection{File identification}
 %
 % \renewcommand*\MacroFont{\footnotesize\ttfamily}
 % \renewcommand*\AltMacroFont{\footnotesize\ttfamily\slshape}
 %
-%    \begin{macrocode}
-%<*package>
-%    \end{macrocode}
 %
 % \fbox{\MacroFont\string\ProvidesPackage\string{xcolor\string}[\XCfiledate\space\XCfileversion\space LaTeX color extensions (UK)]}
 %
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
+\providecommand\IfFormatAtLeastTF{\@ifl@t@r\fmtversion}
+\IfFormatAtLeastTF{2022/06/01}{}
+ {\RequirePackageWithOptions{xcolor-2022-06-12}}
+\IfFormatAtLeastTF{2022/06/01}{}{\endinput}
 %    \end{macrocode}
 %
 %
@@ -3837,6 +3866,7 @@
 % Performs the test |\if|\Meta{str}\Meta[kl]{str} for $k=1,\dots,n$ and $l=1,\ldots,m_n$.
 % If for some $k,l$ the test is `true', then the attached code \Meta[k]{code} is executed.
 % If all tests are `false', then \Meta{default code} is executed.
+% \changes{3.0}{2022-08-10}{moved the patch from hycolor to correct Gray model, issue \#23}
 %    \begin{macrocode}
 \long\def\XC@ifcase#1#2#3%
  {\long\def\XC@if@##1##2%
@@ -3846,43 +3876,6 @@
 %    \end{macrocode}
 % \end{macro}
 %
-%
-%
-% \subsection{Package options}
-%
-% \begin{macro}{\XC@@opt}
-% Initialise the macro to hold the names of \emph{executed} \XCP{} options.
-%    \begin{macrocode}
-\def\XC@@opt{,}
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{\@ifXCopt}
-%   \marg{option}\marg{executed}\marg{not executed}\\
-% Performs action dependent on whether a specific \XCP{} option has been executed or not.
-%    \begin{macrocode}
-\def\@ifXCopt#1%
- {\@expandtwoargs\in@{,#1,}{\XC@@opt}%
-  \ifin@\expandafter\@firstoftwo\else\expandafter\@secondoftwo\fi}
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{\XC@@pkg}
-% Initialise the macro to hold the names of packages that are to be loaded by \XC.
-%    \begin{macrocode}
-\let\XC@@pkg\relax
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{\DeclareOption}
-% |\DeclareOption| has to be redefined in order to collect every executed package option in |\XC@@opt|.
-% This is being restored immediately before |\ProcessOptions|; thus, other packages use the original definition.
-%    \begin{macrocode}
-\let\XC@declareoption\@declareoption
-\long\def\@declareoption#1#2%
- {\XC@declareoption{#1}{\edef\XC@@opt{\XC@@opt#1,}#2}}
-%    \end{macrocode}
-% \end{macro}
 %
 %
 % \subsubsection{Color model selection}
@@ -3931,7 +3924,7 @@
 \@tfor\@@tmp:={natural}{rgb}{cmy}{cmyk}{hsb}{gray}{RGB}{HTML}{HSB}{Gray}\do
  {\expandafter\XC@sdef\csname XC@mod@\@@tmp\endcsname{\@@tmp}%
   \edef\@@tmp
-   {\noexpand\DeclareOption{\@@tmp}{\noexpand\selectcolormodel{\@@tmp}}}%
+   {\noexpand\DeclareKeys{\@@tmp .code= {\noexpand\selectcolormodel{\@@tmp}}}}%
   \@@tmp}
 %    \end{macrocode}
 % \end{macro}
@@ -3953,14 +3946,20 @@
 %
 % The \Option{monochrome} option should be used \emph{in addition} to one of the standard driver options.
 %    \begin{macrocode}
-\DeclareOption{monochrome}
- {\ExecuteOptions{hideerrors}%
-  \AtEndOfPackage
-   {\colors@false
-    \def\set@color{\c@lor@special\m@ne
-      {color push \current@color}\aftergroup\reset@color}%
-    \def\reset@color{\c@lor@special\m@ne{color pop}}%
-    \def\set@page@color{\c@lor@special\m@ne{background \current@color}}}}
+\DeclareKeys
+ {
+    monochrome .code =
+    {
+      \colorerrors@false
+      \AtEndOfPackage
+       {\colors@false
+        \def\set@color{\c@lor@special\m@ne
+          {color push \current@color}\aftergroup\reset@color}%
+        \def\reset@color{\c@lor@special\m@ne{color pop}}%
+        \def\set@page@color{\c@lor@special\m@ne{background \current@color}}}
+    }
+   ,monochrome .usage = load
+ }
 %    \end{macrocode}
 %
 %
@@ -3989,12 +3988,27 @@
 % Construct package options for color names.
 %    \begin{macrocode}
 \def\XC@declarenames#1#2#3%
- {\DeclareOption{#1}{\XC@append\XC@@names
-   {#3\definecolorstrue\input{#2.def}\definecolorstrue
-    \let\colornameprefix\XC@@nameprefix}}
-  \DeclareOption{#1*}{\XC@append\XC@@names
-   {#3\definecolorsfalse\input{#2.def}\definecolorstrue
-    \let\colornameprefix\XC@@nameprefix}}}
+ {%
+  \DeclareKeys
+   {
+    #1  .code =
+       {
+        \AddToHook{package/xcolor/after}
+          {#3\definecolorstrue\input{#2.def}\definecolorstrue
+           \let\colornameprefix\XC@@nameprefix}%
+        \DeclareKeys[xcolor]{#1 .code = {},#1* .code={}}
+       }
+   ,#1  .usage = preamble
+   ,#1* .code =
+       {
+         \AddToHook{package/xcolor/after}
+           {#3\definecolorsfalse\input{#2.def}\definecolorstrue
+            \let\colornameprefix\XC@@nameprefix}
+         \DeclareKeys[xcolor]{#1 .code = {},#1* .code={}}
+       }
+   ,#1* .usage = preamble
+   }%
+ }
 %    \end{macrocode}
 % \end{macro}
 %
@@ -4013,44 +4027,19 @@
 %
 % Use this option to load \People{David P.}{Carlisle}'s \Package{colortbl} package:
 %    \begin{macrocode}
-\DeclareOption{table}{\XC@append\XC@@pkg{\RequirePackage{colortbl}}}
+\DeclareKeys
+ {
+    table .code  ={\AddToHook{package/xcolor/after}{\RequirePackage{colortbl}}}
+   ,table .usage = preamble
 %    \end{macrocode}
 %
-% Use this option to load \People{Heiko}{Oberdiek}'s \Package{pdfcolmk} package:
+% These options are obsolete and only added for compatibility.
 %    \begin{macrocode}
-\DeclareOption{fixpdftex}{\XC@append\XC@@pkg{\RequirePackage{pdfcolmk}}}
+   ,hyperref  .code = {}
+   ,fixpdftex .code = {}
+ }
 %    \end{macrocode}
 %
-% \begin{macro}{\KV@Hyp@xcitebordercolor}
-% \begin{macro}{\KV@Hyp@xfilebordercolor}
-% \begin{macro}{\KV@Hyp@xlinkbordercolor}
-% \begin{macro}{\KV@Hyp@xmenubordercolor}
-% \begin{macro}{\KV@Hyp@xpagebordercolor}
-% \begin{macro}{\KV@Hyp@xrunbordercolor}
-% \begin{macro}{\KV@Hyp@xurlbordercolor}
-% \begin{macro}{\KV@Hyp@xpdfborder}
-% Use this option to define the extended keys for the \Package{hyperref} package.
-%    \begin{macrocode}
-\DeclareOption{hyperref}
- {\@tfor\@@tmp:={cite}{file}{link}{menu}{page}{run}{url}\do
-   {\expandafter\edef\csname KV@Hyp@x\@@tmp bordercolor\endcsname #1%
-     {\noexpand\XC@bordercolor{\@@tmp}{#1}}}%
-  \AtEndOfPackage
-   {\GetGinDriver\def\KV@Hyp@xpdfborder#1{\edef\@pdfborder{#1}}%
-    \@tfor\@@tmp:={dvips}\do
-     {\ifx\GinDriver\@@tmp
-       \def\KV@Hyp@xpdfborder#1%
-        {\edef\@pdfborder{#1}\expandafter\XC@pdfborder\@pdfborder\relax}%
-      \@break@tfor\fi}}}
-%    \end{macrocode}
-% \end{macro}
-% \end{macro}
-% \end{macro}
-% \end{macro}
-% \end{macro}
-% \end{macro}
-% \end{macro}
-% \end{macro}
 %
 %
 % \subsubsection{Driver options}
@@ -4066,25 +4055,42 @@
 \@tfor\@@tmp:={dvipdf}{dvipdfmx}{dvips}{dvipsone}{dviwin}%
               {emtex}{luatex}{pctex32}{pctexhp}{pctexps}{pctexwin}{pdftex}%
               {tcidvi}{textures}{truetex}{vtex}{xetex}{dvisvgm}\do
- {\edef\@@tmp{\noexpand\DeclareOption{\@@tmp}%
-    {\def\noexpand\Gin@driver{\@@tmp.def}}}%
+ {\edef\@@tmp{%
+   \noexpand\DeclareKeys
+     {
+      \@@tmp .code = {\def\noexpand\Gin@driver{\@@tmp.def}},
+      \@@tmp .usage=load
+     }}%
   \@@tmp}
 %    \end{macrocode}
 %
 % Drivers that are derivatives of others:
 %    \begin{macrocode}
-\DeclareOption{dviwindo}{\ExecuteOptions{dvipsone}}
-\DeclareOption{oztex}{\ExecuteOptions{dvips}}
-\DeclareOption{xdvi}{\ExecuteOptions{dvips,monochrome}}
-\DeclareOption{dvipdfm}{\ExecuteOptions{dvipdfmx}}
+\DeclareKeys
+ {
+  ,dviwindo .code   = {\SetKeys{dvipsone}}
+  ,dviwindo .usage  = load
+  ,oztex    .code   = {\SetKeys{dvips}}
+  ,oztex    .usage  = load
+  ,xdvi     .code   = {\SetKeys{dvips,monochrome}}
+  ,xdvi     .usage  = load
+  ,dvipdfm  .code   = {\SetKeys{dvipdfmx}}
+  ,dvipdfm  .usage  = load
+ }
 %    \end{macrocode}
 %
 % Options used by (some) drivers.
 %    \begin{macrocode}
-\DeclareOption{xcdraw}{\def\XC@@xcd@{1}}
-\DeclareOption{noxcdraw}{\def\XC@@xcd@{-1}}
-\DeclareOption{fixinclude}{\def\XC@@xcf@{1}}
-\DeclareOption{prologue}{\def\XC@@xcp@{1}}
+\DeclareKeys
+ {
+   ,xcdraw   .code    = {\def\XC@@xcd@{1}}
+   ,xcdraw   .usage   = load %TODO check
+   ,noxcdraw .code    = {\def\XC@@xcd@{-1}}
+   ,noxcdraw .usage   = load %TODO check
+   ,fixinclude .code  = {\def\XC@@xcf@{1}}
+   ,fixinclude .usage = load %TODO check
+   ,prologue .code    = {\def\XC@@xcp@{1}}
+   ,prologue .usage   = load %TODO check
 %    \end{macrocode}
 % \end{macro}
 %
@@ -4093,32 +4099,30 @@
 %
 % Switch to original kernel |\fbox| command instead of new \XC{} version.
 %    \begin{macrocode}
-\DeclareOption{kernelfbox}{\XC@@fboxfalse}
+   ,kernelfbox .code    = {\XC@@fboxfalse}
+   ,kernelfbox .usage   = load %TODO check
 %    \end{macrocode}
 %
 % These options control how non-existing colors are treated:
 %    \begin{macrocode}
-\DeclareOption{showerrors}{\colorerrors@true}
-\DeclareOption{hideerrors}{\colorerrors@false}
+   ,showerrors .code   = {\colorerrors@true}
+   ,hideerrors .code   = {\colorerrors@false}
 %    \end{macrocode}
 %
 % The \Option{debugshow} option turns on debugging info (perhaps).
 %    \begin{macrocode}
-\DeclareOption{debugshow}{\catcode`\^^A=9 \let\GDebug\typeout}
+   ,debugshow .code    = {\catcode`\^^A=9 \let\GDebug\typeout}
+  }
 %    \end{macrocode}
 %
-% All other options (including \LC's \oOption{usenames}, \oOption{nodvipsnames}) are being ignored.
-%    \begin{macrocode}
-\DeclareOption*%
- {\PackageInfo{xcolor}{Package option `\CurrentOption' ignored}}
-%    \end{macrocode}
+% All other options (including \LC's \oOption{usenames}, \oOption{nodvipsnames}) error.
 %
 % Choose default options:
 %    \begin{macrocode}
 \def\XC@@xcd@{-1}
 \def\XC@@xcf@{-1}
 \def\XC@@xcp@{-1}
-\ExecuteOptions{natural,showerrors}
+\SetKeys{natural,showerrors}
 %    \end{macrocode}
 %
 %
@@ -4127,14 +4131,18 @@
 % A local configuration file may declare more options.
 % It should also make one driver option the default, by calling |\ExecuteOptions| with the appropriate option.
 %    \begin{macrocode}
+\let\XC@ExecuteOptions\ExecuteOptions
+\ExplSyntaxOn
+\def\ExecuteOptions{\keys_set_known:nn {xcolor}}
+\ExplSyntaxOff
 \InputIfFileExists{color.cfg}{}{}
+\let\ExecuteOptions\XC@ExecuteOptions
 %    \end{macrocode}
 %
 % After the options are processed, load the appropriate driver file.
 % If a site wants a default driver (e.g., \Option{dvips}) it just needs to put |\ExecuteOptions{dvips}| in a \File{color.cfg} file.
 %    \begin{macrocode}
-\let\@declareoption\XC@declareoption
-\ProcessOptions\relax
+\ProcessKeyOptions
 %    \end{macrocode}
 %
 % \begin{macro}{\XC@@drv}
@@ -4225,11 +4233,10 @@
 %
 % \subsubsection{Required packages}
 %
-% All packages within the list |\XC@pkg|
-% receive a pretended \LC.
+% We pretent that color.sty has already been loaded.
+%
 %    \begin{macrocode}
 \@namedef{ver@color.sty}{1999/02/16}
-\XC@@pkg
 %    \end{macrocode}
 %
 %
@@ -4862,10 +4869,10 @@
 \def\XC@definecolor[#1]#2%
  {\@testopt{\XC@definec@lor[#1]{#2}}\colornameprefix}
 %    \end{macrocode}
-%
 %    \begin{macrocode}
 \def\XC@definec@lor[#1]#2[#3]#4#5%
- {\begingroup
+ {%
+  \begingroup
   \XC@sdef\@@cls{#1}\XC@edef\@@nam{#2}\edef\colornameprefix{#3}%
   \XC@logdef\@@nam
   \XC@getmodclr02{#4}{#5}{\let\@@tmp\relax}%
@@ -5932,114 +5939,6 @@
 % \end{macro}
 %
 %
-% \subsubsection{Colored rows in tables}
-%
-% The following definitions make only sense if the \Package{colortbl} package has been loaded by the \Option{table} option.
-%    \begin{macrocode}
-\@ifXCopt{table}{%
-%    \end{macrocode}
-%
-% \begin{macro}{\rowcolors}
-% \begin{macro}{\rowcolors*}
-%   \oarg{commands}\marg{row}\marg{odd-row color}\marg{even-row color}\\
-% Defines alternating colors for the next tabular environment.
-% Starting with row \Meta{row}, odd and even rows get their respective colors.
-% The color arguments may also be left empty (= no color).
-% Optional commands may be |\hline| or |\noalign|\marg{stuff}.
-%    \begin{macrocode}
- \def\rowcolors
-  {\@ifstar{\@rowcmdfalse\rowc@lors}{\@rowcmdtrue\rowc@lors}}
-%    \end{macrocode}
-%
-%    \begin{macrocode}
- \def\rowc@lors{\@testopt{\rowc@l@rs}{}}
-%    \end{macrocode}
-%
-%    \begin{macrocode}
- \def\rowc@l@rs[#1]#2#3#4%
-  {\global\rownum=\z@
-   \global\@rowcolorstrue
-   \@ifxempty{#3}%
-     {\def\@oddrowcolor{\@norowcolor}}%
-     {\def\@oddrowcolor{\gdef\CT@row@color{\CT@color{#3}}}}%
-   \@ifxempty{#4}%
-     {\def\@evenrowcolor{\@norowcolor}}%
-     {\def\@evenrowcolor{\gdef\CT@row@color{\CT@color{#4}}}}%
-   \if@rowcmd
-     \def\@rowcolors
-      {#1\if@rowcolors
-         \noalign{\relax\ifnum\rownum<#2\@norowcolor\else
-                  \ifodd\rownum\@oddrowcolor\else\@evenrowcolor\fi\fi}%
-       \fi}%
-   \else
-     \def\@rowcolors
-      {\if@rowcolors
-         \ifnum\rownum<#2\noalign{\@norowcolor}\else
-         #1\noalign{\ifodd\rownum\@oddrowcolor\else\@evenrowcolor\fi}\fi
-       \fi}%
-   \fi
-   \CT@everycr{\@rowc@lors\the\everycr}%
-   \ignorespaces}
-%    \end{macrocode}
-%
-%    \begin{macrocode}
- \def\@rowc@lors{\noalign{\global\advance\rownum\@ne}\@rowcolors}
- \let\@rowcolors\@empty
-%    \end{macrocode}
-% \end{macro}
-% \end{macro}
-%
-% \begin{macro}{\showrowcolors}
-% \begin{macro}{\hiderowcolors}
-% Switch coloring mode on/off.
-%    \begin{macrocode}
- \def\showrowcolors{\noalign{\global\@rowcolorstrue}\@rowcolors}
- \def\hiderowcolors{\noalign{\global\@rowcolorsfalse\@norowcolor}}
- \def\@norowcolor{\global\let\CT@row@color\relax}
- \@norowcolor
-%    \end{macrocode}
-% \end{macro}
-% \end{macro}
-%
-% \begin{macro}{\if@rowcolors}
-% \begin{macro}{\if@rowcmd}
-%    \begin{macrocode}
- \newif\if@rowcolors
- \newif\if@rowcmd
-%    \end{macrocode}
-% \end{macro}
-% \end{macro}
-%
-% \begin{macro}{\rownum}
-% Reserve a counter register.
-%    \begin{macrocode}
- \@ifundefined{rownum}{\newcount\rownum}{}
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{\CT@extract}
-% This is a fix for active `!' character to enable color expressions; it is apparently only necessary for |\columncolor| commands within |\multicolumn|.
-%    \begin{macrocode}
- \def\CT@extract#1\columncolor#2#3\@nil
-  {\if!#2%
-     \let\CT@column@color\@empty
-   \else
-     \if[#2%
-       \expandafter\CT@extractb
-     \else
-       \XC@edef\XC@@tmp{#2}%
-       \edef\CT@column@color{\noexpand\CT@color{\XC@@tmp}}%
-       \expandafter\CT@extractd
-     \fi
-     {#1}#3\@nil
-   \fi}
-%    \end{macrocode}
-% \end{macro}
-%
-% End of conditional code for colored tables.
-%    \begin{macrocode}
-}{}
-%    \end{macrocode}
 %
 %
 % \subsubsection{Color information}
@@ -6546,10 +6445,12 @@
 %
 % \begin{macro}{\XC@cnv@gray}
 %   \Meta{gray}|,|
+% \changes{3.0}{2022-08-10}{moved the patch from hycolor to correct Gray model, issue \#23}
 %    \begin{macrocode}
 \def\XC@cnv@gray#1,%
  {\XC@ifxcase\tm
    {\XC@mod@rgb {\XC@calcN{#1}\@@tmp \edef\@@tmp{\@@tmp,\@@tmp,\@@tmp}}%
+    \XC@mod@gray{}%
     \XC@mod@cmy {\XC@calcC{#1}\@@tmp \edef\@@tmp{\@@tmp,\@@tmp,\@@tmp}}%
     \XC@mod@cmyk{\XC@calcC{#1}\@@tmp \edef\@@tmp{0,0,0,\@@tmp}}%
     \XC@mod@RGB {\edef\@@scl{\rangeRGB}\XC@calcM{#1}\@@tmp
@@ -6988,7 +6889,10 @@
 % |\normalcolor| is defined (to |\relax|) in the \LaTeX\ kernel, so it is safe to use this in macros that may possibly be used in conjunction with color.
 % It will have no effect until the \XCP{} is also loaded.
 %    \begin{macrocode}
-\protected\def\normalcolor{\let\current@color\default@color\set@color}
+\protected\def\normalcolor{%
+  \let\current@color\default@color
+  \let\XC@current@color\XC@default@color\XC@display}
+\AtBeginDocument{\let\XC@default@color\XC@current@color}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -8274,7 +8178,7 @@ Type test:
    {\immediate\write\@tempa{\@@tmp}}}
 \immediate\closeout\@tempa
 \@@end}% end of driver list construction code
-\edef\Options{\expandafter\@gobble\XC@@opt}
+\edef\Options{}
 \@tfor\@@tmp:={dvipdf}{dvipdfm}{dvipdfmx}{dvips}{dvipsone}{dviwin}{dviwindo}%
               {emtex}{oztex}{pctex32}{pctexhp}{pctexps}{pctexwin}{pdftex}%
               {tcidvi}{textures}{truetex}{vtex}{xdvi}{xetex}%

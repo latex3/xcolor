@@ -3,6 +3,17 @@ https://github.com/latex3/xcolor/issues
 
 History
 =======
+2023/11/11 v3.00
+* If a LaTeX older than 2022-06-01 is detected a frozen version is used.
+  All new features apply only if LaTeX 2022-06-01 or newer is detected.
+  The frozen version can also be requested with \usepackage{xcolor}[=v2]. 
+* The new LaTeX key/val handler is used for the package options. That means there
+  will be less option clash errors, issue #29
+* The \rowcolors command has moved to the colortbl package
+* The fixpdftex option is obsolete and does nothing at all (issue #20)
+* Extended \normalcolor to set also the "dot" color, issue #19
+* Fix Gray color model, issue #23
+
 2022/06/12 v2.14
 * New features:
     - Load if it exists the code from LaTeX to define \mathcolor.

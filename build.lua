@@ -6,8 +6,8 @@
 bundle = ""
 module = "xcolor"
 
-installfiles = {"svgnam.def", "x11nam.def", "xcolor.pro", "xcolor.sty"}
-sourcefiles = {"xcolor.dtx", "xcolor.ins"}
+installfiles = {"svgnam.def", "x11nam.def", "xcolor.pro", "xcolor.sty","xcolor-2022-06-12.sty"}
+sourcefiles = {"xcolor.dtx", "xcolor.ins","xcolor-2022-06-12.sty"}
 unpackfiles = {"xcolor.ins"}
 
 -- Get the .pro files in the right place
@@ -25,7 +25,8 @@ function typeset_xcolor2 (f)
  rm(ctandir .. '/xcolor','xcolor2.tex')
  return 0
 end
- 
+
+checkruns=2 
 
 typesetfiles={"xcolor.dtx","xcolor2.tex"}
 specialtypesetting={}
