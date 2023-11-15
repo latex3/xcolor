@@ -18,8 +18,8 @@
 %%
 %</package>
 %<*extract|driver|test1|test2|test3|test4>
-\def\XCfileversion{v3.00}%
-\def\XCfiledate{2023/11/11}%
+\def\XCfileversion{v3.01}%
+\def\XCfiledate{2023/11/15}%
 %</extract|driver|test1|test2|test3|test4>
 %
 % This file may be distributed and/or modified under the
@@ -3143,11 +3143,15 @@
 %
 % \subsection*{History}
 % \addcontentsline{toc}{subsection}{History}
+% \subsubsection*{2023/11/15 v3.01}
+% \begin{itemize}
+% \item only warn and not error if obsolete option usenames is used (issue \#31)
+% \end{itemize}
 % \subsubsection*{2023/11/11 v3.00}
 % \begin{itemize}
 % \item if a \LaTeX{} older than 2022-06-01 is detected a frozen version is used.
 %  All new features apply only if LaTeX 2022-06-01 or newer is detected.
-%  The frozen version can also be requested with \verb+\usepackage{xcolor}[=v2]+  
+%  The frozen version can also be requested with \verb+\usepackage{xcolor}[=v2]+
 % \item  The new LaTeX key/val handler is used for the package options.
 % That means there will be fewer option clash errors (issue \#29).
 % item  The |\rowcolors| command has moved to the |colortbl| package and is no longer
@@ -3156,15 +3160,15 @@
 % \item Extended |\normalcolor| to set also the dot color, issue \#19
 % \item Fix Gray color model, issue \#23
 % \end{itemize}
-% 
+%
 % \subsubsection*{2022/06/12 v2.14}
 % \begin{itemize}
 % \item Load code from \LaTeX\ to define |\mathcolor| if it is available.
 % \item Bug fixes:
 %   \begin{itemize}
 %   \item Modify |\XC@info| to avoid spurious error from |\colorlet{foo}{}|, issue \#12
-%   \item make |\normalcolor|, |\colorbox|, |\fcolorbox|, |\textcolor|, |\pagecolor|, 
-%      |\nopagecolor|, |\definecolor|, |\DefineNamedColor| 
+%   \item make |\normalcolor|, |\colorbox|, |\fcolorbox|, |\textcolor|, |\pagecolor|,
+%      |\nopagecolor|, |\definecolor|, |\DefineNamedColor|
 %      protected as in |color.sty|, issue \#17
 %   \end{itemize}
 % \end{itemize}
@@ -4031,16 +4035,8 @@
  {
     table .code  ={\AddToHook{package/xcolor/after}{\RequirePackage{colortbl}}}
    ,table .usage = preamble
-%    \end{macrocode}
-%
-% These options are obsolete and only added for compatibility.
-%    \begin{macrocode}
-   ,hyperref  .code = {}
-   ,fixpdftex .code = {}
  }
 %    \end{macrocode}
-%
-%
 %
 % \subsubsection{Driver options}
 %
@@ -4115,7 +4111,25 @@
   }
 %    \end{macrocode}
 %
-% All other options (including \LC's \oOption{usenames}, \oOption{nodvipsnames}) error.
+% \subsubsection{Obsolete options}
+% The following options are obsolete but perhaps still around in the wild,
+% so we generate a warning.
+%    \begin{macrocode}
+\DeclareKeys
+ {
+   ,usenames   .code    =
+     {\PackageWarning{xcolor}{Package option `usenames' is obsolete and ignored}}
+   ,usename    .usage   = preamble
+   ,hyperref   .code    =
+     {\PackageWarning{xcolor}{Package option `hyperref' is obsolete and ignored}}
+   ,hyperref   .usage   = preamble
+   ,fixpdftex  .code    =
+     {\PackageWarning{xcolor}{Package option `fixpdftex' is obsolete and ignored}}
+   ,fixpdftex  .usage   = preamble
+ }
+%    \end{macrocode}
+%
+% All other options (including \LC's \oOption{nodvipsnames}) error.
 %
 % Choose default options:
 %    \begin{macrocode}
@@ -4124,7 +4138,6 @@
 \def\XC@@xcp@{-1}
 \SetKeys{natural,showerrors}
 %    \end{macrocode}
-%
 %
 % \subsubsection{Processing options}
 %
