@@ -47,6 +47,7 @@ collection-basic
         refcount
         rerunfilecheck
         stringenc
+	tagpdf
         tools
         uniquecounter
         url
