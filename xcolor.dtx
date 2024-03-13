@@ -2,7 +2,7 @@
 %%
 %% ----------------------------------------------------------------
 %% Copyright (C) 2003-2021 by Dr. Uwe Kern <xcolor at ukern dot de>
-%%               2021-2023    LaTeX Project https://github.com/latex3/xcolor/issues
+%%               2021-2024    LaTeX Project https://github.com/latex3/xcolor/issues
 %% ----------------------------------------------------------------
 %%
 %<*package>
@@ -18,8 +18,8 @@
 %%
 %</package>
 %<*extract|driver|test1|test2|test3|test4>
-\def\XCfileversion{v3.01}%
-\def\XCfiledate{2023/11/15}%
+\def\XCfileversion{v3.02}%
+\def\XCfiledate{2024/03/13}%
 %</extract|driver|test1|test2|test3|test4>
 %
 % This file may be distributed and/or modified under the
@@ -4153,9 +4153,14 @@
 %    \end{macrocode}
 %
 % After the options are processed, load the appropriate driver file.
-% If a site wants a default driver (e.g., \Option{dvips}) it just needs to put |\ExecuteOptions{dvips}| in a \File{color.cfg} file.
+% If a site wants a default driver (e.g., \Option{dvips}) it just needs
+% to put |\ExecuteOptions{dvips}| in a \File{color.cfg} file.
+%
+% Note |\relax| added here to ensure that |\ProcessKeyOptions| not the following
+% |\edef| shows in error context lines for unknown options.
+% \changes{3.02}{2024-03-13}{Added \cs[relax}
 %    \begin{macrocode}
-\ProcessKeyOptions
+\ProcessKeyOptions\relax
 %    \end{macrocode}
 %
 % \begin{macro}{\XC@@drv}
@@ -6458,7 +6463,7 @@
 %
 % \begin{macro}{\XC@cnv@gray}
 %   \Meta{gray}|,|
-% \changes{3.0}{2022-08-10}{moved the patch from hycolor to correct Gray model, issue \#23}
+% \changes{3.0}{2022-08-10}{moved the patch from hycolor to correct Gray model, issue \#23}w
 %    \begin{macrocode}
 \def\XC@cnv@gray#1,%
  {\XC@ifxcase\tm
