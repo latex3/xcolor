@@ -320,7 +320,7 @@
 % There are proprietary models (like \Index{Pantone} or \Index{HKS}) that provide finite sets of colors (often called \emph{\Index{spot color}s}), where the user has to choose from without caring about parametrisations; on the other hand, there are parameter-driven models like \Model{gray}, \Model{rgb}, and \Model{cmyk}, that aim to represent large finite or even (theoretically) infinite sets of colors, built on very small subsets of base colors and rules, how to construct other colors from these base colors.
 % For example, a large range of colors can be constructed by linear combinations of the base colors \Color{red}, \Color{green}, and \Color{blue}.
 % On the other hand, usually \Index{spot color}s can only be \emph{approximated} by parameter values in models like \Model{cmyk} or \Model{rgb}; the original colors are being physically mixed even dependent on the targeted kind of paper.
-% Finally, there are certain colors like \Color{gold} and \Color{silver} that are hardly reproducable by any parameter-driven color model on standard ink or laser printers.
+% Finally, there are certain colors like \Color{gold} and \Color{silver} that are hardly reproducible by any parameter-driven color model on standard ink or laser printers.
 %
 %
 %
@@ -501,7 +501,7 @@
 %
 % Example: assuming that |a.tex| is a complete \LaTeX{} document, a command like
 % `|latex \def\xcolorcmd{\colorlet{black}{red}}\input{a}|'
-% at the console generates a file |a.dvi| with all occurences of \Color{black} being replaced by \Color{red}, without the necessity to change the source file itself.
+% at the console generates a file |a.dvi| with all occurrences of \Color{black} being replaced by \Color{red}, without the necessity to change the source file itself.
 % (The exact spelling of the console command might vary across operating systems and \TeX{} distributions.)
 %
 %
@@ -2486,7 +2486,7 @@
 % \subsection{Color conversion and complements}\label{sec.cnv}
 %
 % We collect here the specific conversion formulas between the supported color models.
-% Table \vref{tab.cnv} gives an overwiew of how each conversion pair is handled.
+% Table \vref{tab.cnv} gives an overview of how each conversion pair is handled.
 % In general, \Index{PostScript} (as described in \cite{plrm}) is used as a basis for most of the calculations, since it supports the color models \Model{rgb}, \Model{cmyk}, \Model{hsb}, and \Model{gray} natively.
 % Furthermore, \People{Alvy Ray}{Smith}'s paper \cite{smith} is cited in \cite{plrm} as reference for \Model{hsb}-related formulas.
 %
@@ -4274,7 +4274,7 @@
 %
 % \begin{macro}{\xglobal}
 % \begin{macro}{\xglobal@test}
-% If |\foo| occurs in the token list |\xglobal@@|, then the command |\xglobal\foo| will set the switch |\xglobal@true| which can be used inside |\foo| to determine whether certain definitions are to be made explicitely global.
+% If |\foo| occurs in the token list |\xglobal@@|, then the command |\xglobal\foo| will set the switch |\xglobal@true| which can be used inside |\foo| to determine whether certain definitions are to be made explicitly global.
 % |\foo| is responsible for resetting |\xglobal@false| in order to avoid side effects.
 % To include |\foo| in the magic list, simply say |\XC@append\xglobal@list{\foo}|.
 % If |\foo| is not in the list, |\xglobal\foo| will behave like |\global\foo|, thus |\xglobal\let| will be like |\global\let| etc.
@@ -4361,7 +4361,7 @@
 %
 % \begin{macro}{\XC@replace}
 %   \marg{cmd}\marg{search}\marg{replace}\\
-% Replace all occurences of \meta{search} within the first-level expansion of \meta{cmd} by \meta{replace} and save the result in \meta{cmd}.
+% Replace all occurrences of \meta{search} within the first-level expansion of \meta{cmd} by \meta{replace} and save the result in \meta{cmd}.
 % The replacement is recursive, so don't put the search pattern into the replacement text!
 % Note that this macro is incapable of seeing `into' braces.
 % The code and its explanation is taken from \People{Donald}{Arseneau}'s \Package{url} package \cite{url}, with only minor changes and renamings applied.
@@ -6187,7 +6187,7 @@
 %
 %
 % \subsubsection{Extra groups}
-% Turning on extra groups in the standard \LaTeX\ commands, so that color commands are scoped corectly.
+% Turning on extra groups in the standard \LaTeX\ commands, so that color commands are scoped correctly.
 %
 % Like |\normalcolor|, the following five commands are defined in the kernel, with empty definitions (|\relax|).
 % This means that they can be used to make macros in packages `color safe'.
