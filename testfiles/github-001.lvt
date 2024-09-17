@@ -1,0 +1,10 @@
+\documentclass{article}
+\input{regression-test}
+\usepackage{xcolor}
+\begin{document}
+\START\showoutput
+\selectcolormodel{cmyk}
+\definecolor{red2}{rgb:Hsb}{0,0.67,0.26} % errors
+\color{red2}
+blub
+\end{document}
