@@ -3,6 +3,11 @@ https://github.com/latex3/xcolor/issues
 
 History
 =======
+2024/09/29
+* remove definitions of color groups as they are already in the kernel.
+
+2024/09/17
+* unknown model error handled (issue #1)
 
 2024/03/13
 * Add \relax after \ProcessKeyOptions to improve error context lines

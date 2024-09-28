@@ -18,8 +18,8 @@
 %%
 %</package>
 %<*extract|driver|test1|test2|test3|test4>
-\def\XCfileversion{v3.02}%
-\def\XCfiledate{2024/03/13}%
+\def\XCfileversion{v3.04}%
+\def\XCfiledate{2024/09/29}%
 %</extract|driver|test1|test2|test3|test4>
 %
 % This file may be distributed and/or modified under the
@@ -4981,9 +4981,10 @@
 % Retrieve model position |\XC@@pos|, model |\@@mod|, and target model |\@@Mod| from multiple definitions (up to~8), separated by `|/|'.
 %    \begin{macrocode}
 \def\XC@getmod#1/#2/#3/#4/#5/#6/#7/#8/#9\XC@@
- {\XC@g@tm@d0#1::\XC@@ \XC@getm@d1{#2}\XC@getm@d2{#3}%
+ {\def\XC@dflt@@mod{#1}%
+  \XC@g@tm@d0#1::\XC@@ \XC@getm@d1{#2}\XC@getm@d2{#3}%
   \XC@getm@d3{#4}\XC@getm@d4{#5}\XC@getm@d5{#6}\XC@getm@d6{#7}%
-  \XC@getm@d7{#8}\def\XC@@pos{0}\def\@@mod{#1}\@gobble\@nnil}%
+  \XC@getm@d7{#8}\def\XC@@pos{0}\let\@@mod\XC@dflt@@mod\@gobble\@nnil}%
 %    \end{macrocode}
 %
 %    \begin{macrocode}
@@ -4995,7 +4996,10 @@
 %    \begin{macrocode}
 \def\XC@g@tm@d#1#2:#3:#4\XC@@
  {\@ifxempty{#3}{\let\@@Mod\XC@mod@ignore\XC@getm@d0{#2}}%
-    {\def\@@Mod{#2}\XC@getm@d0{#3}}}%
+    {\def\@@Mod{#2}%
+     \def\XC@tgt@mod##1{#2}%
+     \def\XC@dflt@@mod{#3}%
+     \XC@getm@d0{#3}}}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -6187,11 +6191,13 @@
 %
 %
 % \subsubsection{Extra groups}
-% Turning on extra groups in the standard \LaTeX\ commands, so that color commands are scoped correctly.
 %
-% Like |\normalcolor|, the following five commands are defined in the kernel, with empty definitions (|\relax|).
+% Like |\normalcolor|, the following five commands are defined in the kernel. 
 % This means that they can be used to make macros in packages `color safe'.
-% The commands will not have any effect unless a user also uses a color package, when the `active definitions' here will take effect and keep color commands correctly scoped.
+% The extra groups have been made permanent in the \LaTeX{} kernel 2021 so
+% they are no longer redefined here.
+% The |\color@setgroup| will not have any effect unless a user also uses 
+% a color package, when the `active definition' here will take effect. 
 %
 % \begin{macro}{\color@setgroup}
 % This is to be used in contexts (e.g., `lrbox') where text is to be saved and used after some other, unknown, text that may contain color commands.
@@ -6205,31 +6211,19 @@
 % This is to be used at the start of contexts that may contain color commands, but where it is not necessary to save the current color.
 % Examples of this are in the box commands of \File{ltboxes.dtx} where user-supplied text is saved internally in a box between |\color@begingroup|, |\color@endgroup|, but the box is used before any other color commands could intervene.
 % A matching |\color@endgroup| should be used at the end of the text.
-%    \begin{macrocode}
-\let\color@begingroup\begingroup
-%    \end{macrocode}
 %  \end{macro}
 %
 %  \begin{macro}{\color@endgroup}
 % To be used to close the `group' started by one of the above two commands.
 % The |\endgraf| in its definition is required in the case of groups of text in vertical `par' mode, but doesn't do any harm in horizontal `LR' contexts.
-%    \begin{macrocode}
-\def\color@endgroup{\endgraf\endgroup}
-%    \end{macrocode}
 %  \end{macro}
 %
 %  \begin{macro}{\color@hbox}
 % To be used to open a `colored hbox'
-%    \begin{macrocode}
-\def\color@hbox{\hbox\bgroup\color@begingroup}
-%    \end{macrocode}
 %  \end{macro}
 %
 %  \begin{macro}{\color@vbox}
 % To be used to open a `colored hbox'
-%    \begin{macrocode}
-\def\color@vbox{\vbox\bgroup\color@begingroup}
-%    \end{macrocode}
 %  \end{macro}
 %
 %  \begin{macro}{\color@endbox}
