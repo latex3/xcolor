@@ -19,7 +19,7 @@
 %</package>
 %<*extract|driver|test1|test2|test3|test4>
 \def\XCfileversion{v3.02}%
-\def\XCfiledate{2024/03/13}%
+\def\XCfiledate{2024/09/29}%
 %</extract|driver|test1|test2|test3|test4>
 %
 % This file may be distributed and/or modified under the
@@ -320,7 +320,7 @@
 % There are proprietary models (like \Index{Pantone} or \Index{HKS}) that provide finite sets of colors (often called \emph{\Index{spot color}s}), where the user has to choose from without caring about parametrisations; on the other hand, there are parameter-driven models like \Model{gray}, \Model{rgb}, and \Model{cmyk}, that aim to represent large finite or even (theoretically) infinite sets of colors, built on very small subsets of base colors and rules, how to construct other colors from these base colors.
 % For example, a large range of colors can be constructed by linear combinations of the base colors \Color{red}, \Color{green}, and \Color{blue}.
 % On the other hand, usually \Index{spot color}s can only be \emph{approximated} by parameter values in models like \Model{cmyk} or \Model{rgb}; the original colors are being physically mixed even dependent on the targeted kind of paper.
-% Finally, there are certain colors like \Color{gold} and \Color{silver} that are hardly reproducable by any parameter-driven color model on standard ink or laser printers.
+% Finally, there are certain colors like \Color{gold} and \Color{silver} that are hardly reproducible by any parameter-driven color model on standard ink or laser printers.
 %
 %
 %
@@ -501,7 +501,7 @@
 %
 % Example: assuming that |a.tex| is a complete \LaTeX{} document, a command like
 % `|latex \def\xcolorcmd{\colorlet{black}{red}}\input{a}|'
-% at the console generates a file |a.dvi| with all occurences of \Color{black} being replaced by \Color{red}, without the necessity to change the source file itself.
+% at the console generates a file |a.dvi| with all occurrences of \Color{black} being replaced by \Color{red}, without the necessity to change the source file itself.
 % (The exact spelling of the console command might vary across operating systems and \TeX{} distributions.)
 %
 %
@@ -2487,7 +2487,7 @@
 % \subsection{Color conversion and complements}\label{sec.cnv}
 %
 % We collect here the specific conversion formulas between the supported color models.
-% Table \vref{tab.cnv} gives an overwiew of how each conversion pair is handled.
+% Table \vref{tab.cnv} gives an overview of how each conversion pair is handled.
 % In general, \Index{PostScript} (as described in \cite{plrm}) is used as a basis for most of the calculations, since it supports the color models \Model{rgb}, \Model{cmyk}, \Model{hsb}, and \Model{gray} natively.
 % Furthermore, \People{Alvy Ray}{Smith}'s paper \cite{smith} is cited in \cite{plrm} as reference for \Model{hsb}-related formulas.
 %
@@ -4275,7 +4275,7 @@
 %
 % \begin{macro}{\xglobal}
 % \begin{macro}{\xglobal@test}
-% If |\foo| occurs in the token list |\xglobal@@|, then the command |\xglobal\foo| will set the switch |\xglobal@true| which can be used inside |\foo| to determine whether certain definitions are to be made explicitely global.
+% If |\foo| occurs in the token list |\xglobal@@|, then the command |\xglobal\foo| will set the switch |\xglobal@true| which can be used inside |\foo| to determine whether certain definitions are to be made explicitly global.
 % |\foo| is responsible for resetting |\xglobal@false| in order to avoid side effects.
 % To include |\foo| in the magic list, simply say |\XC@append\xglobal@list{\foo}|.
 % If |\foo| is not in the list, |\xglobal\foo| will behave like |\global\foo|, thus |\xglobal\let| will be like |\global\let| etc.
@@ -4362,7 +4362,7 @@
 %
 % \begin{macro}{\XC@replace}
 %   \marg{cmd}\marg{search}\marg{replace}\\
-% Replace all occurences of \meta{search} within the first-level expansion of \meta{cmd} by \meta{replace} and save the result in \meta{cmd}.
+% Replace all occurrences of \meta{search} within the first-level expansion of \meta{cmd} by \meta{replace} and save the result in \meta{cmd}.
 % The replacement is recursive, so don't put the search pattern into the replacement text!
 % Note that this macro is incapable of seeing `into' braces.
 % The code and its explanation is taken from \People{Donald}{Arseneau}'s \Package{url} package \cite{url}, with only minor changes and renamings applied.
@@ -4982,9 +4982,10 @@
 % Retrieve model position |\XC@@pos|, model |\@@mod|, and target model |\@@Mod| from multiple definitions (up to~8), separated by `|/|'.
 %    \begin{macrocode}
 \def\XC@getmod#1/#2/#3/#4/#5/#6/#7/#8/#9\XC@@
- {\XC@g@tm@d0#1::\XC@@ \XC@getm@d1{#2}\XC@getm@d2{#3}%
+ {\def\XC@dflt@@mod{#1}%
+  \XC@g@tm@d0#1::\XC@@ \XC@getm@d1{#2}\XC@getm@d2{#3}%
   \XC@getm@d3{#4}\XC@getm@d4{#5}\XC@getm@d5{#6}\XC@getm@d6{#7}%
-  \XC@getm@d7{#8}\def\XC@@pos{0}\def\@@mod{#1}\@gobble\@nnil}%
+  \XC@getm@d7{#8}\def\XC@@pos{0}\let\@@mod\XC@dflt@@mod\@gobble\@nnil}%
 %    \end{macrocode}
 %
 %    \begin{macrocode}
@@ -4996,7 +4997,10 @@
 %    \begin{macrocode}
 \def\XC@g@tm@d#1#2:#3:#4\XC@@
  {\@ifxempty{#3}{\let\@@Mod\XC@mod@ignore\XC@getm@d0{#2}}%
-    {\def\@@Mod{#2}\XC@getm@d0{#3}}}%
+    {\def\@@Mod{#2}%
+     \def\XC@tgt@mod##1{#2}%
+     \def\XC@dflt@@mod{#3}%
+     \XC@getm@d0{#3}}}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -6188,11 +6192,13 @@
 %
 %
 % \subsubsection{Extra groups}
-% Turning on extra groups in the standard \LaTeX\ commands, so that color commands are scoped corectly.
 %
-% Like |\normalcolor|, the following five commands are defined in the kernel, with empty definitions (|\relax|).
+% Like |\normalcolor|, the following five commands are defined in the kernel. 
 % This means that they can be used to make macros in packages `color safe'.
-% The commands will not have any effect unless a user also uses a color package, when the `active definitions' here will take effect and keep color commands correctly scoped.
+% The extra groups have been made permanent in the \LaTeX{} kernel 2021 so
+% they are no longer redefined here.
+% The |\color@setgroup| will not have any effect unless a user also uses 
+% a color package, when the `active definition' here will take effect. 
 %
 % \begin{macro}{\color@setgroup}
 % This is to be used in contexts (e.g., `lrbox') where text is to be saved and used after some other, unknown, text that may contain color commands.
@@ -6206,38 +6212,23 @@
 % This is to be used at the start of contexts that may contain color commands, but where it is not necessary to save the current color.
 % Examples of this are in the box commands of \File{ltboxes.dtx} where user-supplied text is saved internally in a box between |\color@begingroup|, |\color@endgroup|, but the box is used before any other color commands could intervene.
 % A matching |\color@endgroup| should be used at the end of the text.
-%    \begin{macrocode}
-\let\color@begingroup\begingroup
-%    \end{macrocode}
 %  \end{macro}
 %
 %  \begin{macro}{\color@endgroup}
 % To be used to close the `group' started by one of the above two commands.
 % The |\endgraf| in its definition is required in the case of groups of text in vertical `par' mode, but doesn't do any harm in horizontal `LR' contexts.
-%    \begin{macrocode}
-\def\color@endgroup{\endgraf\endgroup}
-%    \end{macrocode}
 %  \end{macro}
 %
 %  \begin{macro}{\color@hbox}
 % To be used to open a `colored hbox'
-%    \begin{macrocode}
-\def\color@hbox{\hbox\bgroup\color@begingroup}
-%    \end{macrocode}
 %  \end{macro}
 %
 %  \begin{macro}{\color@vbox}
 % To be used to open a `colored hbox'
-%    \begin{macrocode}
-\def\color@vbox{\vbox\bgroup\color@begingroup}
-%    \end{macrocode}
 %  \end{macro}
 %
 %  \begin{macro}{\color@endbox}
 % To be used to close a `colored (h/v)box'
-%    \begin{macrocode}
-\def\color@endbox{\color@endgroup\egroup}
-%    \end{macrocode}
 %  \end{macro}
 %
 %

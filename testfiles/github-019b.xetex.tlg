@@ -114,6 +114,12 @@ Completed box being shipped out [1]
          <pdfaProperty:category>internal</pdfaProperty:category>
          <pdfaProperty:description>Year of standard</pdfaProperty:description>
         </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>rev</pdfaProperty:name>
+         <pdfaProperty:valueType>Integer</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>Revision year of standard</pdfaProperty:description>
+        </rdf:li>
        </rdf:Seq>
       </pdfaSchema:property>
      </rdf:li>
@@ -244,21 +250,11 @@ Completed box being shipped out [1]
          <pdfaProperty:description>Number of pages in the print version of the document</pdfaProperty:description>
         </rdf:li>
         <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>subtitle</pdfaProperty:name>
-         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
-         <pdfaProperty:category>external</pdfaProperty:category>
-         <pdfaProperty:description>Document's subtitle</pdfaProperty:description>
-        </rdf:li>
-       </rdf:Seq>
-      </pdfaSchema:property>
-     </rdf:li>
-    </rdf:Bag>
-   </pdfaExtension:schemas>
- \ETC.}
+         <pdfaProperty:name>subtitle</pdfaProperty:name>\ETC.}
 ..\special{pdf:docinfo<</Producer (xetex)>>}
 ..\special{pdf:docinfo<</Creator (TeX)>>}
 ..\special{pdf:docinfo<</CreationDate (D:20160520090000Z)>>}
 ..\special{pdf:docinfo<</ModDate (D:20160520090000Z)>>}
-..\special{pdf:put @catalog<</Lang (en-US)>>}
+..\special{pdf:put @catalog<</Lang (en)>>}
 ..\special{pdf:put @catalog<</Metadata @pdf.obj5>>}
 .\kern 633.0
