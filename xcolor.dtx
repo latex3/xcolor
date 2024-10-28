@@ -1084,7 +1084,8 @@
 % \oarg{model-list}\marg{spec-list}\marg{text}\\
 % are just alternative syntax for |\color|, in which the groups are added implicitly.
 % Thus \meta{text} appears in the specified color, but then the color reverts to its previous value.
-% Additionally, it calls |\leavevmode| to ensure the start of horizontal mode.\\
+% Additionally, it calls |\leavevmode| to ensure the start of horizontal mode. |\textcolor|
+% will suppress spaces at the begin of the argument (this is different to e.g. |\textbf|).\\
 % \DescribeMacro\pagecolor\marg{color}\\
 % \oarg{model-list}\marg{spec-list}\\
 % Specifies the background color for the current, and all following, pages.
