@@ -3,6 +3,9 @@ https://github.com/latex3/xcolor/issues
 
 History
 =======
+Unreleased v3.03
+* use an internal space command in \XC@getclr, https://tex.stackexchange.com/a/732876/2388
+
 2024/09/29 v3.02
 * remove definitions of color groups as they are already in the kernel.
 
