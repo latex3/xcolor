@@ -12,7 +12,7 @@ Completed box being shipped out [1]
 ..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
 ...\kern -72.26999
 ...\hbox(0.0+0.0)x0.0
-....\special{pdf: put @thispage <<>>}
+....\special{pdf: put @thispage <</Tabs /S >>}
 ....\special{pdf:put @resources <</ExtGState @pdf.obj1>>}
 ....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\glue 0.0 plus 1.0fil minus 1.0fil
@@ -20,13 +20,17 @@ Completed box being shipped out [1]
 .\vbox(617.0+0.0)x345.0, shifted 62.0
 ..\vbox(12.0+0.0)x345.0, glue set 12.0fil
 ...\glue 0.0 plus 1.0fil
+...\special{pdf:nolink}
 ...\hbox(0.0+0.0)x345.0
 ....\special{color push gray 0}
 ....\hbox(0.0+0.0)x345.0
 ....\special{color pop}
+...\special{pdf:link}
 ..\glue 25.0
 ..\glue(\lineskip) 0.0
 ..\vbox(550.0+0.0)x345.0, glue set 539.94232fil
+...\special{pdf:majorversion 2}
+...\special{pdf:minorversion 0}
 ...\special{pdf:put @pdf.obj1<</opacity1 <</ca 1/CA 1>>>>}
 ...\special{pdf:trailerid[ <00112233445566778899aabbccddeeff> <00112233445566778899aabbccddeeff> ]}
 ...\write-{}
@@ -49,6 +53,7 @@ Completed box being shipped out [1]
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
+..\special{pdf:nolink}
 ..\glue(\baselineskip) 23.34
 ..\hbox(6.66+0.0)x345.0
 ...\special{color push gray 0}
@@ -57,11 +62,12 @@ Completed box being shipped out [1]
 ....\TU/lmr/m/n/10 1
 ....\glue 0.0 plus 1.0fil
 ...\special{color pop}
+..\special{pdf:link}
 .\kern 0.0
 .\kern 0.0
 .\kern -633.0
 .\hbox(0.0+0.0)x0.0
-..\special{pdf:stream @pdf.obj5 (
+..\special{pdf:stream @pdf.obj21 (
 <?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
 <x:xmpmeta xmlns:x="adobe:ns:meta/">
  <rdf:RDF xmlns:rdf="http://www.w3.org/....-..-..-rdf-syntax-ns#">
@@ -76,7 +82,6 @@ Completed box being shipped out [1]
     xmlns:pdfaid="http://www.aiim.org/pdfa/ns/id/"
     xmlns:pdfuaid="http://www.aiim.org/pdfua/ns/id/"
     xmlns:pdfx="http://ns.adobe.com/pdfx/1.3/"
-    xmlns:pdfxid="http://www.npes.org/pdfx/ns/id/"
     xmlns:prism="http://prismstandard.org/namespaces/basic/3.0/"
     xmlns:stFnt="http://ns.adobe.com/xap/1.0/sType/Font#"
     xmlns:Iptc4xmpCore="http://iptc.org/std/Iptc4xmpCore/1.0/xmlns/"
@@ -84,7 +89,8 @@ Completed box being shipped out [1]
     xmlns:pdfaSchema="http://www.aiim.org/pdfa/ns/schema#"
     xmlns:pdfaProperty="http://www.aiim.org/pdfa/ns/property#"
     xmlns:pdfaType="http://www.aiim.org/pdfa/ns/type#"
-    xmlns:pdfaField="http://www.aiim.org/pdfa/ns/field#">
+    xmlns:pdfaField="http://www.aiim.org/pdfa/ns/field#"
+    xmlns:tdm="http://www.w3.org/ns/tdmrep/">
    <pdfaExtension:schemas>
     <rdf:Bag>
      <rdf:li rdf:parseType="Resource">
@@ -140,21 +146,6 @@ Completed box being shipped out [1]
          <pdfaProperty:valueType>Integer</pdfaProperty:valueType>
          <pdfaProperty:category>internal</pdfaProperty:category>
          <pdfaProperty:description>Revision of ISO 14289 standard</pdfaProperty:description>
-        </rdf:li>
-       </rdf:Seq>
-      </pdfaSchema:property>
-     </rdf:li>
-     <rdf:li rdf:parseType="Resource">
-      <pdfaSchema:schema>PDF/X ID Schema</pdfaSchema:schema>
-      <pdfaSchema:prefix>pdfxid</pdfaSchema:prefix>
-      <pdfaSchema:namespaceURI>http://www.npes.org/pdfx/ns/id/</pdfaSchema:namespaceURI>
-      <pdfaSchema:property>
-       <rdf:Seq>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>GTS_PDFXVersion</pdfaProperty:name>
-         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
-         <pdfaProperty:category>internal</pdfaProperty:category>
-         <pdfaProperty:description>ID of PDF/X standard</pdfaProperty:description>
         </rdf:li>
        </rdf:Seq>
       </pdfaSchema:property>
@@ -250,11 +241,27 @@ Completed box being shipped out [1]
          <pdfaProperty:description>Number of pages in the print version of the document</pdfaProperty:description>
         </rdf:li>
         <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>subtitle</pdfaProperty:name>\ETC.}
+         <pdfaProperty:name>subtitle</pdfaProperty:name>
+         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
+         <pdfaProperty:category>external</pdfaProperty:category>
+         <pdfaProperty:description>Document's subtitle</pdfaProperty:description>
+        </rdf:li>
+       </rdf:Seq>
+      </pdfaSchema:property>
+     </rdf:li>
+     <rdf:li rdf:parseType="Resource">
+      <pdfaSchema:schema>TDMRep</pdfaSchema:schema>
+      <pdfaSchema:prefix>tdm</pdfaSchema:prefix>
+      <pdfaSchema:namespaceURI>http://www.w3.org/ns/tdmrep/</pdfaSchema:namespaceURI>
+      <pdfaSchema:property>
+       <rdf:Seq>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>reservation</pdfaProperty:name>
+         <pdfaProperty:va\ETC.}
 ..\special{pdf:docinfo<</Producer (xetex)>>}
 ..\special{pdf:docinfo<</Creator (TeX)>>}
 ..\special{pdf:docinfo<</CreationDate (D:20160520090000Z)>>}
 ..\special{pdf:docinfo<</ModDate (D:20160520090000Z)>>}
 ..\special{pdf:put @catalog<</Lang (en)>>}
-..\special{pdf:put @catalog<</Metadata @pdf.obj5>>}
+..\special{pdf:put @catalog<</Metadata @pdf.obj21>>}
 .\kern 633.0
