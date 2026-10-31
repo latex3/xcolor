@@ -23,7 +23,7 @@ Completed box being shipped out [1]
 ....\pdfcolorstack 0 pop
 ..\glue 25.0
 ..\glue(\lineskip) 0.0
-..\vbox(550.0+0.0)x345.0, glue set 29.5366fil, direction TLT
+..\vbox(550.0+0.0)x345.0, glue set 24.53714fil, direction TLT
 ...\write-{}
 ...\pdfcolorstack 0 push {0 g 0 G}
 ...\glue(\topskip) 3.06
@@ -957,9 +957,10 @@ Completed box being shipped out [1]
 ......\hbox(1.0+15.00012)x14.44447, shifted -9.50006, direction TLT
 .......\OMX/cmex/m/n/10 X
 .....\kern1.66666 (font)
-.....\hbox(4.8611+0.0)x14.44447, glue set 2.26385fil, direction TLT
+.....\hbox(4.8611+0.0)x14.44447, glue set 2.0056fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\OT1/cmss/m/n/7 f
+......\kern0.5165 (italic)
 ......\OT1/cmss/m/n/7 o
 ......\kern0.20659 (font)
 ......\OT1/cmss/m/n/7 o
@@ -975,9 +976,10 @@ Completed box being shipped out [1]
 ......\hbox(1.0+15.00012)x14.44447, shifted -9.50006, direction TLT
 .......\OMX/cmex/m/n/10 X
 .....\kern1.66666 (font)
-.....\hbox(4.8611+0.0)x14.44447, glue set 2.26385fil, direction TLT
+.....\hbox(4.8611+0.0)x14.44447, glue set 2.0056fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\OT1/cmss/m/n/7 f
+......\kern0.5165 (italic)
 ......\OT1/cmss/m/n/7 o
 ......\kern0.20659 (font)
 ......\OT1/cmss/m/n/7 o
@@ -994,11 +996,12 @@ Completed box being shipped out [1]
 ......\hbox(1.0+15.00012)x14.44447, shifted -9.50006, direction TLT
 .......\OMX/cmex/m/n/10 X
 .....\kern1.66666 (font)
-.....\hbox(4.8611+0.0)x14.44447, glue set 2.26385fil, direction TLT
+.....\hbox(4.8611+0.0)x14.44447, glue set 2.0056fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-......\hbox(4.8611+0.0)x9.91678, direction TLT
+......\hbox(4.8611+0.0)x10.43327, direction TLT
 .......\pdfcolorstack 0 push {0 g 0 G}
 .......\OT1/cmss/m/n/7 f
+.......\kern0.5165 (italic)
 .......\OT1/cmss/m/n/7 o
 .......\kern0.20659 (font)
 .......\OT1/cmss/m/n/7 o
@@ -1026,11 +1029,12 @@ Completed box being shipped out [1]
 ......\hbox(1.0+15.00012)x14.44447, shifted -9.50006, direction TLT
 .......\OMX/cmex/m/n/10 X
 .....\kern1.66666 (font)
-.....\hbox(4.8611+0.0)x14.44447, glue set 2.26385fil, direction TLT
+.....\hbox(4.8611+0.0)x14.44447, glue set 2.0056fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-......\hbox(4.8611+0.0)x9.91678, direction TLT
+......\hbox(4.8611+0.0)x10.43327, direction TLT
 .......\pdfcolorstack 0 push {0 g 0 G}
 .......\OT1/cmss/m/n/7 f
+.......\kern0.5165 (italic)
 .......\OT1/cmss/m/n/7 o
 .......\kern0.20659 (font)
 .......\OT1/cmss/m/n/7 o
@@ -1046,11 +1050,12 @@ Completed box being shipped out [1]
 ....\glue(\thickmuskip) 2.77771 plus 2.77771
 ....\vbox(18.36115+13.02782)x14.44447, direction TLT
 .....\kern1.0 (font)
-.....\hbox(4.8611+0.0)x14.44447, glue set 2.26385fil, direction TLT
+.....\hbox(4.8611+0.0)x14.44447, glue set 2.0056fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-......\hbox(4.8611+0.0)x9.91678, direction TLT
+......\hbox(4.8611+0.0)x10.43327, direction TLT
 .......\pdfcolorstack 0 push {0 g 0 G}
 .......\OT1/cmss/m/n/7 f
+.......\kern0.5165 (italic)
 .......\OT1/cmss/m/n/7 o
 .......\kern0.20659 (font)
 .......\OT1/cmss/m/n/7 o
@@ -1180,7 +1185,6 @@ Completed box being shipped out [1]
 ....\OML/cmm/m/it/10 x
 ...\penalty 0
 ...\glue(\belowdisplayskip) 10.0 plus 2.0 minus 5.0
-...\glue -5.0
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
@@ -1212,7 +1216,7 @@ Completed box being shipped out [2]
 ....\pdfcolorstack 0 pop
 ..\glue 25.0
 ..\glue(\lineskip) 0.0
-..\vbox(550.0+0.0)x345.0, glue set 133.45297fil, direction TLT
+..\vbox(550.0+0.0)x345.0, glue set 128.4535fil, direction TLT
 ...\glue(\topskip) 2.95
 ...\hbox(7.05+1.94)x345.0, glue set 207.08fil, direction TLT
 ....\localpar
@@ -2157,7 +2161,6 @@ Completed box being shipped out [2]
 ....\kern0.4398 (italic)
 ...\penalty 0
 ...\glue(\belowdisplayskip) 10.0 plus 2.0 minus 5.0
-...\glue -5.0
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
