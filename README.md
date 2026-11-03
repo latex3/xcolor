@@ -6,7 +6,7 @@ Maintained by the LaTeX Project https://github.com/latex3/xcolor/issues
 
 `xcolor` provides easy driver-independent access to several kinds of
 colors, tints, shades, tones, and mixes of arbitrary colors by means of
-color expressions like \color{red!50!green!20!blue}.
+color expressions like `\color{red!50!green!20!blue}`.
 It allows to select a document-wide target color model and offers tools
 for automatic color schemes, conversion between nine color models,
 alternating table row colors, color blending and masking, color
